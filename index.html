@@ -220,6 +220,7 @@
     <button class="nav-btn active" onclick="showTab('overview')">🏠 ภาพรวม</button>
     <button class="nav-btn" onclick="showTab('explosive')">💥 วัตถุระเบิด</button>
     <button class="nav-btn" onclick="showTab('demblock')">🧱 ดินระเบิดแท่ง</button>
+    <button class="nav-btn" onclick="showTab('initdev')">🔩 อุปกรณ์จุดระเบิด</button>
     <button class="nav-btn" onclick="showTab('fuse')">🔥 ชนวน</button>
     <button class="nav-btn" onclick="showTab('electric')">⚡ ไฟฟ้า</button>
     <button class="nav-btn" onclick="showTab('detonating')">💣 ฝักแค</button>
@@ -965,6 +966,250 @@
 
   </div>
 
+  <!-- ── INITIATING DEVICES ── -->
+  <div id="initdev" class="section">
+
+    <!-- Header card -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(245,158,11,0.15);font-size:22px">🔩</div>
+        <div>
+          <div class="card-title">อุปกรณ์ในการจุดระเบิด</div>
+          <div class="card-sub"><span class="tag tag-orange">Initiating Devices</span></div>
+        </div>
+      </div>
+      <div style="font-size:13px;color:var(--muted);line-height:1.7;">
+        อุปกรณ์จุดระเบิดประกอบด้วย<strong>ชนวน เชื้อปะทุ เครื่องจุด และอุปกรณ์ตรวจสอบ</strong>
+        ที่ต้องใช้ร่วมกันอย่างถูกต้องเพื่อความปลอดภัยและประสิทธิภาพสูงสุด
+      </div>
+    </div>
+
+    <!-- ชนวนฝักแคเวลา -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(245,158,11,0.15);font-size:20px">🔥</div>
+        <div>
+          <div class="card-title">ชนวนฝักแคเวลา</div>
+          <div class="card-sub"><span class="tag tag-orange">Time Fuze</span></div>
+        </div>
+      </div>
+      <div style="font-size:13px;color:var(--muted);margin-bottom:10px;">
+        จุดได้ด้วย<strong>ไม้ขีด</strong>หรือ<strong>เครื่องจุดชนวน</strong> — เป็นตัว<strong>ถ่วงเวลา</strong>เพื่อความปลอดภัย มี 2 ชนิด
+      </div>
+
+      <!-- Safety Fuze -->
+      <div style="border:1px solid var(--border);border-radius:8px;margin-bottom:10px;overflow:hidden;">
+        <div style="background:var(--surface2);padding:10px 12px;">
+          <div style="font-size:14px;font-weight:700;color:#fff;">ชนวนฝักแคเวลาปลอดภัย <span style="font-size:12px;font-weight:600;color:#94a3b8;">(Safety Fuze)</span></div>
+        </div>
+        <div class="steps" style="padding:10px 12px;">
+          <div class="step orange"><span class="step-num">•</span><span class="step-text">ใช้ใน<strong>การทำลายทั่วไป</strong></span></div>
+          <div class="step orange"><span class="step-num">•</span><span class="step-text">ประกอบด้วย<strong>ดินดำ</strong>หุ้มด้วยวัสดุ<strong>ป้องกันน้ำซึม</strong></span></div>
+          <div class="step orange"><span class="step-num">•</span><span class="step-text">มีหลายสี ส่วนมากเป็น<strong>สีส้ม</strong></span></div>
+          <div class="step green"><span class="step-num">⏱</span><span class="step-text">อัตราลุกไหม้ <strong style="color:var(--green);">30–45 วินาที/ฟุต</strong></span></div>
+        </div>
+      </div>
+
+      <!-- M700 -->
+      <div style="border:1px solid var(--border);border-radius:8px;overflow:hidden;">
+        <div style="background:var(--surface2);padding:10px 12px;">
+          <div style="font-size:14px;font-weight:700;color:#fff;">ชนวนฝักแคเวลา M700</div>
+        </div>
+        <div class="steps" style="padding:10px 12px;">
+          <div class="step orange"><span class="step-num">•</span><span class="step-text">หุ้มด้วย<strong>พลาสติกสีเขียวเข้ม</strong></span></div>
+          <div class="step green"><span class="step-num">⏱</span><span class="step-text">อัตราลุกไหม้ <strong style="color:var(--green);">40 วินาที/ฟุต</strong></span></div>
+          <div class="step orange"><span class="step-num">•</span><span class="step-text">ทุก <strong>1 ฟุต</strong> มีแถบสีเหลืองคาด <strong>1 แถบ</strong></span></div>
+          <div class="step orange"><span class="step-num">•</span><span class="step-text">ทุก <strong>5 ฟุต</strong> มีแถบสีเหลืองคาด <strong>2 แถบ</strong></span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ชนวนฝักแคระเบิด -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(239,68,68,0.15);font-size:20px">💣</div>
+        <div>
+          <div class="card-title">ชนวนฝักแคระเบิด</div>
+          <div class="card-sub"><span class="tag tag-red">Detonating Cord</span></div>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step red"><span class="step-num">•</span><span class="step-text">เป็นสื่อส่งผ่าน<strong>คลื่นระเบิด</strong>จากจุดหนึ่งไปยังอีกจุดหนึ่ง</span></div>
+        <div class="step red"><span class="step-num">•</span><span class="step-text">วัตถุระเบิด: <strong>PETN</strong> หรือ <strong>RDX</strong></span></div>
+        <div class="step green"><span class="step-num">⚡</span><span class="step-text">อัตราเร็วระเบิด <strong style="color:var(--green);">20,000–24,000 ฟุต/วินาที</strong></span></div>
+      </div>
+    </div>
+
+    <!-- เชื้อปะทุชนวน -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(245,158,11,0.15);font-size:20px">🧨</div>
+        <div>
+          <div class="card-title">เชื้อปะทุชนวน</div>
+          <div class="card-sub"><span class="tag tag-orange">Blasting Cap (Non-Electric)</span></div>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step orange"><span class="step-num">•</span><span class="step-text">ระเบิดด้วย<strong>ชนวนฝักแคเวลา เครื่องจุดระเบิด</strong> และ<strong>ฝักแคระเบิด</strong></span></div>
+        <div class="step red"><span class="step-num">✕</span><span class="step-text"><strong>ไม่สามารถจุดระเบิดใต้น้ำ</strong>หรือที่เปียกชื้นได้</span></div>
+        <div class="step orange"><span class="step-num">•</span><span class="step-text">ทางการค้า: J1 เบอร์ 6 และเบอร์ 8</span></div>
+        <div class="step orange"><span class="step-num">•</span><span class="step-text">ทางทหาร: <strong>เชื้อปะทุชนวน M7</strong></span></div>
+      </div>
+    </div>
+
+    <!-- เชื้อปะทุไฟฟ้า -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(59,130,246,0.15);font-size:20px">⚡</div>
+        <div>
+          <div class="card-title">เชื้อปะทุไฟฟ้า</div>
+          <div class="card-sub"><span class="tag tag-blue">Electric Detonator</span></div>
+        </div>
+      </div>
+      <div style="font-size:13px;color:var(--muted);margin-bottom:10px;">ระเบิดด้วย<strong>เครื่องกำเนิดไฟฟ้า</strong> มีทั้งแบบทหารและการค้า</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+        <div style="background:var(--surface2);border-radius:8px;padding:12px;border-top:2px solid var(--accent3);">
+          <div style="font-size:13px;font-weight:700;color:var(--accent3);margin-bottom:8px;">🪖 ทางทหาร</div>
+          <div style="font-size:13px;color:var(--text);line-height:1.8;">
+            ทันทีทันใด<br>
+            ถ่วงเวลา <strong>1.00–1.53 วินาที</strong>
+          </div>
+        </div>
+        <div style="background:var(--surface2);border-radius:8px;padding:12px;border-top:2px solid var(--muted);">
+          <div style="font-size:13px;font-weight:700;color:#94a3b8;margin-bottom:8px;">🏭 ทางการค้า</div>
+          <div style="font-size:13px;color:var(--text);line-height:1.8;">
+            ทันทีทันใด<br>
+            ถ่วงเวลา <strong>0.025–12 วินาที</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- เชื้อปะทุชนวนถ่วงเวลา -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(245,158,11,0.15);font-size:20px">⏳</div>
+        <div>
+          <div class="card-title">เชื้อปะทุชนวนถ่วงเวลา</div>
+          <div class="card-sub"><span class="tag tag-orange">Delay Blasting Cap</span></div>
+        </div>
+      </div>
+      <div class="info-grid">
+        <div class="info-item"><div class="info-label">รุ่น</div><div class="info-value">M1A1</div></div>
+        <div class="info-item"><div class="info-label">รุ่น</div><div class="info-value">M1A2</div></div>
+        <div class="info-item"><div class="info-label">รุ่น</div><div class="info-value">M2</div></div>
+      </div>
+    </div>
+
+    <!-- ชนวนเครื่องระเบิด M1 -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(239,68,68,0.15);font-size:20px">🔴</div>
+        <div>
+          <div class="card-title">ชนวนเครื่องระเบิด M1</div>
+          <div class="card-sub"><span class="tag tag-red">Firing Device M1</span></div>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step red"><span class="step-num">•</span><span class="step-text">ทำงานด้วยการรับ<strong>แรงคลื่นระเบิด</strong>จากการระเบิดจุดอื่น</span></div>
+        <div class="step blue"><span class="step-num">✓</span><span class="step-text">ใช้ใต้น้ำได้ <strong>ลึกไม่เกิน 15 ฟุต</strong> ต้องใส่เม็ดถ่วงเวลา</span></div>
+        <div class="step red"><span class="step-num">!</span><span class="step-text">ถ้า<strong>เม็ดถ่วงเวลาแตก</strong> ไม่ควรนำมาใช้</span></div>
+      </div>
+    </div>
+
+    <!-- เครื่องทำลาย M10 -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(239,68,68,0.15);font-size:20px">💥</div>
+        <div>
+          <div class="card-title">เครื่องทำลาย M10</div>
+          <div class="card-sub"><span class="tag tag-red">Demolition Device M10</span></div>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step red"><span class="step-num">•</span><span class="step-text">วัตถุระเบิดแรงสูง<strong>เทตตริล</strong> บรรจุในกระบอกเกลียว</span></div>
+        <div class="step red"><span class="step-num">•</span><span class="step-text">จุดระเบิดได้ด้วย<strong>เชื้อปะทุชนวน</strong>หรือ<strong>เชื้อปะทุไฟฟ้า</strong></span></div>
+        <div class="step red"><span class="step-num">•</span><span class="step-text">ประกอบเครื่องจุดระเบิดมาตรฐาน</span></div>
+        <div class="step orange"><span class="step-num">•</span><span class="step-text">ใช้กับ: ลูกกระสุนปืนใหญ่ ลูกระเบิดจากเครื่องยิง ลูกระเบิดทิ้งจากอากาศ และ<strong>ระเบิดแสวงเครื่อง</strong></span></div>
+      </div>
+    </div>
+
+    <!-- อุปกรณ์ตรวจสอบและเครื่องมือ -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(59,130,246,0.15);font-size:20px">🔬</div>
+        <div>
+          <div class="card-title">อุปกรณ์ตรวจสอบและเครื่องมือ</div>
+          <div class="card-sub"><span class="tag tag-blue">Test Equipment &amp; Tools</span></div>
+        </div>
+      </div>
+
+      <!-- กัลวานอมิเตอร์ -->
+      <div style="border:1px solid var(--border);border-radius:8px;margin-bottom:10px;overflow:hidden;">
+        <div style="background:var(--surface2);padding:10px 12px;">
+          <div style="font-size:14px;font-weight:700;color:#fff;">กัลวานอมิเตอร์</div>
+        </div>
+        <div class="steps" style="padding:10px 12px;">
+          <div class="step blue"><span class="step-num">•</span><span class="step-text">ใช้<strong>ตรวจวงจรจุดระเบิด</strong> (เชื้อปะทุ สายไฟ สายต่อ)</span></div>
+          <div class="step blue"><span class="step-num">•</span><span class="step-text">ทดสอบโดยใช้<strong>โลหะพาดที่ปุ่มสองปุ่ม</strong> เข็มจะกระดิก</span></div>
+        </div>
+      </div>
+
+      <!-- เครื่องตรวจสอบ M51 -->
+      <div style="border:1px solid var(--border);border-radius:8px;margin-bottom:10px;overflow:hidden;">
+        <div style="background:var(--surface2);padding:10px 12px;">
+          <div style="font-size:14px;font-weight:700;color:#fff;">เครื่องตรวจสอบวงจร / เชื้อปะทุ M51</div>
+        </div>
+        <div class="steps" style="padding:10px 12px;">
+          <div class="step blue"><span class="step-num">•</span><span class="step-text">ใช้ตรวจสอบ<strong>วงจรและเชื้อปะทุ</strong>ก่อนจุดระเบิด</span></div>
+        </div>
+      </div>
+
+      <!-- คีมบีบ M2 -->
+      <div style="border:1px solid var(--border);border-radius:8px;overflow:hidden;">
+        <div style="background:var(--surface2);padding:10px 12px;">
+          <div style="font-size:14px;font-weight:700;color:#fff;">คีมบีบเชื้อปะทุ M2</div>
+        </div>
+        <div class="steps" style="padding:10px 12px;">
+          <div class="step blue"><span class="step-num">•</span><span class="step-text">ใช้<strong>บีบยึดเชื้อปะทุชนวน</strong>เข้ากับชนวนฝักแคเวลา</span></div>
+          <div class="step red"><span class="step-num">!</span><span class="step-text"><strong>ห้ามใช้ฟันหรือมีด</strong>แทนคีมบีบโดยเด็ดขาด</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- เครื่องจุดระเบิด -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(34,197,94,0.15);font-size:20px">🔋</div>
+        <div>
+          <div class="card-title">เครื่องจุดระเบิด</div>
+          <div class="card-sub"><span class="tag tag-green">Blasting Machine</span></div>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step green"><span class="step-num">•</span><span class="step-text">ใช้<strong>ส่งกระแสไฟฟ้า</strong>เพื่อจุดระเบิดเชื้อปะทุไฟฟ้า</span></div>
+        <div class="step green"><span class="step-num">•</span><span class="step-text"><strong>ผู้อำนวยการ</strong>ต้องเป็นผู้เก็บรักษาเครื่องจุดไว้กับตัวตลอดเวลา</span></div>
+        <div class="step red"><span class="step-num">✕</span><span class="step-text">ห้ามต่อสายเข้าเครื่องจุด<strong>จนกว่าจะพร้อมจุดระเบิด</strong></span></div>
+      </div>
+    </div>
+
+    <!-- เครื่องจุดชนวน -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(245,158,11,0.15);font-size:20px">🔑</div>
+        <div>
+          <div class="card-title">เครื่องจุดชนวนฝักแคเวลา</div>
+          <div class="card-sub"><span class="tag tag-orange">Fuze Lighter</span></div>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step orange"><span class="step-num">•</span><span class="step-text">ใช้<strong>จุดชนวนฝักแคเวลา</strong>แทนการใช้ไม้ขีด</span></div>
+        <div class="step green"><span class="step-num">✓</span><span class="step-text">ปลอดภัยกว่า สม่ำเสมอกว่า และใช้งานในสภาพ<strong>อากาศเลวร้าย</strong>ได้ดีกว่า</span></div>
+      </div>
+    </div>
+
+  </div>
+
   <!-- ── FUSE SYSTEM ── -->
   <div id="fuse" class="section">
     <div class="card">
@@ -1555,7 +1800,7 @@ function showTab(id) {
   document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   const btns = document.querySelectorAll('.nav-btn');
-  const map = {overview:0, explosive:1, demblock:2, fuse:3, electric:4, detonating:5, dual:6, safety:7, calc:8};
+  const map = {overview:0, explosive:1, demblock:2, initdev:3, fuse:4, electric:5, detonating:6, dual:7, safety:8, calc:9};
   btns[map[id]].classList.add('active');
 }
 
