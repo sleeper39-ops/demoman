@@ -50,13 +50,13 @@
   .header p { font-size: 13px; color: var(--muted); margin-top: 4px; }
 
   /* ── Nav Tabs ── */
-  .nav { overflow-x: auto; padding: 12px 16px 0; background: var(--surface); border-bottom: 1px solid var(--border); }
-  .nav-inner { display: flex; gap: 4px; max-width: 900px; margin: 0 auto; }
+  .nav { overflow-x: auto; overflow-y: hidden; padding: 8px 10px 0; background: var(--surface); border-bottom: 1px solid var(--border); }
+  .nav-inner { display: flex; gap: 2px; max-width: 900px; margin: 0 auto; }
   .nav-btn {
-    flex-shrink: 0; padding: 8px 14px; border-radius: 8px 8px 0 0;
+    flex-shrink: 0; padding: 7px 10px; border-radius: 8px 8px 0 0;
     background: transparent; color: var(--muted);
     border: 1px solid transparent; border-bottom: none;
-    font-family: 'Sarabun', sans-serif; font-size: 13px; font-weight: 600;
+    font-family: 'Sarabun', sans-serif; font-size: 12px; font-weight: 600;
     cursor: pointer; transition: all 0.2s; white-space: nowrap;
   }
   .nav-btn:hover { color: var(--text); background: var(--surface2); }
@@ -156,6 +156,14 @@
     border: none; border-radius: 8px; cursor: pointer; transition: opacity 0.2s;
   }
   .calc-btn:hover { opacity: 0.85; }
+  .tree-formula-btn {
+    padding:8px 6px; border-radius:7px; border:1px solid var(--border);
+    background:var(--surface2); color:var(--muted);
+    font-family:'Sarabun',sans-serif; font-size:12px; font-weight:600;
+    cursor:pointer; transition:all 0.2s; text-align:center;
+  }
+  .tree-formula-btn:hover { border-color:var(--accent); color:var(--text); }
+  .tree-formula-btn.active { background:rgba(245,158,11,0.15); border-color:var(--accent); color:var(--accent); font-weight:700; }
   .calc-result {
     background: var(--surface2); border: 1px solid var(--green);
     border-radius: 8px; padding: 14px; margin-top: 10px; display: none;
@@ -226,6 +234,8 @@
     <button class="nav-btn" onclick="showTab('detonating')">💣 ฝักแค</button>
     <button class="nav-btn" onclick="showTab('dual')">🔁 ระเบิดคู่</button>
     <button class="nav-btn" onclick="showTab('safety')">🛡️ กฏความปลอดภัย</button>
+    <button class="nav-btn" onclick="showTab('treecut')">🌳 คำนวณระเบิดตัดต้นไม้</button>
+    <button class="nav-btn" onclick="showTab('steelcut')">⚙️ คำนวณระเบิดตัดเหล็ก</button>
     <button class="nav-btn" onclick="showTab('calc')">🧮 คำนวณ</button>
   </div>
 </nav>
@@ -341,6 +351,94 @@
         </div>
       </div>
     </div>
+
+  <!-- ── Quick Calculators ── -->
+  <div class="card">
+    <div class="calc-section">
+      <div class="calc-title">🔥 คำนวณความยาวชนวนฝักแคเวลา</div>
+      <div class="calc-row">
+        <span class="calc-label">ระยะเวลาที่ต้องการ</span>
+        <input class="calc-input" id="fuse-time" type="number" placeholder="90" min="1">
+        <span class="calc-unit">วินาที</span>
+      </div>
+      <div class="calc-row">
+        <span class="calc-label">อัตราลุกไหม้</span>
+        <input class="calc-input" id="fuse-rate" type="number" placeholder="40" min="1">
+        <span class="calc-unit">วิ/ฟุต</span>
+      </div>
+      <button class="calc-btn" onclick="calcFuse()">คำนวณความยาวชนวน</button>
+      <div class="calc-result" id="fuse-result"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="calc-section">
+      <div class="calc-title">🔄 คำนวณแปลงดินระเบิด (Explosive Conversion)</div>
+      <div style="background:var(--surface2);border-radius:8px;padding:12px;margin-bottom:14px;border:1px solid var(--border);">
+        <div style="font-size:11px;font-weight:700;color:var(--muted);letter-spacing:1px;margin-bottom:8px;">📐 สูตรการแปลงดินระเบิด</div>
+        <div style="text-align:center;font-size:15px;font-weight:700;color:var(--accent);padding:10px 0;letter-spacing:1px;">น้ำหนักที่ต้องการ = TNT ÷ RE Factor</div>
+        <div style="font-size:12px;color:var(--muted);text-align:center;">โดยใช้ <strong style="color:var(--accent);">TNT = 1.00</strong> เป็นมาตรฐาน</div>
+        <div style="margin-top:12px;display:grid;grid-template-columns:repeat(3,1fr);gap:6px;">
+          <div style="background:var(--bg);border-radius:6px;padding:6px;text-align:center;border:1px solid var(--border);"><div style="font-size:10px;color:var(--muted);">AMMONIUM NITRATE</div><div style="font-size:13px;font-weight:700;color:var(--text);">0.42</div></div>
+          <div style="background:var(--bg);border-radius:6px;padding:6px;text-align:center;border:1px solid var(--border);"><div style="font-size:10px;color:var(--muted);">BLACK POWDER</div><div style="font-size:13px;font-weight:700;color:var(--text);">0.55</div></div>
+          <div style="background:var(--bg);border-radius:6px;padding:6px;text-align:center;border:1px solid var(--border);"><div style="font-size:10px;color:var(--muted);">MIL. DYNAMITE</div><div style="font-size:13px;font-weight:700;color:var(--text);">0.92</div></div>
+          <div style="background:rgba(245,158,11,0.15);border-radius:6px;padding:6px;text-align:center;border:1px solid rgba(245,158,11,0.4);"><div style="font-size:10px;color:var(--accent);">TNT ⭐</div><div style="font-size:13px;font-weight:700;color:var(--accent);">1.00</div></div>
+          <div style="background:var(--bg);border-radius:6px;padding:6px;text-align:center;border:1px solid var(--border);"><div style="font-size:10px;color:var(--muted);">AMATOL / PENTOLITE</div><div style="font-size:13px;font-weight:700;color:var(--text);">1.17</div></div>
+          <div style="background:var(--bg);border-radius:6px;padding:6px;text-align:center;border:1px solid var(--border);"><div style="font-size:10px;color:var(--muted);">TETRYTOL</div><div style="font-size:13px;font-weight:700;color:var(--text);">1.20</div></div>
+          <div style="background:var(--bg);border-radius:6px;padding:6px;text-align:center;border:1px solid var(--border);"><div style="font-size:10px;color:var(--muted);">TETRYL</div><div style="font-size:13px;font-weight:700;color:var(--text);">1.25</div></div>
+          <div style="background:var(--bg);border-radius:6px;padding:6px;text-align:center;border:1px solid var(--border);"><div style="font-size:10px;color:var(--muted);">COMP C4</div><div style="font-size:13px;font-weight:700;color:var(--text);">1.34</div></div>
+          <div style="background:var(--bg);border-radius:6px;padding:6px;text-align:center;border:1px solid var(--border);"><div style="font-size:10px;color:var(--muted);">NITROGLYCERIN</div><div style="font-size:13px;font-weight:700;color:var(--text);">1.50</div></div>
+          <div style="background:var(--bg);border-radius:6px;padding:6px;text-align:center;border:1px solid var(--border);"><div style="font-size:10px;color:var(--muted);">RDX</div><div style="font-size:13px;font-weight:700;color:var(--text);">1.60</div></div>
+          <div style="background:rgba(239,68,68,0.1);border-radius:6px;padding:6px;text-align:center;border:1px solid rgba(239,68,68,0.3);grid-column:span 2;"><div style="font-size:10px;color:var(--accent2);">PETN ⭐ อำนาจสูงสุด</div><div style="font-size:13px;font-weight:700;color:var(--accent2);">1.66</div></div>
+        </div>
+      </div>
+      <div class="calc-row">
+        <span class="calc-label">น้ำหนัก TNT ที่ต้องการ</span>
+        <input class="calc-input" id="conv-tnt" type="number" placeholder="64" min="0.01" step="0.01">
+        <span class="calc-unit">ปอนด์</span>
+      </div>
+      <div class="calc-row">
+        <span class="calc-label">RE Factor ดินแทน</span>
+        <input class="calc-input" id="conv-re" type="number" placeholder="1.20" min="0.01" step="0.01">
+        <span class="calc-unit">RE</span>
+      </div>
+      <div class="calc-row">
+        <span class="calc-label">น้ำหนักต่อแท่ง (ถ้ามี)</span>
+        <input class="calc-input" id="conv-unit" type="number" placeholder="2.5" min="0.01" step="0.01">
+        <span class="calc-unit">ปอนด์</span>
+      </div>
+      <div class="calc-row">
+        <span class="calc-label">จำนวนแห่งที่วาง</span>
+        <input class="calc-input" id="conv-places" type="number" placeholder="1" min="1" step="1">
+        <span class="calc-unit">แห่ง</span>
+      </div>
+      <button class="calc-btn" onclick="calcConversion()">คำนวณแปลงดินระเบิด</button>
+      <div class="calc-result" id="conv-result"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="calc-section">
+      <div class="calc-title">🛡️ คำนวณระยะปลอดภัย (เกณฑ์ความปลอดภัย)</div>
+      <div style="background:var(--surface2);border-radius:8px;padding:12px;margin-bottom:12px;border:1px solid var(--border);">
+        <div style="font-size:11px;font-weight:700;color:var(--muted);letter-spacing:1px;margin-bottom:8px;">เกณฑ์ระยะปลอดภัย</div>
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <div style="display:flex;align-items:center;gap:8px;"><span style="background:rgba(34,197,94,0.2);color:var(--green);font-size:10px;font-weight:700;padding:2px 8px;border-radius:99px;white-space:nowrap;">น้อยกว่า 27 ปอนด์</span><span style="font-size:12px;color:var(--text)">ระยะปลอดภัยขั้นต่ำ <strong>300 เมตร</strong></span></div>
+          <div style="display:flex;align-items:center;gap:8px;"><span style="background:rgba(245,158,11,0.2);color:var(--accent);font-size:10px;font-weight:700;padding:2px 8px;border-radius:99px;white-space:nowrap;">27 – 425 ปอนด์</span><span style="font-size:12px;color:var(--text)">ระยะ (ม.) = <strong>100 × ∛น้ำหนัก(ปอนด์)</strong></span></div>
+          <div style="display:flex;align-items:center;gap:8px;"><span style="background:rgba(239,68,68,0.2);color:var(--accent2);font-size:10px;font-weight:700;padding:2px 8px;border-radius:99px;white-space:nowrap;">425 ปอนด์ขึ้นไป</span><span style="font-size:12px;color:var(--text)">ระยะปลอดภัยอย่างน้อย <strong>750 เมตร</strong></span></div>
+          <div style="display:flex;align-items:flex-start;gap:8px;margin-top:2px;"><span style="background:rgba(59,130,246,0.2);color:var(--accent3);font-size:10px;font-weight:700;padding:2px 8px;border-radius:99px;white-space:nowrap;margin-top:1px;">วัตถุแข็งมาก</span><span style="font-size:12px;color:var(--text)">ต้องมีที่กำบัง — ระยะจากที่กำบังถึงตำบลจุดระเบิดอย่างน้อย <strong>100 เมตร</strong></span></div>
+        </div>
+      </div>
+      <div class="calc-row">
+        <span class="calc-label">น้ำหนักดินระเบิด</span>
+        <input class="calc-input" id="safe-weight" type="number" placeholder="100" min="0.1" step="0.1">
+        <span class="calc-unit">ปอนด์</span>
+      </div>
+      <button class="calc-btn" onclick="calcSafeDist()">คำนวณระยะปลอดภัย</button>
+      <div class="calc-result" id="safe-result"></div>
+    </div>
+  </div>
+
   </div>
 
   <!-- ── EXPLOSIVE CHARACTERISTICS ── -->
@@ -1639,163 +1737,352 @@
   </div>
 
   <!-- ── CALCULATOR ── -->
-  <div id="calc" class="section">
+  <!-- ── TREE CUTTING ── -->
+  <div id="treecut" class="section">
 
-    <!-- ── Explosive Conversion Calculator ── -->
+    <!-- Header -->
     <div class="card">
-      <div class="calc-section">
-        <div class="calc-title">🔄 คำนวณแปลงดินระเบิด (Explosive Conversion)</div>
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(34,197,94,0.15);font-size:22px">🌳</div>
+        <div>
+          <div class="card-title">การคำนวณระเบิดตัดต้นไม้</div>
+          <div class="card-sub"><span class="tag tag-green">Tree Cutting Demolition</span></div>
+        </div>
+      </div>
+      <div style="font-size:13px;color:var(--muted);line-height:1.8;">
+        มี <strong>4 สูตรหลัก</strong> ขึ้นอยู่กับ<strong>วิธีการวางดินระเบิด</strong>และ<strong>ผลลัพธ์ที่ต้องการ</strong>
+        ค่า P ที่คำนวณได้คือปอนด์ TNT — ต้องแปลงเป็นดินระเบิดชนิดอื่นด้วย RE Factor
+      </div>
+    </div>
 
-        <!-- Formula reference -->
-        <div style="background:var(--surface2);border-radius:8px;padding:12px;margin-bottom:14px;border:1px solid var(--border);">
-          <div style="font-size:11px;font-weight:700;color:var(--muted);letter-spacing:1px;margin-bottom:8px;">📐 สูตรการแปลงดินระเบิด</div>
-          <div style="text-align:center;font-size:15px;font-weight:700;color:var(--accent);padding:10px 0;letter-spacing:1px;">
-            น้ำหนักที่ต้องการ = TNT ÷ RE Factor
-          </div>
-          <div style="font-size:12px;color:var(--muted);text-align:center;">โดยใช้ <strong style="color:var(--accent);">TNT = 1.00</strong> เป็นมาตรฐาน</div>
+    <!-- สูตรทั้ง 4 -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(245,158,11,0.15);font-size:20px">📐</div>
+        <div>
+          <div class="card-title">สูตรทั้ง 4 รูปแบบ</div>
+          <div class="card-sub"><span class="tag tag-orange">สรุปสูตร — D = เส้นผ่านศูนย์กลาง (นิ้ว)</span></div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;">
 
-          <!-- RE Factor table -->
-          <div style="margin-top:12px;display:grid;grid-template-columns:repeat(3,1fr);gap:6px;">
-            <div style="background:var(--bg);border-radius:6px;padding:6px;text-align:center;border:1px solid var(--border);">
-              <div style="font-size:10px;color:var(--muted);">AMMONIUM NITRATE</div>
-              <div style="font-size:13px;font-weight:700;color:var(--text);">0.42</div>
-            </div>
-            <div style="background:var(--bg);border-radius:6px;padding:6px;text-align:center;border:1px solid var(--border);">
-              <div style="font-size:10px;color:var(--muted);">BLACK POWDER</div>
-              <div style="font-size:13px;font-weight:700;color:var(--text);">0.55</div>
-            </div>
-            <div style="background:var(--bg);border-radius:6px;padding:6px;text-align:center;border:1px solid var(--border);">
-              <div style="font-size:10px;color:var(--muted);">MIL. DYNAMITE</div>
-              <div style="font-size:13px;font-weight:700;color:var(--text);">0.92</div>
-            </div>
-            <div style="background:rgba(245,158,11,0.15);border-radius:6px;padding:6px;text-align:center;border:1px solid rgba(245,158,11,0.4);">
-              <div style="font-size:10px;color:var(--accent);">TNT ⭐</div>
-              <div style="font-size:13px;font-weight:700;color:var(--accent);">1.00</div>
-            </div>
-            <div style="background:var(--bg);border-radius:6px;padding:6px;text-align:center;border:1px solid var(--border);">
-              <div style="font-size:10px;color:var(--muted);">AMATOL / PENTOLITE</div>
-              <div style="font-size:13px;font-weight:700;color:var(--text);">1.17</div>
-            </div>
-            <div style="background:var(--bg);border-radius:6px;padding:6px;text-align:center;border:1px solid var(--border);">
-              <div style="font-size:10px;color:var(--muted);">TETRYTOL</div>
-              <div style="font-size:13px;font-weight:700;color:var(--text);">1.20</div>
-            </div>
-            <div style="background:var(--bg);border-radius:6px;padding:6px;text-align:center;border:1px solid var(--border);">
-              <div style="font-size:10px;color:var(--muted);">TETRYL</div>
-              <div style="font-size:13px;font-weight:700;color:var(--text);">1.25</div>
-            </div>
-            <div style="background:var(--bg);border-radius:6px;padding:6px;text-align:center;border:1px solid var(--border);">
-              <div style="font-size:10px;color:var(--muted);">COMP C4</div>
-              <div style="font-size:13px;font-weight:700;color:var(--text);">1.34</div>
-            </div>
-            <div style="background:var(--bg);border-radius:6px;padding:6px;text-align:center;border:1px solid var(--border);">
-              <div style="font-size:10px;color:var(--muted);">NITROGLYCERIN</div>
-              <div style="font-size:13px;font-weight:700;color:var(--text);">1.50</div>
-            </div>
-            <div style="background:var(--bg);border-radius:6px;padding:6px;text-align:center;border:1px solid var(--border);">
-              <div style="font-size:10px;color:var(--muted);">RDX</div>
-              <div style="font-size:13px;font-weight:700;color:var(--text);">1.60</div>
-            </div>
-            <div style="background:rgba(239,68,68,0.1);border-radius:6px;padding:6px;text-align:center;border:1px solid rgba(239,68,68,0.3);grid-column:span 2;">
-              <div style="font-size:10px;color:var(--accent2);">PETN ⭐ อำนาจสูงสุด</div>
-              <div style="font-size:13px;font-weight:700;color:var(--accent2);">1.66</div>
-            </div>
+        <div style="background:var(--surface2);border-radius:8px;padding:12px;border-left:4px solid var(--accent3);">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+            <div style="font-size:13px;font-weight:700;color:#fff;">1️⃣ วางภายใน + อัดลม</div>
+            <span style="background:rgba(59,130,246,0.2);color:var(--accent3);font-size:11px;font-weight:700;padding:2px 8px;border-radius:99px;">ประหยัดที่สุด</span>
           </div>
+          <div style="font-size:16px;font-weight:800;color:var(--accent3);font-family:'IBM Plex Mono',monospace;text-align:center;padding:8px 0;">P = D² ÷ 250</div>
+          <div style="font-size:12px;color:var(--muted);">เจาะรูในต้นไม้ ใส่ดินระเบิด อัดลมด้วยดินหมาดๆ — ใช้ดินระเบิดน้อยที่สุด</div>
         </div>
 
-        <!-- Inputs -->
+        <div style="background:var(--surface2);border-radius:8px;padding:12px;border-left:4px solid var(--accent);">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+            <div style="font-size:13px;font-weight:700;color:#fff;">2️⃣ วางภายนอก ไม่อัดลม</div>
+            <span style="background:rgba(245,158,11,0.2);color:var(--accent);font-size:11px;font-weight:700;padding:2px 8px;border-radius:99px;">ใช้มากที่สุด</span>
+          </div>
+          <div style="font-size:16px;font-weight:800;color:var(--accent);font-family:'IBM Plex Mono',monospace;text-align:center;padding:8px 0;">P = D² ÷ 40</div>
+          <div style="font-size:12px;color:var(--muted);">วางทาบผิวต้นไม้ ไม่อัดลม — ต้นไม้ล้มไปทาง<strong>ด้านที่วางดินระเบิด</strong></div>
+        </div>
+
+        <div style="background:var(--surface2);border-radius:8px;padding:12px;border-left:4px solid var(--accent2);">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+            <div style="font-size:13px;font-weight:700;color:#fff;">3️⃣ โค่นค้างตอ (เครื่องกีดขวาง)</div>
+            <span style="background:rgba(239,68,68,0.2);color:var(--accent2);font-size:11px;font-weight:700;padding:2px 8px;border-radius:99px;">Abatis</span>
+          </div>
+          <div style="font-size:16px;font-weight:800;color:var(--accent2);font-family:'IBM Plex Mono',monospace;text-align:center;padding:8px 0;">P = D² ÷ 50</div>
+          <div style="font-size:12px;color:var(--muted);">วางสูงจากพื้น ~5 ฟุต ตัดบางส่วน ต้นไม้ล้มค้างตอ — ความลึกกีดขวาง ≥75 เมตร ทำมุม 45°</div>
+        </div>
+
+        <div style="background:var(--surface2);border-radius:8px;padding:12px;border-left:4px solid var(--green);">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+            <div style="font-size:13px;font-weight:700;color:#fff;">4️⃣ ถอนตอ (Stump Removal)</div>
+            <span style="background:rgba(34,197,94,0.2);color:var(--green);font-size:11px;font-weight:700;padding:2px 8px;border-radius:99px;">ตอ/ฟุต</span>
+          </div>
+          <div style="font-size:16px;font-weight:800;color:var(--green);font-family:'IBM Plex Mono',monospace;text-align:center;padding:8px 0;">P = 1 ปอนด์ × เส้นผ่าน (ฟุต)</div>
+          <div style="font-size:12px;color:var(--muted);">ใช้ 1 ปอนด์ TNT ต่อเส้นผ่านศูนย์กลาง 1 ฟุต — แปลง นิ้ว → ฟุต ก่อน (÷12)</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ตารางอ้างอิง -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(59,130,246,0.15);font-size:20px">📊</div>
+        <div>
+          <div class="card-title">ตารางอ้างอิงปริมาณดินระเบิด TNT (ปอนด์)</div>
+          <div class="card-sub"><span class="tag tag-blue">Reference Table</span></div>
+        </div>
+      </div>
+      <div style="overflow-x:auto;">
+        <table style="width:100%;border-collapse:collapse;font-size:12px;font-family:'IBM Plex Mono',monospace;">
+          <thead>
+            <tr style="background:var(--surface2);">
+              <th style="padding:8px;text-align:center;color:var(--muted);border:1px solid var(--border);">D (นิ้ว)</th>
+              <th style="padding:8px;text-align:center;color:var(--accent3);border:1px solid var(--border);">ภายใน<br><small style="font-size:10px;">÷250</small></th>
+              <th style="padding:8px;text-align:center;color:var(--accent);border:1px solid var(--border);">ภายนอก<br><small style="font-size:10px;">÷40</small></th>
+              <th style="padding:8px;text-align:center;color:var(--accent2);border:1px solid var(--border);">ค้างตอ<br><small style="font-size:10px;">÷50</small></th>
+            </tr>
+          </thead>
+          <tbody id="tree-ref-table">
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- เครื่องคำนวณ -->
+    <div class="card">
+      <div class="calc-section">
+        <div class="calc-title">🌳 เครื่องคำนวณระเบิดตัดต้นไม้</div>
+
         <div class="calc-row">
-          <span class="calc-label">น้ำหนัก TNT ที่ต้องการ</span>
-          <input class="calc-input" id="conv-tnt" type="number" placeholder="64" min="0.01" step="0.01">
-          <span class="calc-unit">ปอนด์</span>
+          <span class="calc-label">เส้นผ่านศูนย์กลาง</span>
+          <input class="calc-input" id="tree-d" type="number" placeholder="30" min="1" step="1">
+          <span class="calc-unit">นิ้ว</span>
+        </div>
+        <div class="calc-row">
+          <span class="calc-label">จำนวนต้น/ตอ</span>
+          <input class="calc-input" id="tree-n" type="number" placeholder="1" min="1" step="1">
+          <span class="calc-unit">ต้น</span>
         </div>
         <div class="calc-row">
           <span class="calc-label">RE Factor ดินแทน</span>
-          <input class="calc-input" id="conv-re" type="number" placeholder="1.20" min="0.01" step="0.01">
+          <input class="calc-input" id="tree-re" type="number" placeholder="1.00" min="0.1" step="0.01">
           <span class="calc-unit">RE</span>
         </div>
         <div class="calc-row">
-          <span class="calc-label">น้ำหนักต่อแท่ง (ถ้ามี)</span>
-          <input class="calc-input" id="conv-unit" type="number" placeholder="2.5" min="0.01" step="0.01">
+          <span class="calc-label">น้ำหนักต่อแท่ง</span>
+          <input class="calc-input" id="tree-unit" type="number" placeholder="1.25" min="0.01" step="0.01">
           <span class="calc-unit">ปอนด์</span>
         </div>
+
+        <!-- สูตรที่เลือก -->
+        <div style="margin:10px 0 12px;display:grid;grid-template-columns:1fr 1fr;gap:6px;">
+          <button class="tree-formula-btn active" id="tf-1" onclick="selectFormula(1)">1️⃣ ภายใน (÷250)</button>
+          <button class="tree-formula-btn" id="tf-2" onclick="selectFormula(2)">2️⃣ ภายนอก (÷40)</button>
+          <button class="tree-formula-btn" id="tf-3" onclick="selectFormula(3)">3️⃣ ค้างตอ (÷50)</button>
+          <button class="tree-formula-btn" id="tf-4" onclick="selectFormula(4)">4️⃣ ถอนตอ (÷ฟุต)</button>
+        </div>
+
+        <button class="calc-btn" onclick="calcTree()">คำนวณระเบิดตัดต้นไม้</button>
+        <div class="calc-result" id="tree-result"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── CALCULATOR ── -->
+  <!-- ── STEEL CUTTING ── -->
+  <div id="steelcut" class="section">
+
+    <!-- Header -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(148,163,184,0.15);font-size:22px">⚙️</div>
+        <div>
+          <div class="card-title">การคำนวณระเบิดตัดเหล็ก</div>
+          <div class="card-sub"><span class="tag tag-blue">Steel Cutting Demolition</span></div>
+        </div>
+      </div>
+      <div style="font-size:13px;color:var(--muted);line-height:1.8;">
+        ดินระเบิดที่เหมาะสุดคือ<strong>ดินระเบิดพลาสติก (C4)</strong> และ<strong>ดินระเบิดแผ่น</strong>
+        มี <strong>4 สูตร/วิธี</strong> ขึ้นอยู่กับรูปร่างและขนาดของเหล็กเป้าหมาย
+      </div>
+    </div>
+
+    <!-- สูตรทั้ง 4 -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(245,158,11,0.15);font-size:20px">📐</div>
+        <div>
+          <div class="card-title">สรุปสูตรทั้ง 4 รูปแบบ + กฎรางรถไฟ</div>
+          <div class="card-sub"><span class="tag tag-orange">P = ปอนด์ TNT · A = ตร.นิ้ว · D = นิ้ว</span></div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+
+        <div style="background:var(--surface2);border-radius:8px;padding:12px;border-left:4px solid var(--accent3);">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+            <div style="font-size:13px;font-weight:700;color:#fff;">1️⃣ เหล็กโครงสร้าง (I-beam, U, T, ฉาก)</div>
+            <span style="background:rgba(59,130,246,0.2);color:var(--accent3);font-size:11px;font-weight:700;padding:2px 8px;border-radius:99px;">A ≤ ∞</span>
+          </div>
+          <div style="font-size:16px;font-weight:800;color:var(--accent3);font-family:'IBM Plex Mono',monospace;text-align:center;padding:8px 0;">P = 3/8 × A &nbsp;=&nbsp; 0.375A</div>
+          <div style="font-size:12px;color:var(--muted);">A = พื้นที่หน้าตัดรวมทุกส่วน (ตร.นิ้ว) — ใช้กับเหล็กโครงสร้างทุกชนิดและ D &gt; 8"</div>
+        </div>
+
+        <div style="background:var(--surface2);border-radius:8px;padding:12px;border-left:4px solid var(--accent);">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+            <div style="font-size:13px;font-weight:700;color:#fff;">2️⃣ เหล็กกล้า/โลหะผสม เครื่องจักร (D ≤ 2")</div>
+            <span style="background:rgba(245,158,11,0.2);color:var(--accent);font-size:11px;font-weight:700;padding:2px 8px;border-radius:99px;">D ≤ 2"</span>
+          </div>
+          <div style="font-size:16px;font-weight:800;color:var(--accent);font-family:'IBM Plex Mono',monospace;text-align:center;padding:8px 0;">P = D²</div>
+          <div style="font-size:12px;color:var(--muted);">D = เส้นผ่านศูนย์กลาง/ความหนา (นิ้ว) ≤ 2" · ถ้า D &gt; 2" ให้ใช้สูตร Diamond Charge</div>
+        </div>
+
+        <div style="background:var(--surface2);border-radius:8px;padding:12px;border-left:4px solid var(--accent2);">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+            <div style="font-size:13px;font-weight:700;color:#fff;">3️⃣ เหล็กแท่งกลม / เหล็กเสริม / โซ่ / สายเคเบิล (D ≤ 2")</div>
+            <span style="background:rgba(239,68,68,0.2);color:var(--accent2);font-size:11px;font-weight:700;padding:2px 8px;border-radius:99px;">กฎหัวแม่มือ</span>
+          </div>
+          <div style="font-size:16px;font-weight:800;color:var(--accent2);font-family:'IBM Plex Mono',monospace;text-align:center;padding:8px 0;">P = D</div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.8;">
+            D ≤ 1" → <strong>1 ปอนด์</strong> &nbsp;·&nbsp; D 1"–2" → <strong>2 ปอนด์</strong>
+          </div>
+        </div>
+
+        <div style="background:var(--surface2);border-radius:8px;padding:12px;border-left:4px solid var(--green);">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+            <div style="font-size:13px;font-weight:700;color:#fff;">4️⃣ อานม้า (Saddle) / ขนมเปียกปูน (Diamond)</div>
+            <span style="background:rgba(34,197,94,0.2);color:var(--green);font-size:11px;font-weight:700;padding:2px 8px;border-radius:99px;">C ≤ 8"×π</span>
+          </div>
+          <div style="font-size:13px;color:var(--text);line-height:1.9;">
+            <strong style="color:var(--green);">อานม้า (Saddle):</strong> หนา 1" · กว้าง = ½C · ยาว = C<br>
+            <strong style="color:var(--green);">ขนมเปียกปูน (Diamond):</strong> หนา 1" · แกนยาว = C · แกนสั้น = ½C<br>
+            <span style="font-size:11px;color:var(--muted);">C = เส้นรอบวงของเป้าหมาย (นิ้ว) · ใช้กับ D ≤ 8"</span>
+          </div>
+        </div>
+
+        <div style="background:var(--surface2);border-radius:8px;padding:12px;border-left:4px solid #06b6d4;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+            <div style="font-size:13px;font-weight:700;color:#fff;">5️⃣ เหล็กรางรถไฟ</div>
+            <span style="background:rgba(6,182,212,0.2);color:#06b6d4;font-size:11px;font-weight:700;padding:2px 8px;border-radius:99px;">Rail Rule</span>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+            <div style="background:var(--bg);border-radius:6px;padding:10px;text-align:center;border:1px solid var(--border);">
+              <div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:6px;">รางสูง ≥ 5 นิ้ว</div>
+              <div style="font-size:22px;font-weight:800;color:#06b6d4;font-family:'IBM Plex Mono',monospace;">1 ปอนด์</div>
+              <div style="font-size:13px;font-weight:700;color:#fff;margin-top:4px;">TNT</div>
+            </div>
+            <div style="background:var(--bg);border-radius:6px;padding:10px;text-align:center;border:1px solid var(--border);">
+              <div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:6px;">รางสูง &lt; 5 นิ้ว</div>
+              <div style="font-size:22px;font-weight:800;color:#06b6d4;font-family:'IBM Plex Mono',monospace;">½ ปอนด์</div>
+              <div style="font-size:13px;font-weight:700;color:#fff;margin-top:4px;">TNT</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ตารางอ้างอิง P = 3/8A -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(59,130,246,0.15);font-size:20px">📊</div>
+        <div>
+          <div class="card-title">ตารางอ้างอิง P = 3/8A (TNT ปอนด์)</div>
+          <div class="card-sub"><span class="tag tag-blue">หน้าตัดสี่เหลี่ยม ความหนา × ความกว้าง</span></div>
+        </div>
+      </div>
+      <div style="overflow-x:auto;">
+        <table style="width:100%;border-collapse:collapse;font-size:11px;font-family:'IBM Plex Mono',monospace;">
+          <thead>
+            <tr style="background:var(--surface2);">
+              <th style="padding:6px;text-align:center;color:var(--muted);border:1px solid var(--border);white-space:nowrap;">หนา (นิ้ว)</th>
+              <th style="padding:6px;text-align:center;color:var(--accent3);border:1px solid var(--border);">2"</th>
+              <th style="padding:6px;text-align:center;color:var(--accent3);border:1px solid var(--border);">3"</th>
+              <th style="padding:6px;text-align:center;color:var(--accent3);border:1px solid var(--border);">4"</th>
+              <th style="padding:6px;text-align:center;color:var(--accent3);border:1px solid var(--border);">5"</th>
+              <th style="padding:6px;text-align:center;color:var(--accent3);border:1px solid var(--border);">6"</th>
+              <th style="padding:6px;text-align:center;color:var(--accent3);border:1px solid var(--border);">8"</th>
+              <th style="padding:6px;text-align:center;color:var(--accent3);border:1px solid var(--border);">10"</th>
+              <th style="padding:6px;text-align:center;color:var(--accent3);border:1px solid var(--border);">12"</th>
+            </tr>
+          </thead>
+          <tbody id="steel-ref-table"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- เครื่องคำนวณ -->
+    <div class="card">
+      <div class="calc-section">
+        <div class="calc-title">⚙️ เครื่องคำนวณระเบิดตัดเหล็ก</div>
+
+        <!-- สูตรที่เลือก -->
+        <div style="margin-bottom:12px;display:grid;grid-template-columns:1fr 1fr;gap:6px;">
+          <button class="tree-formula-btn active" id="sf-1" onclick="selectSteelFormula(1)">1️⃣ เหล็กโครงสร้าง I-beam, U, T, ฉาก (0.375A)</button>
+          <button class="tree-formula-btn" id="sf-2" onclick="selectSteelFormula(2)">2️⃣ เหล็กกล้า/โลหะผสม เครื่องจักร (D²)</button>
+          <button class="tree-formula-btn" id="sf-3" onclick="selectSteelFormula(3)">3️⃣ เหล็กแท่งกลม / เหล็กเสริม / โซ่ / สายเคเบิล (D ≤ 2")</button>
+          <button class="tree-formula-btn" id="sf-4" onclick="selectSteelFormula(4)">4️⃣ อานม้า (Saddle)/ขนมเปียกปูน (Diamond) (C)</button>
+        </div>
+
+        <!-- inputs per formula -->
+        <div id="steel-inputs-1">
+          <div class="calc-row">
+            <span class="calc-label">ความหนาหน้าตัด</span>
+            <input class="calc-input" id="si-thick" type="number" placeholder="1" min="0.1" step="0.1">
+            <span class="calc-unit">นิ้ว</span>
+          </div>
+          <div class="calc-row">
+            <span class="calc-label">ความกว้างหน้าตัด</span>
+            <input class="calc-input" id="si-width" type="number" placeholder="6" min="0.1" step="0.1">
+            <span class="calc-unit">นิ้ว</span>
+          </div>
+          <div style="font-size:11px;color:var(--muted);margin-bottom:10px;padding:8px;background:var(--surface2);border-radius:6px;">
+            💡 สำหรับ I-beam: กรอกพื้นที่รวมในช่อง "ความหนา=1, ความกว้าง=A" แทนได้เลย หรือใช้ตารางอ้างอิงด้านบน
+          </div>
+        </div>
+        <div id="steel-inputs-2" style="display:none;">
+          <div class="calc-row">
+            <span class="calc-label">เส้นผ่านศูนย์กลาง / ความหนา</span>
+            <input class="calc-input" id="si-d2" type="number" placeholder="1.5" min="0.1" step="0.1" max="2">
+            <span class="calc-unit">นิ้ว</span>
+          </div>
+          <div style="font-size:11px;color:var(--accent2);margin-bottom:10px;padding:8px;background:rgba(239,68,68,0.08);border-radius:6px;">⚠️ D ต้องไม่เกิน 2 นิ้ว — ถ้าเกินให้ใช้สูตร Diamond Charge</div>
+        </div>
+        <div id="steel-inputs-3" style="display:none;">
+          <div class="calc-row">
+            <span class="calc-label">เส้นผ่านศูนย์กลาง</span>
+            <input class="calc-input" id="si-d3" type="number" placeholder="1" min="0.1" step="0.1" max="2">
+            <span class="calc-unit">นิ้ว</span>
+          </div>
+          <div style="font-size:11px;color:var(--muted);margin-bottom:10px;padding:8px;background:var(--surface2);border-radius:6px;">
+            กฎหัวแม่มือ: D ≤ 1" = 1 ปอนด์ · D 1"–2" = 2 ปอนด์
+          </div>
+        </div>
+        <div id="steel-inputs-4" style="display:none;">
+          <div class="calc-row">
+            <span class="calc-label">เส้นรอบวงเป้าหมาย</span>
+            <input class="calc-input" id="si-circ" type="number" placeholder="18" min="0.1" step="0.1">
+            <span class="calc-unit">นิ้ว</span>
+          </div>
+          <div style="font-size:11px;color:var(--muted);margin-bottom:10px;padding:8px;background:var(--surface2);border-radius:6px;">
+            วัดด้วยเชือกพันรอบเป้าหมาย แล้วนำมากรอก
+          </div>
+        </div>
+
         <div class="calc-row">
-          <span class="calc-label">จำนวนแห่งที่วาง</span>
-          <input class="calc-input" id="conv-places" type="number" placeholder="1" min="1" step="1">
+          <span class="calc-label">จำนวนแห่งที่ตัด</span>
+          <input class="calc-input" id="si-n" type="number" placeholder="1" min="1" step="1">
           <span class="calc-unit">แห่ง</span>
         </div>
-        <button class="calc-btn" onclick="calcConversion()">คำนวณแปลงดินระเบิด</button>
-        <div class="calc-result" id="conv-result"></div>
-      </div>
-    </div>
-
-    <!-- Safety Distance calc -->
-    <div class="card">
-      <div class="calc-section">
-        <div class="calc-title">🛡️ คำนวณระยะปลอดภัย (เกณฑ์ความปลอดภัย)</div>
-        <div style="background:var(--surface2);border-radius:8px;padding:12px;margin-bottom:12px;border:1px solid var(--border);">
-          <div style="font-size:11px;font-weight:700;color:var(--muted);letter-spacing:1px;margin-bottom:8px;">เกณฑ์ระยะปลอดภัย</div>
-          <div style="display:flex;flex-direction:column;gap:6px;">
-            <div style="display:flex;align-items:center;gap:8px;">
-              <span style="background:rgba(34,197,94,0.2);color:var(--green);font-size:10px;font-weight:700;padding:2px 8px;border-radius:99px;white-space:nowrap;">น้อยกว่า 27 ปอนด์</span>
-              <span style="font-size:12px;color:var(--text)">ระยะปลอดภัยขั้นต่ำ <strong>300 เมตร</strong></span>
-            </div>
-            <div style="display:flex;align-items:center;gap:8px;">
-              <span style="background:rgba(245,158,11,0.2);color:var(--accent);font-size:10px;font-weight:700;padding:2px 8px;border-radius:99px;white-space:nowrap;">27 – 425 ปอนด์</span>
-              <span style="font-size:12px;color:var(--text)">ระยะ (ม.) = <strong>100 × ∛น้ำหนัก(ปอนด์)</strong></span>
-            </div>
-            <div style="display:flex;align-items:center;gap:8px;">
-              <span style="background:rgba(239,68,68,0.2);color:var(--accent2);font-size:10px;font-weight:700;padding:2px 8px;border-radius:99px;white-space:nowrap;">425 ปอนด์ขึ้นไป</span>
-              <span style="font-size:12px;color:var(--text)">ระยะปลอดภัยอย่างน้อย <strong>750 เมตร</strong></span>
-            </div>
-            <div style="display:flex;align-items:flex-start;gap:8px;margin-top:2px;">
-              <span style="background:rgba(59,130,246,0.2);color:var(--accent3);font-size:10px;font-weight:700;padding:2px 8px;border-radius:99px;white-space:nowrap;margin-top:1px;">วัตถุแข็งมาก</span>
-              <span style="font-size:12px;color:var(--text)">ต้องมีที่กำบัง — ระยะจากที่กำบังถึงตำบลจุดระเบิดอย่างน้อย <strong>100 เมตร</strong></span>
-            </div>
-          </div>
+        <div class="calc-row">
+          <span class="calc-label">RE Factor ดินแทน</span>
+          <input class="calc-input" id="si-re" type="number" placeholder="1.00" min="0.1" step="0.01">
+          <span class="calc-unit">RE</span>
         </div>
         <div class="calc-row">
-          <span class="calc-label">น้ำหนักดินระเบิด</span>
-          <input class="calc-input" id="safe-weight" type="number" placeholder="100" min="0.1" step="0.1">
+          <span class="calc-label">น้ำหนักต่อแท่ง</span>
+          <input class="calc-input" id="si-unit" type="number" placeholder="1.25" min="0.01" step="0.01">
           <span class="calc-unit">ปอนด์</span>
         </div>
-        <button class="calc-btn" onclick="calcSafeDist()">คำนวณระยะปลอดภัย</button>
-        <div class="calc-result" id="safe-result"></div>
+
+        <button class="calc-btn" onclick="calcSteel()">คำนวณระเบิดตัดเหล็ก</button>
+        <div class="calc-result" id="steel-result"></div>
       </div>
     </div>
 
+  </div>
+
+  <!-- ── CALCULATOR ── -->
+  <div id="calc" class="section">
+
+    <!-- ── Explosive Conversion Calculator ── -->
+    
+    <!-- Safety Distance calc -->
+    
     <!-- Fuse length calc -->
-    <div class="card">
-      <div class="calc-section">
-        <div class="calc-title">🔥 คำนวณความยาวชนวนฝักแคเวลา</div>
-        <div class="calc-row">
-          <span class="calc-label">ระยะเวลาที่ต้องการ</span>
-          <input class="calc-input" id="fuse-time" type="number" placeholder="90" min="1">
-          <span class="calc-unit">วินาที</span>
-        </div>
-        <div class="calc-row">
-          <span class="calc-label">อัตราลุกไหม้</span>
-          <input class="calc-input" id="fuse-rate" type="number" placeholder="40" min="1">
-          <span class="calc-unit">วิ/ฟุต</span>
-        </div>
-        <button class="calc-btn" onclick="calcFuse()">คำนวณความยาวชนวน</button>
-        <div class="calc-result" id="fuse-result">
-          <div class="result-row">
-            <span class="result-key">ความยาวชนวนที่ต้องการ</span>
-            <span class="result-val" id="fuse-len">—</span>
-          </div>
-          <div class="result-row">
-            <span class="result-key">บวกระยะทดสอบ 6 นิ้ว (0.5 ฟุต)</span>
-            <span class="result-val" id="fuse-total">—</span>
-          </div>
-          <div class="result-row">
-            <span class="result-key">ระยะรวม (เมตร)</span>
-            <span class="result-val" id="fuse-m">—</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
+    
     <!-- Series circuit calc -->
     <div class="card">
       <div class="calc-section">
@@ -1877,7 +2164,6 @@
           </div>
         </div>
       </div>
-    </div>
 
   </div>
 </div>
@@ -1888,9 +2174,227 @@ function showTab(id) {
   document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   const btns = document.querySelectorAll('.nav-btn');
-  const map = {overview:0, explosive:1, demblock:2, initdev:3, fuse:4, electric:5, detonating:6, dual:7, safety:8, calc:9};
+  const map = {overview:0, explosive:1, demblock:2, initdev:3, fuse:4, electric:5, detonating:6, dual:7, safety:8, treecut:9, steelcut:10, calc:11};
   btns[map[id]].classList.add('active');
 }
+
+// ── Steel Cutting ─────────────────────────────────
+let selectedSteelFormula = 1;
+
+function selectSteelFormula(n) {
+  selectedSteelFormula = n;
+  [1,2,3,4].forEach(i => {
+    document.getElementById('sf-'+i).classList.toggle('active', i === n);
+    const el = document.getElementById('steel-inputs-'+i);
+    if (el) el.style.display = i === n ? 'block' : 'none';
+  });
+}
+
+function buildSteelTable() {
+  const tbody = document.getElementById('steel-ref-table');
+  if (!tbody) return;
+  const thicknesses = [0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 1.0];
+  const thickLabels = ['¼"','⅜"','½"','⅝"','¾"','⅞"','1"'];
+  const widths = [2, 3, 4, 5, 6, 8, 10, 12];
+  tbody.innerHTML = thicknesses.map((t, ti) => {
+    const cells = widths.map(w => {
+      const p = (0.375 * t * w).toFixed(1);
+      return `<td style="padding:5px;text-align:center;color:var(--text);border:1px solid var(--border);">${p}</td>`;
+    }).join('');
+    return `<tr><td style="padding:5px;text-align:center;color:var(--accent);border:1px solid var(--border);font-weight:700;">${thickLabels[ti]}</td>${cells}</tr>`;
+  }).join('');
+}
+
+function calcSteel() {
+  const n    = parseInt(document.getElementById('si-n').value)    || 1;
+  const re   = parseFloat(document.getElementById('si-re').value)  || 1.0;
+  const unit = parseFloat(document.getElementById('si-unit').value) || 0;
+  const f = selectedSteelFormula;
+  const colors = {1:'var(--accent3)', 2:'var(--accent)', 3:'var(--accent2)', 4:'var(--green)'};
+  const col = colors[f];
+  let tntPer, formulaStr, note = '';
+
+  if (f === 1) {
+    const t = parseFloat(document.getElementById('si-thick').value);
+    const w = parseFloat(document.getElementById('si-width').value);
+    if (!t||!w) { showError('steel-result','กรุณากรอกความหนาและความกว้าง'); return; }
+    const A = t * w;
+    tntPer = 0.375 * A;
+    formulaStr = `0.375 × (${t} × ${w}) = 0.375 × ${A.toFixed(2)} = ${tntPer.toFixed(3)}`;
+  } else if (f === 2) {
+    const d = parseFloat(document.getElementById('si-d2').value);
+    if (!d) { showError('steel-result','กรุณากรอกเส้นผ่านศูนย์กลาง'); return; }
+    if (d > 2) { showError('steel-result','D เกิน 2 นิ้ว — ให้ใช้สูตร Diamond Charge แทน'); return; }
+    tntPer = d * d;
+    formulaStr = `D² = ${d}² = ${tntPer.toFixed(3)}`;
+  } else if (f === 3) {
+    const d = parseFloat(document.getElementById('si-d3').value);
+    if (!d) { showError('steel-result','กรุณากรอกเส้นผ่านศูนย์กลาง'); return; }
+    tntPer = d <= 1 ? 1 : 2;
+    formulaStr = `P = D = ${d}" → กฎหัวแม่มือ = ${tntPer} ปอนด์`;
+    note = d <= 1 ? 'D ≤ 1" ใช้ 1 ปอนด์' : 'D 1"–2" ใช้ 2 ปอนด์';
+  } else {
+    const c = parseFloat(document.getElementById('si-circ').value);
+    if (!c) { showError('steel-result','กรุณากรอกเส้นรอบวง'); return; }
+    const long_axis = c, short_axis = c / 2;
+    formulaStr = `C=${c}" → แกนยาว=${long_axis}" · แกนสั้น=${short_axis}" · หนา=1"`;
+    // no TNT weight formula for shape charge, show dimensions only
+    document.getElementById('steel-result').innerHTML = `
+      <div class="result-row"><span class="result-key">สูตร</span><span class="result-val" style="color:${col};font-size:12px;">Diamond / Saddle Charge</span></div>
+      <div class="result-row"><span class="result-key">เส้นรอบวง</span><span class="result-val">${c} นิ้ว</span></div>
+      <div class="result-row"><span class="result-key">ความหนาดินระเบิด</span><span class="result-val" style="color:${col};">1 นิ้ว</span></div>
+      <div class="result-row"><span class="result-key">แกนยาว (ความยาวรอบ)</span><span class="result-val" style="color:${col};font-size:16px;">${long_axis.toFixed(1)} นิ้ว</span></div>
+      <div class="result-row"><span class="result-key">แกนสั้น (½ เส้นรอบวง)</span><span class="result-val" style="color:${col};font-size:16px;">${short_axis.toFixed(1)} นิ้ว</span></div>
+      <div class="result-row"><span class="result-key">จุดระเบิด</span><span class="result-val" style="font-size:12px;">ปลายแกนสั้น ทั้งสองด้านพร้อมกัน</span></div>
+    `;
+    document.getElementById('steel-result').classList.add('show');
+    resetBorder('steel-result');
+    return;
+  }
+
+  resetBorder('steel-result');
+  const tntRounded = Math.ceil(tntPer * 100) / 100;
+  const altWeight  = tntRounded / re;
+  const altRounded = Math.ceil(altWeight * 100) / 100;
+  const unitsPerPlace = unit > 0 ? Math.ceil(altWeight / unit) : null;
+  const totalTnt  = Math.ceil(tntRounded * n * 100) / 100;
+  const totalUnits = unitsPerPlace !== null ? unitsPerPlace * n : null;
+
+  document.getElementById('steel-result').innerHTML = `
+    <div class="result-row"><span class="result-key">การคำนวณ</span><span class="result-val" style="font-size:12px;">${formulaStr}</span></div>
+    ${note ? `<div class="result-row"><span class="result-key">หมายเหตุ</span><span class="result-val" style="font-size:12px;color:${col};">${note}</span></div>` : ''}
+    <div class="result-row"><span class="result-key">TNT ที่ต้องการ (1 แห่ง)</span><span class="result-val" style="color:${col};font-size:16px;">${tntRounded.toFixed(2)} ปอนด์</span></div>
+    ${re !== 1.0 ? `<div class="result-row"><span class="result-key">ดินแทน RE=${re} (1 แห่ง)</span><span class="result-val" style="color:var(--accent3);">${altRounded.toFixed(2)} ปอนด์</span></div>` : ''}
+    ${unit > 0 ? `<div class="result-row"><span class="result-key">จำนวนแท่ง (1 แห่ง)</span><span class="result-val" style="color:var(--accent3);">${unitsPerPlace} แท่ง</span></div>` : ''}
+    ${n > 1 ? `
+    <div class="result-row" style="border-top:1px solid var(--border);padding-top:8px;margin-top:4px;">
+      <span class="result-key">TNT รวม (${n} แห่ง)</span>
+      <span class="result-val">${totalTnt.toFixed(2)} ปอนด์</span>
+    </div>
+    ${unit > 0 ? `<div class="result-row"><span class="result-key" style="font-weight:700;">จำนวนแท่งรวม</span><span class="result-val" style="color:var(--green);font-size:18px;font-weight:800;">${totalUnits} แท่ง</span></div>` : ''}` : ''}
+  `;
+  document.getElementById('steel-result').classList.add('show');
+}
+
+document.addEventListener('DOMContentLoaded', buildSteelTable);
+
+// ── Tree Cutting ──────────────────────────────────
+let selectedFormula = 1;
+
+function selectFormula(n) {
+  selectedFormula = n;
+  [1,2,3,4].forEach(i => {
+    document.getElementById('tf-'+i).classList.toggle('active', i === n);
+  });
+}
+
+function buildTreeTable() {
+  const sizes = [6,8,10,12,15,18,21,24,27,30,33,36];
+  const tbody = document.getElementById('tree-ref-table');
+  if (!tbody) return;
+  tbody.innerHTML = sizes.map(d => {
+    const inner = Math.max(0.5, d*d/250).toFixed(2);
+    const outer = (d*d/40).toFixed(2);
+    const abatis = (d*d/50).toFixed(2);
+    return `<tr style="border-bottom:1px solid var(--border);">
+      <td style="padding:6px 8px;text-align:center;color:var(--text);border:1px solid var(--border);font-weight:700;">${d}"</td>
+      <td style="padding:6px 8px;text-align:center;color:var(--accent3);border:1px solid var(--border);">${inner}</td>
+      <td style="padding:6px 8px;text-align:center;color:var(--accent);border:1px solid var(--border);">${outer}</td>
+      <td style="padding:6px 8px;text-align:center;color:var(--accent2);border:1px solid var(--border);">${abatis}</td>
+    </tr>`;
+  }).join('');
+}
+
+function calcTree() {
+  const D    = parseFloat(document.getElementById('tree-d').value);
+  const n    = parseInt(document.getElementById('tree-n').value) || 1;
+  const re   = parseFloat(document.getElementById('tree-re').value) || 1.0;
+  const unit = parseFloat(document.getElementById('tree-unit').value) || 0;
+
+  if (!D || D <= 0) {
+    showError('tree-result', 'กรุณากรอกเส้นผ่านศูนย์กลางต้นไม้');
+    return;
+  }
+  resetBorder('tree-result');
+
+  const formulaNames = {1:'วางภายใน + อัดลม (÷250)', 2:'วางภายนอก ไม่อัดลม (÷40)', 3:'โค่นค้างตอ Abatis (÷50)', 4:'ถอนตอ (1 ปอนด์/ฟุต)'};
+  const formulaColors = {1:'var(--accent3)', 2:'var(--accent)', 3:'var(--accent2)', 4:'var(--green)'};
+
+  let tntPerTree;
+  let formulaStr;
+  if (selectedFormula === 1) {
+    tntPerTree = (D * D) / 250;
+    formulaStr = `${D}² ÷ 250 = ${tntPerTree.toFixed(4)}`;
+  } else if (selectedFormula === 2) {
+    tntPerTree = (D * D) / 40;
+    formulaStr = `${D}² ÷ 40 = ${tntPerTree.toFixed(4)}`;
+  } else if (selectedFormula === 3) {
+    tntPerTree = (D * D) / 50;
+    formulaStr = `${D}² ÷ 50 = ${tntPerTree.toFixed(4)}`;
+  } else {
+    const feet = D / 12;
+    tntPerTree = 1 * feet;
+    formulaStr = `1 × (${D}÷12) = 1 × ${feet.toFixed(4)} = ${tntPerTree.toFixed(4)}`;
+  }
+
+  // round up 2 decimal
+  const tntRounded = Math.ceil(tntPerTree * 100) / 100;
+  // convert to other explosive
+  const altWeight  = tntRounded / re;
+  const altRounded = Math.ceil(altWeight * 100) / 100;
+  // units per tree
+  const unitsPerTree = unit > 0 ? Math.ceil(altWeight / unit) : null;
+  // totals
+  const totalTnt   = Math.ceil(tntRounded * n * 100) / 100;
+  const totalAlt   = Math.ceil(altRounded * n * 100) / 100;
+  const totalUnits = unitsPerTree !== null ? unitsPerTree * n : null;
+
+  const col = formulaColors[selectedFormula];
+
+  document.getElementById('tree-result').innerHTML = `
+    <div class="result-row">
+      <span class="result-key">สูตรที่ใช้</span>
+      <span class="result-val" style="color:${col};font-size:12px;">${formulaNames[selectedFormula]}</span>
+    </div>
+    <div class="result-row">
+      <span class="result-key">การคำนวณ</span>
+      <span class="result-val" style="font-size:12px;">${formulaStr}</span>
+    </div>
+    <div class="result-row">
+      <span class="result-key">TNT ที่ต้องการ (1 ต้น)</span>
+      <span class="result-val" style="color:${col};font-size:16px;">${tntRounded.toFixed(2)} ปอนด์</span>
+    </div>
+    ${re !== 1.0 ? `
+    <div class="result-row">
+      <span class="result-key">ดินแทน RE=${re} (1 ต้น)</span>
+      <span class="result-val" style="color:var(--accent3);">${altRounded.toFixed(2)} ปอนด์</span>
+    </div>` : ''}
+    ${unit > 0 ? `
+    <div class="result-row">
+      <span class="result-key">จำนวนแท่ง (1 ต้น)</span>
+      <span class="result-val" style="color:var(--accent3);">${unitsPerTree} แท่ง</span>
+    </div>` : ''}
+    ${n > 1 ? `
+    <div class="result-row" style="border-top:1px solid var(--border);padding-top:8px;margin-top:4px;">
+      <span class="result-key">TNT รวม (${n} ต้น)</span>
+      <span class="result-val">${totalTnt.toFixed(2)} ปอนด์</span>
+    </div>
+    ${re !== 1.0 ? `
+    <div class="result-row">
+      <span class="result-key">ดินแทน RE=${re} รวม</span>
+      <span class="result-val">${totalAlt.toFixed(2)} ปอนด์</span>
+    </div>` : ''}
+    ${unit > 0 ? `
+    <div class="result-row">
+      <span class="result-key" style="font-weight:700;">จำนวนแท่งรวม</span>
+      <span class="result-val" style="color:var(--green);font-size:18px;font-weight:800;">${totalUnits} แท่ง</span>
+    </div>` : ''}` : ''}
+  `;
+  document.getElementById('tree-result').classList.add('show');
+}
+
+// Build reference table on load
+document.addEventListener('DOMContentLoaded', buildTreeTable);
 
 function calcConversion() {
   const tnt    = parseFloat(document.getElementById('conv-tnt').value);
