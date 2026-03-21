@@ -1641,6 +1641,94 @@
   <!-- ── CALCULATOR ── -->
   <div id="calc" class="section">
 
+    <!-- ── Explosive Conversion Calculator ── -->
+    <div class="card">
+      <div class="calc-section">
+        <div class="calc-title">🔄 คำนวณแปลงดินระเบิด (Explosive Conversion)</div>
+
+        <!-- Formula reference -->
+        <div style="background:var(--surface2);border-radius:8px;padding:12px;margin-bottom:14px;border:1px solid var(--border);">
+          <div style="font-size:11px;font-weight:700;color:var(--muted);letter-spacing:1px;margin-bottom:8px;">📐 สูตรการแปลงดินระเบิด</div>
+          <div style="text-align:center;font-size:15px;font-weight:700;color:var(--accent);padding:10px 0;letter-spacing:1px;">
+            น้ำหนักที่ต้องการ = TNT ÷ RE Factor
+          </div>
+          <div style="font-size:12px;color:var(--muted);text-align:center;">โดยใช้ <strong style="color:var(--accent);">TNT = 1.00</strong> เป็นมาตรฐาน</div>
+
+          <!-- RE Factor table -->
+          <div style="margin-top:12px;display:grid;grid-template-columns:repeat(3,1fr);gap:6px;">
+            <div style="background:var(--bg);border-radius:6px;padding:6px;text-align:center;border:1px solid var(--border);">
+              <div style="font-size:10px;color:var(--muted);">AMMONIUM NITRATE</div>
+              <div style="font-size:13px;font-weight:700;color:var(--text);">0.42</div>
+            </div>
+            <div style="background:var(--bg);border-radius:6px;padding:6px;text-align:center;border:1px solid var(--border);">
+              <div style="font-size:10px;color:var(--muted);">BLACK POWDER</div>
+              <div style="font-size:13px;font-weight:700;color:var(--text);">0.55</div>
+            </div>
+            <div style="background:var(--bg);border-radius:6px;padding:6px;text-align:center;border:1px solid var(--border);">
+              <div style="font-size:10px;color:var(--muted);">MIL. DYNAMITE</div>
+              <div style="font-size:13px;font-weight:700;color:var(--text);">0.92</div>
+            </div>
+            <div style="background:rgba(245,158,11,0.15);border-radius:6px;padding:6px;text-align:center;border:1px solid rgba(245,158,11,0.4);">
+              <div style="font-size:10px;color:var(--accent);">TNT ⭐</div>
+              <div style="font-size:13px;font-weight:700;color:var(--accent);">1.00</div>
+            </div>
+            <div style="background:var(--bg);border-radius:6px;padding:6px;text-align:center;border:1px solid var(--border);">
+              <div style="font-size:10px;color:var(--muted);">AMATOL / PENTOLITE</div>
+              <div style="font-size:13px;font-weight:700;color:var(--text);">1.17</div>
+            </div>
+            <div style="background:var(--bg);border-radius:6px;padding:6px;text-align:center;border:1px solid var(--border);">
+              <div style="font-size:10px;color:var(--muted);">TETRYTOL</div>
+              <div style="font-size:13px;font-weight:700;color:var(--text);">1.20</div>
+            </div>
+            <div style="background:var(--bg);border-radius:6px;padding:6px;text-align:center;border:1px solid var(--border);">
+              <div style="font-size:10px;color:var(--muted);">TETRYL</div>
+              <div style="font-size:13px;font-weight:700;color:var(--text);">1.25</div>
+            </div>
+            <div style="background:var(--bg);border-radius:6px;padding:6px;text-align:center;border:1px solid var(--border);">
+              <div style="font-size:10px;color:var(--muted);">COMP C4</div>
+              <div style="font-size:13px;font-weight:700;color:var(--text);">1.34</div>
+            </div>
+            <div style="background:var(--bg);border-radius:6px;padding:6px;text-align:center;border:1px solid var(--border);">
+              <div style="font-size:10px;color:var(--muted);">NITROGLYCERIN</div>
+              <div style="font-size:13px;font-weight:700;color:var(--text);">1.50</div>
+            </div>
+            <div style="background:var(--bg);border-radius:6px;padding:6px;text-align:center;border:1px solid var(--border);">
+              <div style="font-size:10px;color:var(--muted);">RDX</div>
+              <div style="font-size:13px;font-weight:700;color:var(--text);">1.60</div>
+            </div>
+            <div style="background:rgba(239,68,68,0.1);border-radius:6px;padding:6px;text-align:center;border:1px solid rgba(239,68,68,0.3);grid-column:span 2;">
+              <div style="font-size:10px;color:var(--accent2);">PETN ⭐ อำนาจสูงสุด</div>
+              <div style="font-size:13px;font-weight:700;color:var(--accent2);">1.66</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Inputs -->
+        <div class="calc-row">
+          <span class="calc-label">น้ำหนัก TNT ที่ต้องการ</span>
+          <input class="calc-input" id="conv-tnt" type="number" placeholder="64" min="0.01" step="0.01">
+          <span class="calc-unit">ปอนด์</span>
+        </div>
+        <div class="calc-row">
+          <span class="calc-label">RE Factor ดินแทน</span>
+          <input class="calc-input" id="conv-re" type="number" placeholder="1.20" min="0.01" step="0.01">
+          <span class="calc-unit">RE</span>
+        </div>
+        <div class="calc-row">
+          <span class="calc-label">น้ำหนักต่อแท่ง (ถ้ามี)</span>
+          <input class="calc-input" id="conv-unit" type="number" placeholder="2.5" min="0.01" step="0.01">
+          <span class="calc-unit">ปอนด์</span>
+        </div>
+        <div class="calc-row">
+          <span class="calc-label">จำนวนแห่งที่วาง</span>
+          <input class="calc-input" id="conv-places" type="number" placeholder="1" min="1" step="1">
+          <span class="calc-unit">แห่ง</span>
+        </div>
+        <button class="calc-btn" onclick="calcConversion()">คำนวณแปลงดินระเบิด</button>
+        <div class="calc-result" id="conv-result"></div>
+      </div>
+    </div>
+
     <!-- Safety Distance calc -->
     <div class="card">
       <div class="calc-section">
@@ -1802,6 +1890,56 @@ function showTab(id) {
   const btns = document.querySelectorAll('.nav-btn');
   const map = {overview:0, explosive:1, demblock:2, initdev:3, fuse:4, electric:5, detonating:6, dual:7, safety:8, calc:9};
   btns[map[id]].classList.add('active');
+}
+
+function calcConversion() {
+  const tnt    = parseFloat(document.getElementById('conv-tnt').value);
+  const re     = parseFloat(document.getElementById('conv-re').value);
+  const unit   = parseFloat(document.getElementById('conv-unit').value) || 0;
+  const places = parseInt(document.getElementById('conv-places').value) || 1;
+
+  if (!tnt || tnt <= 0 || !re || re <= 0) {
+    showError('conv-result', 'กรุณากรอกน้ำหนัก TNT และค่า RE Factor ให้ครบ');
+    return;
+  }
+  resetBorder('conv-result');
+
+  const converted   = tnt / re;                         // น้ำหนักที่ต้องการ 1 แห่ง
+  const convRounded = Math.ceil(converted * 100) / 100; // ปัดขึ้น 2 ตำแหน่ง
+  const totalWeight = convRounded * places;
+  const unitsPerPlace = unit > 0 ? Math.ceil(converted / unit) : null;
+  const totalUnits    = unitsPerPlace !== null ? unitsPerPlace * places : null;
+
+  document.getElementById('conv-result').innerHTML = `
+    <div class="result-row">
+      <span class="result-key">TNT ที่ต้องการ</span>
+      <span class="result-val">${tnt.toFixed(2)} ปอนด์</span>
+    </div>
+    <div class="result-row">
+      <span class="result-key">RE Factor ที่ใช้</span>
+      <span class="result-val">${re.toFixed(2)}</span>
+    </div>
+    <div class="result-row">
+      <span class="result-key">น้ำหนักดินแทน (1 แห่ง)</span>
+      <span class="result-val" style="color:var(--accent);font-size:16px;">${convRounded.toFixed(2)} ปอนด์</span>
+    </div>
+    ${unit > 0 ? `
+    <div class="result-row">
+      <span class="result-key">จำนวนแท่ง (1 แห่ง)</span>
+      <span class="result-val" style="color:var(--accent3);">${unitsPerPlace} แท่ง</span>
+    </div>` : ''}
+    ${places > 1 ? `
+    <div class="result-row">
+      <span class="result-key">น้ำหนักรวม (${places} แห่ง)</span>
+      <span class="result-val">${totalWeight.toFixed(2)} ปอนด์</span>
+    </div>
+    ${unit > 0 ? `
+    <div class="result-row">
+      <span class="result-key">จำนวนแท่งรวม (${places} แห่ง)</span>
+      <span class="result-val" style="color:var(--green);font-size:16px;">${totalUnits} แท่ง</span>
+    </div>` : ''}` : ''}
+  `;
+  document.getElementById('conv-result').classList.add('show');
 }
 
 function calcSafeDist() {
