@@ -218,6 +218,8 @@
 <nav class="nav">
   <div class="nav-inner">
     <button class="nav-btn active" onclick="showTab('overview')">🏠 ภาพรวม</button>
+    <button class="nav-btn" onclick="showTab('explosive')">💥 วัตถุระเบิด</button>
+    <button class="nav-btn" onclick="showTab('demblock')">🧱 ดินระเบิดแท่ง</button>
     <button class="nav-btn" onclick="showTab('fuse')">🔥 ชนวน</button>
     <button class="nav-btn" onclick="showTab('electric')">⚡ ไฟฟ้า</button>
     <button class="nav-btn" onclick="showTab('detonating')">💣 ฝักแค</button>
@@ -338,6 +340,629 @@
         </div>
       </div>
     </div>
+  </div>
+
+  <!-- ── EXPLOSIVE CHARACTERISTICS ── -->
+  <div id="explosive" class="section">
+
+    <!-- นิยาม -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(245,158,11,0.15);font-size:22px">💥</div>
+        <div>
+          <div class="card-title">คุณลักษณะของวัตถุระเบิดทางทหาร</div>
+          <div class="card-sub"><span class="tag tag-orange">Military Explosives</span></div>
+        </div>
+      </div>
+      <div style="font-size:14px;line-height:1.8;color:var(--text);background:var(--surface2);border-radius:8px;padding:14px;">
+        วัตถุระเบิด เป็นสสารชนิดหนึ่ง ทั้งของแข็ง ของเหลว และก๊าส เมื่อได้รับปฏิกิริยาจากภายนอก ทั้งความร้อน เปลวไฟ การกระแทก การเสียดสี จะเปลี่ยนจากเดิมเป็นก๊าสจำนวนมหาศาล ก่อให้เกิด<strong>แสงสว่าง เปลวไฟ ความร้อน และแรงดัน</strong>จำนวนมหาศาล
+      </div>
+      <div style="margin-top:10px;background:var(--surface2);border-radius:8px;padding:12px;border-left:3px solid var(--accent);">
+        <div style="font-size:12px;font-weight:700;color:var(--accent);margin-bottom:6px;">การแยกชนิดวัตถุระเบิด</div>
+        <div style="font-size:13px;color:var(--text);">แยกเป็น <strong>วัตถุระเบิดแรงต่ำ</strong> และ <strong>วัตถุระเบิดแรงสูง</strong> โดยใช้ <strong>อัตราเร็วในการระเบิด</strong> (ฟุต หรือ เมตรต่อวินาที) เป็นเกณฑ์</div>
+      </div>
+    </div>
+
+    <!-- คุณลักษณะ -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(59,130,246,0.15);font-size:20px">📋</div>
+        <div>
+          <div class="card-title">คุณลักษณะที่ต้องการ</div>
+          <div class="card-sub"><span class="tag tag-blue">Required Characteristics</span></div>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step blue"><span class="step-num">1</span><span class="step-text">ผลิตจากวัตถุดิบที่<strong>หาง่าย ราคาถูก</strong></span></div>
+        <div class="step blue"><span class="step-num">2</span><span class="step-text">ทนต่อการ<strong>สั่นสะเทือน การเสียดสี</strong> ประกอบการจุดระเบิดได้ง่าย</span></div>
+        <div class="step blue"><span class="step-num">3</span><span class="step-text">สามารถ<strong>ทำลายอย่างเพียงพอและเหมาะสม</strong></span></div>
+        <div class="step blue"><span class="step-num">4</span><span class="step-text">ทนต่อทุกสภาพอากาศ ในระหว่างอุณหภูมิ <strong>-80°F ถึง 165°F</strong></span></div>
+        <div class="step blue"><span class="step-num">5</span><span class="step-text">มี<strong>ความหนาแน่นมาก</strong></span></div>
+        <div class="step blue"><span class="step-num">6</span><span class="step-text">มี<strong>พิษน้อย</strong> เมื่อเก็บรักษา จับถือ และระเบิด</span></div>
+        <div class="step blue"><span class="step-num">7</span><span class="step-text">ขนาดรูปร่าง<strong>เหมาะสม</strong>ในการบรรจุ เก็บรักษา แจกจ่าย จับถือ และวางโดยหน่วยทหาร</span></div>
+        <div class="step blue"><span class="step-num">8</span><span class="step-text">มี<strong>อำนาจผลักดันต่อหน่วยสูง</strong></span></div>
+      </div>
+    </div>
+
+    <!-- แรงต่ำ vs แรงสูง -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(239,68,68,0.15);font-size:20px">⚖️</div>
+        <div>
+          <div class="card-title">วัตถุระเบิดแรงต่ำ vs แรงสูง</div>
+          <div class="card-sub"><span class="tag tag-red">Low vs High Explosive</span></div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+        <div style="background:var(--surface2);border-radius:8px;padding:12px;border-top:3px solid var(--accent3);">
+          <div style="font-size:13px;font-weight:700;color:var(--accent3);margin-bottom:8px;">🟡 แรงต่ำ (Low)</div>
+          <div style="font-size:13px;line-height:1.7;color:var(--text);">
+            เกิดจากการเผาไหม้<strong>ช้าๆ</strong> จากของแข็งไปเป็นก๊าส<br>
+            ใช้เมื่อต้องการ<strong>ผลักดัน</strong><br>
+            เช่น ดินดำ, ดินไร้ควัน<br>
+            อัตราเร็ว: <strong style="color:var(--accent3);">ถึง 400 ม./วิ</strong><br>
+            (1,312 ฟุต/วิ)
+          </div>
+        </div>
+        <div style="background:var(--surface2);border-radius:8px;padding:12px;border-top:3px solid var(--accent2);">
+          <div style="font-size:13px;font-weight:700;color:var(--accent2);margin-bottom:8px;">🔴 แรงสูง (High)</div>
+          <div style="font-size:13px;line-height:1.7;color:var(--text);">
+            เปลี่ยนเป็นก๊าส<strong>อย่างรวดเร็ว</strong><br>
+            ก่อให้เกิดผล<strong>ฉีกขาด</strong><br>
+            ใช้ทำดินระเบิดแท่ง, ทุ่นระเบิด<br>
+            อัตราเร็ว: <strong style="color:var(--accent2);">1,000–8,500 ม./วิ</strong><br>
+            (3,280–27,880 ฟุต/วิ)
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ปัจจัยประสิทธิภาพ -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(245,158,11,0.15);font-size:20px">📊</div>
+        <div>
+          <div class="card-title">ปัจจัยความมีประสิทธิภาพผลลัพธ์</div>
+          <div class="card-sub"><span class="tag tag-orange">RE Factor</span></div>
+        </div>
+      </div>
+      <div style="font-size:13px;line-height:1.8;color:var(--text);background:var(--surface2);border-radius:8px;padding:12px;">
+        การทำลายทางทหารที่เกี่ยวกับการระเบิดตัด หรือระเบิดแตกหัก ปริมาณการใช้ดินระเบิดจะได้รับการปรับเปลี่ยนด้วย<strong>ปัจจัยตัวกำลังเปรียบเทียบ (RE Factor)</strong> โดยใช้ค่าของ <strong>TNT เป็นหลัก (= 1.00)</strong>
+      </div>
+    </div>
+
+    <!-- ตารางวัตถุระเบิด -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(34,197,94,0.15);font-size:20px">🧪</div>
+        <div>
+          <div class="card-title">วัตถุระเบิดที่ใช้ในทางทหาร</div>
+          <div class="card-sub"><span class="tag tag-green">Military Explosives — RE Factor</span></div>
+        </div>
+      </div>
+
+      <!-- AMMONIUM NITRATE -->
+      <div style="border:1px solid var(--border);border-radius:8px;margin-bottom:10px;overflow:hidden;">
+        <div style="background:var(--surface2);padding:10px 12px;">
+          <div style="font-size:14px;font-weight:700;color:#fff;">AMMONIUM NITRATE <span style="font-size:13px;font-weight:600;color:#94a3b8;">(0.42)</span></div>
+        </div>
+        <div class="steps" style="padding:10px 12px;">
+          <div class="step orange"><span class="step-num">•</span><span class="step-text">มีความไวในการระเบิด<strong>น้อยที่สุด</strong>ในบรรดาวัตถุระเบิดทางทหาร</span></div>
+          <div class="step orange"><span class="step-num">•</span><span class="step-text">ต้องมี<strong>ดินขยายการระเบิด</strong>ช่วยในการระเบิด</span></div>
+          <div class="step orange"><span class="step-num">•</span><span class="step-text">เหมาะสำหรับ<strong>หลุมระเบิดหรือขุดคู</strong></span></div>
+          <div class="step red"><span class="step-num">✕</span><span class="step-text">ไม่เหมาะที่จะใช้<strong>ใต้น้ำ</strong></span></div>
+        </div>
+      </div>
+
+      <!-- BLACK POWDER -->
+      <div style="border:1px solid var(--border);border-radius:8px;margin-bottom:10px;overflow:hidden;">
+        <div style="background:var(--surface2);padding:10px 12px;">
+          <div style="font-size:14px;font-weight:700;color:#fff;">BLACK POWDER <span style="font-size:13px;font-weight:600;color:#94a3b8;">(0.55)</span></div>
+        </div>
+        <div class="steps" style="padding:10px 12px;">
+          <div class="step orange"><span class="step-num">•</span><span class="step-text">วัตถุระเบิดที่<strong>เก่าแก่ที่สุด</strong> รู้จักกันว่าเป็น<strong>ดินขับ</strong></span></div>
+          <div class="step orange"><span class="step-num">•</span><span class="step-text">ส่วนผสม: โปแตสเซียม/โซเดียมไนเตรท + ถ่านโค้ก + กำมะถัน</span></div>
+          <div class="step orange"><span class="step-num">•</span><span class="step-text">ใช้ใน<strong>ชนวนฝักแคเวลา</strong> ดินปะทุ และเครื่องจุดบางชนิด เพื่อเป็น<strong>ส่วนถ่วงเวลา</strong></span></div>
+        </div>
+      </div>
+
+      <!-- MILITARY DYNAMITE -->
+      <div style="border:1px solid var(--border);border-radius:8px;margin-bottom:10px;overflow:hidden;">
+        <div style="background:var(--surface2);padding:10px 12px;">
+          <div style="font-size:14px;font-weight:700;color:#fff;">MILITARY DYNAMITE <span style="font-size:13px;font-weight:600;color:#94a3b8;">(0.92)</span></div>
+        </div>
+        <div class="steps" style="padding:10px 12px;">
+          <div class="step orange"><span class="step-num">•</span><span class="step-text">ประกอบด้วย RDX 75% + TNT 15% + วัสดุลดความไวและพลาสติก 10%</span></div>
+          <div class="step orange"><span class="step-num">•</span><span class="step-text">มีอำนาจเท่ากับ<strong>ไดนาไมท์ 60%</strong> ทางการค้า</span></div>
+          <div class="step green"><span class="step-num">✓</span><span class="step-text">ไม่มีไนโตรกลีเซอรีน <strong>ปลอดภัยในการเก็บรักษา</strong></span></div>
+        </div>
+      </div>
+
+      <!-- TNT -->
+      <div style="border:1px solid var(--border);border-radius:8px;margin-bottom:10px;overflow:hidden;">
+        <div style="background:var(--surface2);padding:10px 12px;">
+          <div style="font-size:14px;font-weight:700;color:var(--accent);">TNT ⭐ มาตรฐาน <span style="font-size:13px;font-weight:600;color:#94a3b8;">(1.00)</span></div>
+        </div>
+        <div class="steps" style="padding:10px 12px;">
+          <div class="step orange"><span class="step-num">•</span><span class="step-text">ประเทศ<strong>เยอรมัน</strong>เป็นผู้ผลิตเป็นชาติแรก</span></div>
+          <div class="step orange"><span class="step-num">•</span><span class="step-text">เป็น<strong>ดินระเบิดมาตรฐานทางทหาร</strong> ลักษณะเป็นผลึกสีเหลืองอ่อน มีความคงทน</span></div>
+          <div class="step orange"><span class="step-num">•</span><span class="step-text">มีความไวในการระเบิดน้อย ใช้เป็น<strong>ดินระเบิดทำลายทั่วไป</strong></span></div>
+          <div class="step orange"><span class="step-num">•</span><span class="step-text">บรรจุใน<strong>ลูกระเบิด ทุ่นระเบิด ลูกระเบิดขว้าง</strong> ฯลฯ</span></div>
+        </div>
+      </div>
+
+      <!-- AMATOL -->
+      <div style="border:1px solid var(--border);border-radius:8px;margin-bottom:10px;overflow:hidden;">
+        <div style="background:var(--surface2);padding:10px 12px;">
+          <div style="font-size:14px;font-weight:700;color:#fff;">AMATOL <span style="font-size:13px;font-weight:600;color:#94a3b8;">(1.17)</span></div>
+        </div>
+        <div class="steps" style="padding:10px 12px;">
+          <div class="step blue"><span class="step-num">•</span><span class="step-text">ส่วนผสม: <strong>แอมโมเนียมไนเตรท + TNT</strong></span></div>
+          <div class="step blue"><span class="step-num">•</span><span class="step-text">อมาตอล 80–20 (แอมโมเนียมไนเตรท 80% + TNT 20%)</span></div>
+          <div class="step blue"><span class="step-num">•</span><span class="step-text">บรรจุใน<strong>บังกาโลตอร์ปิโดรุ่นเก่า</strong></span></div>
+        </div>
+      </div>
+
+      <!-- PENTOLITE -->
+      <div style="border:1px solid var(--border);border-radius:8px;margin-bottom:10px;overflow:hidden;">
+        <div style="background:var(--surface2);padding:10px 12px;">
+          <div style="font-size:14px;font-weight:700;color:#fff;">PENTOLITE <span style="font-size:13px;font-weight:600;color:#94a3b8;">(1.17)</span></div>
+        </div>
+        <div class="steps" style="padding:10px 12px;">
+          <div class="step blue"><span class="step-num">•</span><span class="step-text">ประกอบด้วย PETN 50% + TNT 50%</span></div>
+          <div class="step blue"><span class="step-num">•</span><span class="step-text">อำนาจมากกว่า TNT ความไวน้อยกว่า PETN</span></div>
+        </div>
+      </div>
+
+      <!-- TETRYTOL -->
+      <div style="border:1px solid var(--border);border-radius:8px;margin-bottom:10px;overflow:hidden;">
+        <div style="background:var(--surface2);padding:10px 12px;">
+          <div style="font-size:14px;font-weight:700;color:#fff;">TETRYTOL <span style="font-size:13px;font-weight:600;color:#94a3b8;">(1.20)</span></div>
+        </div>
+        <div class="steps" style="padding:10px 12px;">
+          <div class="step blue"><span class="step-num">•</span><span class="step-text">ประกอบด้วย <strong>เทตตริล 75% + TNT 25%</strong></span></div>
+          <div class="step blue"><span class="step-num">•</span><span class="step-text">ใช้ทำ<strong>ดินระเบิดแท่ง</strong> และเป็นส่วนผสมของดินระเบิดชนิดอื่น</span></div>
+          <div class="step blue"><span class="step-num">•</span><span class="step-text">อำนาจมากกว่า TNT ความไวน้อยกว่าเทตตริล</span></div>
+          <div class="step red"><span class="step-num">!</span><span class="step-text"><strong>เปราะแตกหักง่าย</strong> ทำให้อำนาจการระเบิดน้อยลง</span></div>
+        </div>
+      </div>
+
+      <!-- TETRYL -->
+      <div style="border:1px solid var(--border);border-radius:8px;margin-bottom:10px;overflow:hidden;">
+        <div style="background:var(--surface2);padding:10px 12px;">
+          <div style="font-size:14px;font-weight:700;color:#fff;">TETRYL <span style="font-size:13px;font-weight:600;color:#94a3b8;">(1.25)</span></div>
+        </div>
+        <div class="steps" style="padding:10px 12px;">
+          <div class="step blue"><span class="step-num">•</span><span class="step-text">มีความไว และอำนาจการระเบิด<strong>มากกว่า TNT</strong></span></div>
+          <div class="step blue"><span class="step-num">•</span><span class="step-text">ใช้เป็น<strong>ดินขยายการระเบิด</strong> ทำวัตถุระเบิด และใช้ในการระเบิดทำลาย</span></div>
+        </div>
+      </div>
+
+      <!-- COMPOSITION C4 -->
+      <div style="border:1px solid var(--border);border-radius:8px;margin-bottom:10px;overflow:hidden;">
+        <div style="background:var(--surface2);padding:10px 12px;">
+          <div style="font-size:14px;font-weight:700;color:#fff;">COMPOSITION C4 <span style="font-size:13px;font-weight:600;color:#94a3b8;">(1.34)</span></div>
+        </div>
+        <div class="steps" style="padding:10px 12px;">
+          <div class="step blue"><span class="step-num">•</span><span class="step-text">ประกอบด้วย <strong>RDX 91%</strong> + วัสดุพลาสติกที่ไม่ใช่ดินระเบิด 9%</span></div>
+          <div class="step blue"><span class="step-num">•</span><span class="step-text">อำนาจเท่ากับ Composition C3 แต่<strong>รักษาสภาพได้ดีใต้น้ำ</strong></span></div>
+        </div>
+      </div>
+
+      <!-- NITROGLYCERIN -->
+      <div style="border:1px solid var(--border);border-radius:8px;margin-bottom:10px;overflow:hidden;">
+        <div style="background:var(--surface2);padding:10px 12px;">
+          <div style="font-size:14px;font-weight:700;color:#fff;">NITROGLYCERIN <span style="font-size:13px;font-weight:600;color:#94a3b8;">(1.50)</span></div>
+        </div>
+        <div class="steps" style="padding:10px 12px;">
+          <div class="step blue"><span class="step-num">•</span><span class="step-text">อำนาจพอๆ กับ RDX และ PETN</span></div>
+          <div class="step blue"><span class="step-num">•</span><span class="step-text">ใช้เป็น<strong>ดินระเบิดหลักในไดนาไมท์</strong>ทางการค้า</span></div>
+          <div class="step red"><span class="step-num">!</span><span class="step-text">มีความไวสูงเมื่อถูก<strong>กระทบกระแทกและเสียดสี</strong></span></div>
+          <div class="step red"><span class="step-num">✕</span><span class="step-text"><strong>ไม่นำมาใช้</strong>เป็นวัตถุระเบิดทางทหาร และไม่ใช้ในพื้นที่การรบ</span></div>
+        </div>
+      </div>
+
+      <!-- RDX -->
+      <div style="border:1px solid var(--border);border-radius:8px;margin-bottom:10px;overflow:hidden;">
+        <div style="background:var(--surface2);padding:10px 12px;">
+          <div style="font-size:14px;font-weight:700;color:#fff;">RDX <span style="font-size:13px;font-weight:600;color:#94a3b8;">(1.60)</span></div>
+        </div>
+        <div class="steps" style="padding:10px 12px;">
+          <div class="step blue"><span class="step-num">•</span><span class="step-text">มีความไวในการระเบิดมาก <strong>อำนาจการทำลายล้างสูง</strong></span></div>
+          <div class="step blue"><span class="step-num">•</span><span class="step-text">บรรจุในเชื้อปะทุไฟฟ้า M6 และ<strong>เชื้อปะทุชนวน M7</strong></span></div>
+          <div class="step blue"><span class="step-num">•</span><span class="step-text">ใช้เป็น<strong>ดินขยายการระเบิด</strong></span></div>
+          <div class="step blue"><span class="step-num">•</span><span class="step-text">ส่วนใหญ่ใช้เป็น<strong>ส่วนผสมทำดินระเบิดชนิดอื่น</strong></span></div>
+        </div>
+      </div>
+
+      <!-- PETN -->
+      <div style="border:1px solid var(--border);border-radius:8px;margin-bottom:10px;overflow:hidden;">
+        <div style="background:var(--surface2);padding:10px 12px;">
+          <div style="font-size:14px;font-weight:700;color:var(--accent2);">PETN ⭐ อำนาจสูงสุด <span style="font-size:13px;font-weight:600;color:#94a3b8;">(1.66)</span></div>
+        </div>
+        <div class="steps" style="padding:10px 12px;">
+          <div class="step red"><span class="step-num">★</span><span class="step-text">มีอำนาจ<strong>มากที่สุด</strong>ในบรรดาระเบิดทางทหาร</span></div>
+          <div class="step red"><span class="step-num">•</span><span class="step-text">ใช้เป็น<strong>ดินขยายการระเบิด</strong></span></div>
+          <div class="step red"><span class="step-num">•</span><span class="step-text">บรรจุใน<strong>ชนวนฝักแคระเบิด</strong></span></div>
+          <div class="step green"><span class="step-num">✓</span><span class="step-text">ไม่ละลายน้ำ <strong>สามารถใช้ใต้น้ำ</strong>ได้</span></div>
+        </div>
+      </div>
+
+      <!-- ส่วนผสม -->
+      <div class="divider"></div>
+      <div style="font-size:12px;font-weight:700;color:var(--muted);letter-spacing:1px;margin:10px 0 8px;">🔬 ดินระเบิดผสม (Compositions)</div>
+
+      <div style="border:1px solid var(--border);border-radius:8px;margin-bottom:10px;overflow:hidden;">
+        <div style="background:var(--surface2);padding:10px 12px;">
+          <div style="font-size:13px;font-weight:700;color:#fff;">COMPOSITION A3</div>
+        </div>
+        <div style="padding:10px 12px;font-size:13px;line-height:1.7;color:var(--text);">
+          RDX 91% + ขี้ผึ้ง 9% — อำนาจฉีกขาดดี เหมาะบรรจุอัดลูกกระสุน ใช้เป็นดินขยายการระเบิดในเชฟชาร์จรุ่นใหม่ บังกาโลตอร์ปิโด และดินระเบิดพลาสติกแรงสูง
+        </div>
+      </div>
+
+      <div style="border:1px solid var(--border);border-radius:8px;margin-bottom:10px;overflow:hidden;">
+        <div style="background:var(--surface2);padding:10px 12px;">
+          <div style="font-size:13px;font-weight:700;color:#fff;">COMPOSITION B / B4</div>
+        </div>
+        <div style="padding:10px 12px;font-size:13px;line-height:1.7;color:var(--text);">
+          <strong>B:</strong> RDX 60% + TNT 39% + ขี้ผึ้ง 1% — ใช้เป็นดินระเบิดหลักในเชฟชาร์จ<br>
+          <strong>B4:</strong> RDX 60% + TNT 39.5% + แคลเซียมซิลิเกต 0.5% — ใช้ในบังกาโลตอร์ปิโดแบบใหม่และเชฟชาร์จ
+        </div>
+      </div>
+
+      <div style="border:1px solid var(--border);border-radius:8px;margin-bottom:10px;overflow:hidden;">
+        <div style="background:var(--surface2);padding:10px 12px;">
+          <div style="font-size:13px;font-weight:700;color:#fff;">COMPOSITION C2 / C3</div>
+        </div>
+        <div style="padding:10px 12px;font-size:13px;line-height:1.7;color:var(--text);">
+          <strong>C2:</strong> RDX 80% + ดินระเบิดพลาสติก 20%<br>
+          <strong>C3:</strong> RDX 77% + ดินระเบิดพลาสติก 23%<br>
+          ทั้งสองชนิด<strong>อ่อนและปั้นได้</strong> ที่อุณหภูมิ 20°F ถึง +125°F — ใช้ในการทำลาย ทำดินระเบิดแท่ง
+        </div>
+      </div>
+
+      <div style="border:1px solid var(--border);border-radius:8px;margin-bottom:10px;overflow:hidden;">
+        <div style="background:var(--surface2);padding:10px 12px;">
+          <div style="font-size:13px;font-weight:700;color:#fff;">DYNAMITES (ไดนาไมท์)</div>
+        </div>
+        <div style="padding:10px 12px;font-size:13px;line-height:1.7;color:var(--text);">
+          เดิมใช้เรียกส่วนผสมของไนโตรกลีเซอรีนกับสารที่ดูดซึม ปัจจุบันมีหลายชนิด เช่น <strong>สเตรทไดนาไมท์</strong>, <strong>เยลาตินไดนาไมท์</strong> ฯลฯ
+        </div>
+      </div>
+
+    </div>
+
+    <!-- การใช้และการทำลาย -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(239,68,68,0.15);font-size:20px">🎯</div>
+        <div>
+          <div class="card-title">การใช้วัตถุระเบิดทางทหาร</div>
+          <div class="card-sub"><span class="tag tag-red">Military Use</span></div>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step blue"><span class="step-num">1</span><span class="step-text">ชนิด คุณลักษณะพิเศษ การใช้วัตถุระเบิดและอุปกรณ์</span></div>
+        <div class="step blue"><span class="step-num">2</span><span class="step-text">การเตรียมการ การวาง การจุดระเบิด</span></div>
+        <div class="step blue"><span class="step-num">3</span><span class="step-text"><strong>สูตรการคำนวณหาดินระเบิด</strong></span></div>
+        <div class="step blue"><span class="step-num">4</span><span class="step-text">วิธีการทำลายแบบประณีต และเร่งด่วน</span></div>
+        <div class="step blue"><span class="step-num">5</span><span class="step-text">กฏความปลอดภัยต่างๆ</span></div>
+        <div class="step blue"><span class="step-num">6</span><span class="step-text">การจับถือ การขนส่ง และการเก็บรักษา</span></div>
+        <div class="step blue"><span class="step-num">7</span><span class="step-text">การใช้ดินระเบิดที่<strong>เหมาะสมกับการทำลาย</strong></span></div>
+      </div>
+    </div>
+
+    <!-- วิธีการทำลายล้าง -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(239,68,68,0.15);font-size:20px">💣</div>
+        <div>
+          <div class="card-title">วิธีการทำลายล้าง</div>
+          <div class="card-sub"><span class="tag tag-red">Methods of Destruction</span></div>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step orange"><span class="step-num">1</span><span class="step-text">ด้วย<strong>น้ำ</strong></span></div>
+        <div class="step orange"><span class="step-num">2</span><span class="step-text">ด้วย<strong>ไฟ</strong></span></div>
+        <div class="step orange"><span class="step-num">3</span><span class="step-text">ด้วย<strong>วัตถุระเบิด</strong></span></div>
+        <div class="step orange"><span class="step-num">4</span><span class="step-text">ด้วย<strong>เครื่องมือกล</strong></span></div>
+        <div class="step orange"><span class="step-num">5</span><span class="step-text">ด้วย<strong>อาวุธยิง</strong></span></div>
+      </div>
+      <div style="background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.3);border-radius:8px;padding:10px;margin-top:8px;font-size:13px;color:var(--text);">
+        💡 การทำลายวิธีใดก็แล้วแต่<strong>สถานที่และเป้าหมาย</strong>ที่จะทำลาย
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── DEMOLITION BLOCKS ── -->
+  <div id="demblock" class="section">
+
+    <!-- intro card -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(245,158,11,0.15);font-size:22px">🧱</div>
+        <div>
+          <div class="card-title">ดินระเบิดแท่ง</div>
+          <div class="card-sub"><span class="tag tag-orange">Demolition Blocks</span></div>
+        </div>
+      </div>
+      <div style="font-size:13px;color:var(--muted);line-height:1.7;">
+        ดินระเบิดแท่งมีหลายชนิด แต่ละชนิดมีคุณสมบัติและการใช้งานที่แตกต่างกัน
+        การเลือกใช้ขึ้นอยู่กับ<strong>เป้าหมาย อุณหภูมิ และสภาพแวดล้อม</strong>ของการปฏิบัติงาน
+      </div>
+    </div>
+
+    <!-- helper macro for each block -->
+
+    <!-- TNT -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(245,158,11,0.15);font-size:18px">🟡</div>
+        <div>
+          <div class="card-title">TNT</div>
+          <div class="card-sub"><span class="tag tag-orange">ดินระเบิดมาตรฐาน</span></div>
+        </div>
+      </div>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/TNT_block.jpg/320px-TNT_block.jpg"
+           onerror="this.style.display='none'"
+           style="width:100%;max-height:180px;object-fit:cover;border-radius:8px;margin-bottom:12px;">
+      <div class="steps">
+        <div class="step orange"><span class="step-num">•</span><span class="step-text">เป็น<strong>ดินระเบิดมาตรฐานทางทหาร</strong> รูปร่างขนาดเหมาะสม</span></div>
+        <div class="step orange"><span class="step-num">•</span><span class="step-text">ไม่ไวต่อการเสียดสีและกระทบกระแทก <strong>ป้องกันน้ำได้</strong></span></div>
+        <div class="step red"><span class="step-num">!</span><span class="step-text"><strong>ปั้นไม่ได้</strong> และ<strong>ควันเป็นพิษ</strong></span></div>
+      </div>
+    </div>
+
+    <!-- TETRYTOL M1 -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(59,130,246,0.15);font-size:18px">📦</div>
+        <div>
+          <div class="card-title">TETRYTOL M1</div>
+          <div class="card-sub"><span class="tag tag-blue">Tetrytol 75/25</span></div>
+        </div>
+      </div>
+      <div class="info-grid" style="margin-bottom:10px;">
+        <div class="info-item"><div class="info-label">จำนวน</div><div class="info-value">1 พวง / 8 แท่ง</div></div>
+        <div class="info-item"><div class="info-label">น้ำหนักต่อแท่ง</div><div class="info-value" style="color:var(--accent3);">2½ ปอนด์</div></div>
+        <div class="info-item"><div class="info-label">บรรจุใน</div><div class="info-value">ถุงย่าม</div></div>
+        <div class="info-item"><div class="info-label">ใต้น้ำ</div><div class="info-value" style="color:var(--green);">✓ ได้</div></div>
+      </div>
+      <div class="steps">
+        <div class="step blue"><span class="step-num">•</span><span class="step-text">เหมาะใช้เป็น<strong>ดินระเบิดตัด</strong>และ<strong>แตกหัก</strong></span></div>
+        <div class="step blue"><span class="step-num">•</span><span class="step-text">ใช้ใต้น้ำได้</span></div>
+      </div>
+    </div>
+
+    <!-- TETRYTOL M2 -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(59,130,246,0.15);font-size:18px">📦</div>
+        <div>
+          <div class="card-title">TETRYTOL M2</div>
+          <div class="card-sub"><span class="tag tag-blue">Tetrytol 75/25</span></div>
+        </div>
+      </div>
+      <div class="info-grid" style="margin-bottom:10px;">
+        <div class="info-item"><div class="info-label">น้ำหนักต่อแท่ง</div><div class="info-value" style="color:var(--accent3);">2½ ปอนด์</div></div>
+        <div class="info-item"><div class="info-label">รูเสียบเชื้อปะทุ</div><div class="info-value">หัว + ท้าย</div></div>
+        <div class="info-item"><div class="info-label">ใต้น้ำ</div><div class="info-value" style="color:var(--green);">✓ ได้</div></div>
+      </div>
+      <div class="steps">
+        <div class="step blue"><span class="step-num">•</span><span class="step-text">ด้านหัวและท้ายมี<strong>รูเสียบเชื้อปะทุ</strong></span></div>
+        <div class="step blue"><span class="step-num">•</span><span class="step-text">เหมาะใช้เป็น<strong>ดินระเบิดตัดและแตกหัก</strong></span></div>
+      </div>
+    </div>
+
+    <!-- COMPOSITION M3 (C2/C3) -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(34,197,94,0.15);font-size:18px">🟢</div>
+        <div>
+          <div class="card-title">COMPOSITION M3</div>
+          <div class="card-sub"><span class="tag tag-green">Composition C2 / C3</span></div>
+        </div>
+      </div>
+      <div class="info-grid" style="margin-bottom:10px;">
+        <div class="info-item"><div class="info-label">น้ำหนักต่อแท่ง</div><div class="info-value" style="color:var(--green);">2¼ ปอนด์</div></div>
+        <div class="info-item"><div class="info-label">ปั้นได้</div><div class="info-value" style="color:var(--green);">✓ ได้</div></div>
+        <div class="info-item"><div class="info-label">อุณหภูมิใช้งาน</div><div class="info-value">-20°F ถึง 125°F</div></div>
+      </div>
+      <div class="steps">
+        <div class="step green"><span class="step-num">✓</span><span class="step-text">เหมาะ<strong>ระเบิดตัดเหล็ก</strong>และเป้าหมายที่ไม่สม่ำเสมอ</span></div>
+        <div class="step red"><span class="step-num">!</span><span class="step-text">ต่ำกว่า -20°F จะ<strong>เปราะ</strong> / สูงกว่า 125°F จะ<strong>ไหลเยิ้ม</strong></span></div>
+      </div>
+    </div>
+
+    <!-- M5 A1 (C4) -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(34,197,94,0.15);font-size:18px">🟢</div>
+        <div>
+          <div class="card-title">M5 A1</div>
+          <div class="card-sub"><span class="tag tag-green">Composition C4</span></div>
+        </div>
+      </div>
+      <div class="info-grid" style="margin-bottom:10px;">
+        <div class="info-item"><div class="info-label">น้ำหนักต่อแท่ง</div><div class="info-value" style="color:var(--green);">2½ ปอนด์</div></div>
+        <div class="info-item"><div class="info-label">ปั้นได้</div><div class="info-value" style="color:var(--green);">✓ ได้</div></div>
+        <div class="info-item"><div class="info-label">อุณหภูมิใช้งาน</div><div class="info-value">-70°F ถึง 170°F</div></div>
+      </div>
+      <div class="steps">
+        <div class="step green"><span class="step-num">✓</span><span class="step-text">ปั้นได้และ<strong>ใช้ได้ตามต้องการ</strong></span></div>
+        <div class="step green"><span class="step-num">✓</span><span class="step-text">เหมาะใช้<strong>ระเบิดตัดเหล็ก</strong></span></div>
+      </div>
+    </div>
+
+    <!-- M112 (C4) -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(34,197,94,0.15);font-size:18px">🟢</div>
+        <div>
+          <div class="card-title">M112</div>
+          <div class="card-sub"><span class="tag tag-green">Composition C4</span></div>
+        </div>
+      </div>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/C4_explosive.jpg/320px-C4_explosive.jpg"
+           onerror="this.style.display='none'"
+           style="width:100%;max-height:180px;object-fit:cover;border-radius:8px;margin-bottom:12px;">
+      <div class="info-grid" style="margin-bottom:10px;">
+        <div class="info-item"><div class="info-label">น้ำหนักต่อแท่ง</div><div class="info-value" style="color:var(--green);">1¼ ปอนด์</div></div>
+        <div class="info-item"><div class="info-label">แถบกาว</div><div class="info-value" style="color:var(--green);">✓ มี</div></div>
+        <div class="info-item"><div class="info-label">ปั้นและตัดแบ่ง</div><div class="info-value" style="color:var(--green);">✓ ได้</div></div>
+      </div>
+      <div class="steps">
+        <div class="step green"><span class="step-num">★</span><span class="step-text"><strong>เหมาะอย่างยิ่ง</strong>สำหรับการ<strong>ระเบิดตัดเหล็ก</strong></span></div>
+        <div class="step green"><span class="step-num">✓</span><span class="step-text">มี<strong>แถบกาวให้ยึดติดกับเป้าหมาย</strong></span></div>
+      </div>
+    </div>
+
+    <!-- M118 (PETN) -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(239,68,68,0.15);font-size:18px">🔴</div>
+        <div>
+          <div class="card-title">M118</div>
+          <div class="card-sub"><span class="tag tag-red">PETN</span></div>
+        </div>
+      </div>
+      <div class="info-grid" style="margin-bottom:10px;">
+        <div class="info-item"><div class="info-label">น้ำหนักต่อแท่ง</div><div class="info-value" style="color:var(--accent2);">2 ปอนด์</div></div>
+        <div class="info-item"><div class="info-label">จำนวนแผ่น</div><div class="info-value">4 แผ่น / แท่ง</div></div>
+        <div class="info-item"><div class="info-label">น้ำหนักต่อแผ่น</div><div class="info-value">½ ปอนด์</div></div>
+      </div>
+      <div class="steps">
+        <div class="step red"><span class="step-num">•</span><span class="step-text">ใช้เป็น<strong>ดินระเบิดตัด</strong>โดยเฉพาะเป้าหมายที่เป็น<strong>เหล็ก</strong></span></div>
+      </div>
+    </div>
+
+    <!-- M186 (PETN) -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(239,68,68,0.15);font-size:18px">🔴</div>
+        <div>
+          <div class="card-title">M186</div>
+          <div class="card-sub"><span class="tag tag-red">PETN — แบบม้วน</span></div>
+        </div>
+      </div>
+      <div class="info-grid" style="margin-bottom:10px;">
+        <div class="info-item"><div class="info-label">รูปแบบ</div><div class="info-value">ม้วนในหลอดพลาสติก</div></div>
+        <div class="info-item"><div class="info-label">ความยาว</div><div class="info-value">50 ฟุต</div></div>
+        <div class="info-item"><div class="info-label">น้ำหนัก/ฟุต</div><div class="info-value" style="color:var(--accent2);">½ ปอนด์</div></div>
+        <div class="info-item"><div class="info-label">ตัดแบ่ง</div><div class="info-value" style="color:var(--green);">✓ ได้</div></div>
+      </div>
+      <div class="steps">
+        <div class="step red"><span class="step-num">•</span><span class="step-text">เป็น<strong>ดินระเบิดตัด</strong> ใช้ได้ดีกับเป้าหมายที่เป็น<strong>เหล็ก</strong></span></div>
+      </div>
+    </div>
+
+    <!-- MILITARY DYNAMITE -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(245,158,11,0.15);font-size:18px">🟡</div>
+        <div>
+          <div class="card-title">MILITARY DYNAMITE</div>
+          <div class="card-sub"><span class="tag tag-orange">RDX 75% / TNT 15%</span></div>
+        </div>
+      </div>
+      <div class="info-grid" style="margin-bottom:10px;">
+        <div class="info-item"><div class="info-label">น้ำหนักต่อแท่ง</div><div class="info-value" style="color:var(--accent);">½ ปอนด์</div></div>
+        <div class="info-item"><div class="info-label">ใต้น้ำ</div><div class="info-value">≤ 24 ชม.</div></div>
+      </div>
+      <div class="steps">
+        <div class="step orange"><span class="step-num">•</span><span class="step-text">ใช้งานใน<strong>แหล่งดินและแหล่งหิน</strong></span></div>
+        <div class="step orange"><span class="step-num">•</span><span class="step-text">ใช้ใต้น้ำได้ <strong>ไม่เกิน 24 ชั่วโมง</strong></span></div>
+      </div>
+    </div>
+
+    <!-- SHAPED CHARGES -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(239,68,68,0.15);font-size:18px">🔺</div>
+        <div>
+          <div class="card-title">SHAPED CHARGES</div>
+          <div class="card-sub"><span class="tag tag-red">ดินระเบิดเจาะ</span></div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;">
+        <!-- M2A3 / M2A4 -->
+        <div style="background:var(--surface2);border-radius:8px;padding:12px;border-top:2px solid var(--accent2);">
+          <div style="font-size:13px;font-weight:700;color:#fff;margin-bottom:8px;">M2A3 / M2A4</div>
+          <div style="font-size:12px;color:var(--text);line-height:1.7;">
+            น้ำหนักรวม <strong style="color:var(--accent2);">15 ปอนด์</strong><br>
+            Comp.B <strong>9½ ปอนด์</strong><br>
+            Pentolite <strong>2 ปอนด์</strong> (ดินขยาย)<br>
+            ขาตั้งรูปกรวย ทำด้วยไฟเบอร์
+          </div>
+        </div>
+        <!-- M3 / M3A1 -->
+        <div style="background:var(--surface2);border-radius:8px;padding:12px;border-top:2px solid var(--accent2);">
+          <div style="font-size:13px;font-weight:700;color:#fff;margin-bottom:8px;">M3 / M3A1</div>
+          <div style="font-size:12px;color:var(--text);line-height:1.7;">
+            น้ำหนักรวม <strong style="color:var(--accent2);">40 ปอนด์</strong><br>
+            M3: Comp.B <strong>27½ ปอนด์</strong><br>
+            M3A1: Comp.B <strong>29½ ปอนด์</strong> + Comp.A3 50g<br>
+            ขาตั้งสูง <strong>15 นิ้ว</strong>
+          </div>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step red"><span class="step-num">✓</span><span class="step-text">ใช้เจาะ<strong>เหล็ก คอนกรีต กำแพง ผิวถนน</strong></span></div>
+      </div>
+    </div>
+
+    <!-- AMMONIUM NITRATE 40 lb -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(148,163,184,0.15);font-size:18px">⚪</div>
+        <div>
+          <div class="card-title">AMMONIUM NITRATE (แท่ง)</div>
+          <div class="card-sub"><span class="tag tag-blue">AN 30 lb + TNT 10 lb</span></div>
+        </div>
+      </div>
+      <div class="info-grid" style="margin-bottom:10px;">
+        <div class="info-item"><div class="info-label">น้ำหนักรวม</div><div class="info-value">40 ปอนด์</div></div>
+        <div class="info-item"><div class="info-label">AN / TNT</div><div class="info-value">30 / 10 ปอนด์</div></div>
+      </div>
+      <div class="steps">
+        <div class="step blue"><span class="step-num">✓</span><span class="step-text">เหมาะสำหรับ<strong>ทำหลุมระเบิดและขุดคู</strong></span></div>
+        <div class="step red"><span class="step-num">!</span><span class="step-text"><strong>ดูดความชื้นง่าย</strong> ต้องเก็บรักษาอย่างระมัดระวัง</span></div>
+      </div>
+    </div>
+
+    <!-- M1A1 / M1A2 Bangalore -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(59,130,246,0.15);font-size:18px">🔵</div>
+        <div>
+          <div class="card-title">BANGALORE TORPEDO M1A1 / M1A2</div>
+          <div class="card-sub"><span class="tag tag-blue">บังกาโลตอร์ปิโด</span></div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;">
+        <div style="background:var(--surface2);border-radius:8px;padding:12px;border-top:2px solid var(--accent3);">
+          <div style="font-size:13px;font-weight:700;color:#fff;margin-bottom:6px;">M1A1</div>
+          <div style="font-size:12px;color:var(--text);line-height:1.7;">
+            ดินระเบิด: <strong>อมาตอล</strong><br>
+            ดินขยาย: <strong>TNT</strong><br>
+            ปลอกข้อต่อ 2⅛ นิ้ว<br>
+            ความยาว <strong>5 ฟุต</strong>
+          </div>
+        </div>
+        <div style="background:var(--surface2);border-radius:8px;padding:12px;border-top:2px solid var(--accent3);">
+          <div style="font-size:13px;font-weight:700;color:#fff;margin-bottom:6px;">M1A2</div>
+          <div style="font-size:12px;color:var(--text);line-height:1.7;">
+            ดินระเบิด: <strong>Comp-B</strong><br>
+            ดินขยาย: <strong>Comp-A3</strong><br>
+            ปลอกข้อต่อ 2⅛ นิ้ว<br>
+            ความยาว <strong>5 ฟุต</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <!-- ── FUSE SYSTEM ── -->
@@ -930,7 +1555,7 @@ function showTab(id) {
   document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   const btns = document.querySelectorAll('.nav-btn');
-  const map = {overview:0, fuse:1, electric:2, detonating:3, dual:4, safety:5, calc:6};
+  const map = {overview:0, explosive:1, demblock:2, fuse:3, electric:4, detonating:5, dual:6, safety:7, calc:8};
   btns[map[id]].classList.add('active');
 }
 
