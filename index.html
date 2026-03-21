@@ -43,11 +43,11 @@
   .header-badge {
     display: inline-flex; align-items: center; gap: 6px;
     background: rgba(245,158,11,0.15); border: 1px solid rgba(245,158,11,0.4);
-    color: var(--accent); font-size: 14px; font-weight: 600; letter-spacing: 2px;
-    padding: 5px 14px; border-radius: 99px; text-transform: uppercase; margin-bottom: 10px;
+    color: var(--accent); font-size: 10px; font-weight: 600; letter-spacing: 2px;
+    padding: 3px 10px; border-radius: 99px; text-transform: uppercase; margin-bottom: 6px;
   }
-  .header h1 { font-size: clamp(36px,9vw,52px); font-weight: 800; color: #fff; line-height: 1.2; }
-  .header p { font-size: 16px; color: var(--muted); margin-top: 6px; }
+  .header h1 { font-size: clamp(20px,5vw,28px); font-weight: 800; color: #fff; line-height: 1.2; }
+  .header p { font-size: 13px; color: var(--muted); margin-top: 4px; }
 
   /* ── Nav Tabs ── */
   .nav { overflow-x: auto; padding: 12px 16px 0; background: var(--surface); border-bottom: 1px solid var(--border); }
@@ -264,66 +264,51 @@
         </div>
       </div>
       <div class="diagram-container">
-        <svg viewBox="0 0 560 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:560px">
-          <!-- Root -->
-          <rect x="175" y="10" width="210" height="44" rx="8" fill="#1a2030" stroke="#f59e0b" stroke-width="2"/>
-          <text x="280" y="30" font-family="Sarabun,sans-serif" font-size="13" font-weight="700" fill="#f59e0b" text-anchor="middle">ระบบการจุดระเบิด</text>
-          <text x="280" y="47" font-family="Sarabun,sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle">Explosive Ignition Systems</text>
-
-          <!-- Lines from root -->
-          <line x1="280" y1="54" x2="280" y2="70" stroke="#2a3550" stroke-width="1.5"/>
-          <line x1="70" y1="70" x2="490" y2="70" stroke="#2a3550" stroke-width="1.5"/>
-          <line x1="70" y1="70" x2="70" y2="86" stroke="#2a3550" stroke-width="1.5"/>
-          <line x1="200" y1="70" x2="200" y2="86" stroke="#2a3550" stroke-width="1.5"/>
-          <line x1="360" y1="70" x2="360" y2="86" stroke="#2a3550" stroke-width="1.5"/>
-          <line x1="490" y1="70" x2="490" y2="86" stroke="#2a3550" stroke-width="1.5"/>
-
-          <!-- Node 1 -->
-          <rect x="10" y="86" width="120" height="44" rx="6" fill="#1a2030" stroke="#f59e0b" stroke-width="1.5"/>
-          <text x="70" y="104" font-family="Sarabun,sans-serif" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">เชื้อปะทุชนวน</text>
-          <text x="70" y="120" font-family="Sarabun,sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">Safety Fuse + Cap</text>
-
-          <!-- Node 2 -->
-          <rect x="140" y="86" width="120" height="44" rx="6" fill="#1a2030" stroke="#3b82f6" stroke-width="1.5"/>
-          <text x="200" y="104" font-family="Sarabun,sans-serif" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">เชื้อปะทุไฟฟ้า</text>
-          <text x="200" y="120" font-family="Sarabun,sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">Electric Detonator</text>
-
-          <!-- Node 3 -->
-          <rect x="300" y="86" width="120" height="44" rx="6" fill="#1a2030" stroke="#ef4444" stroke-width="1.5"/>
-          <text x="360" y="104" font-family="Sarabun,sans-serif" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">ชนวนฝักแคระเบิด</text>
-          <text x="360" y="120" font-family="Sarabun,sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">Detonating Cord</text>
-
-          <!-- Node 4 -->
-          <rect x="430" y="86" width="120" height="44" rx="6" fill="#1a2030" stroke="#22c55e" stroke-width="1.5"/>
-          <text x="490" y="104" font-family="Sarabun,sans-serif" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">ระบบระเบิดคู่</text>
-          <text x="490" y="120" font-family="Sarabun,sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">Dual Initiation</text>
-
-          <!-- Sub nodes -->
-          <line x1="70" y1="130" x2="70" y2="155" stroke="#2a3550" stroke-width="1.2"/>
-          <rect x="10" y="155" width="120" height="36" rx="6" fill="#111520" stroke="#2a3550"/>
-          <text x="70" y="170" font-family="Sarabun,sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle">7 ขั้นตอน</text>
-          <text x="70" y="183" font-family="Sarabun,sans-serif" font-size="10" fill="#f59e0b" text-anchor="middle">ใช้เครื่องจุดชนวน</text>
-
-          <line x1="200" y1="130" x2="200" y2="155" stroke="#2a3550" stroke-width="1.2"/>
-          <rect x="140" y="155" width="120" height="36" rx="6" fill="#111520" stroke="#2a3550"/>
-          <text x="200" y="170" font-family="Sarabun,sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle">วงจร 3 แบบ</text>
-          <text x="200" y="183" font-family="Sarabun,sans-serif" font-size="10" fill="#3b82f6" text-anchor="middle">อนุกรม/ขนาน/ผสม</text>
-
-          <line x1="360" y1="130" x2="360" y2="155" stroke="#2a3550" stroke-width="1.2"/>
-          <rect x="300" y="155" width="120" height="36" rx="6" fill="#111520" stroke="#2a3550"/>
-          <text x="360" y="170" font-family="Sarabun,sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle">เงื่อน 4 ชนิด</text>
-          <text x="360" y="183" font-family="Sarabun,sans-serif" font-size="10" fill="#ef4444" text-anchor="middle">ตรง/ฉาก/พิรอด</text>
-
-          <line x1="490" y1="130" x2="490" y2="155" stroke="#2a3550" stroke-width="1.2"/>
-          <rect x="430" y="155" width="120" height="36" rx="6" fill="#111520" stroke="#2a3550"/>
-          <text x="490" y="170" font-family="Sarabun,sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle">ชนวน/ไฟฟ้า/ผสม</text>
-          <text x="490" y="183" font-family="Sarabun,sans-serif" font-size="10" fill="#22c55e" text-anchor="middle">เพิ่มความปลอดภัย</text>
-
-          <!-- Safety band -->
-          <rect x="80" y="235" width="400" height="34" rx="8" fill="rgba(239,68,68,0.12)" stroke="rgba(239,68,68,0.4)" stroke-width="1.5"/>
-          <text x="280" y="250" font-family="Sarabun,sans-serif" font-size="11" font-weight="700" fill="#ef4444" text-anchor="middle">⚠️ ต้องผ่านการฝึกอบรมและได้รับอนุญาตก่อนปฏิบัติงานจริง</text>
-          <text x="280" y="263" font-family="Sarabun,sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">Authorized personnel only</text>
-        </svg>
+        <!-- Root node -->
+        <div style="background:#1a2030;border:2px solid #f59e0b;border-radius:10px;padding:12px 16px;text-align:center;margin-bottom:16px;">
+          <div style="font-size:17px;font-weight:800;color:#f59e0b;">ระบบการจุดระเบิด</div>
+          <div style="font-size:12px;color:#94a3b8;margin-top:3px;">Explosive Ignition Systems</div>
+        </div>
+        <!-- 4 nodes grid -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px;">
+          <div style="background:#1a2030;border:1.5px solid #f59e0b;border-radius:8px;padding:10px;text-align:center;">
+            <div style="font-size:14px;font-weight:700;color:#fff;">เชื้อปะทุชนวน</div>
+            <div style="font-size:11px;color:#94a3b8;margin-top:3px;">Safety Fuse + Cap</div>
+            <div style="margin-top:8px;background:#111520;border-radius:6px;padding:6px;">
+              <div style="font-size:12px;color:#94a3b8;">7 ขั้นตอน</div>
+              <div style="font-size:12px;color:#f59e0b;font-weight:700;">ใช้เครื่องจุดชนวน</div>
+            </div>
+          </div>
+          <div style="background:#1a2030;border:1.5px solid #3b82f6;border-radius:8px;padding:10px;text-align:center;">
+            <div style="font-size:14px;font-weight:700;color:#fff;">เชื้อปะทุไฟฟ้า</div>
+            <div style="font-size:11px;color:#94a3b8;margin-top:3px;">Electric Detonator</div>
+            <div style="margin-top:8px;background:#111520;border-radius:6px;padding:6px;">
+              <div style="font-size:12px;color:#94a3b8;">วงจร 3 แบบ</div>
+              <div style="font-size:12px;color:#3b82f6;font-weight:700;">อนุกรม/ขนาน/ผสม</div>
+            </div>
+          </div>
+          <div style="background:#1a2030;border:1.5px solid #ef4444;border-radius:8px;padding:10px;text-align:center;">
+            <div style="font-size:14px;font-weight:700;color:#fff;">ชนวนฝักแคระเบิด</div>
+            <div style="font-size:11px;color:#94a3b8;margin-top:3px;">Detonating Cord</div>
+            <div style="margin-top:8px;background:#111520;border-radius:6px;padding:6px;">
+              <div style="font-size:12px;color:#94a3b8;">เงื่อน 4 ชนิด</div>
+              <div style="font-size:12px;color:#ef4444;font-weight:700;">ตรง/ฉาก/พิรอด</div>
+            </div>
+          </div>
+          <div style="background:#1a2030;border:1.5px solid #22c55e;border-radius:8px;padding:10px;text-align:center;">
+            <div style="font-size:14px;font-weight:700;color:#fff;">ระบบระเบิดคู่</div>
+            <div style="font-size:11px;color:#94a3b8;margin-top:3px;">Dual Initiation</div>
+            <div style="margin-top:8px;background:#111520;border-radius:6px;padding:6px;">
+              <div style="font-size:12px;color:#94a3b8;">ชนวน/ไฟฟ้า/ผสม</div>
+              <div style="font-size:12px;color:#22c55e;font-weight:700;">เพิ่มความปลอดภัย</div>
+            </div>
+          </div>
+        </div>
+        <!-- Safety band -->
+        <div style="background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.4);border-radius:8px;padding:10px;text-align:center;">
+          <div style="font-size:13px;font-weight:700;color:#ef4444;">⚠️ ต้องผ่านการฝึกอบรมและได้รับอนุญาตก่อนปฏิบัติงานจริง</div>
+          <div style="font-size:11px;color:#94a3b8;margin-top:4px;">Authorized personnel only</div>
+        </div>
       </div>
     </div>
   </div>
