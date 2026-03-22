@@ -236,6 +236,8 @@
     <button class="nav-btn" onclick="showTab('safety')">🛡️ กฏความปลอดภัย</button>
     <button class="nav-btn" onclick="showTab('treecut')">🌳 คำนวณระเบิดตัดต้นไม้</button>
     <button class="nav-btn" onclick="showTab('steelcut')">⚙️ คำนวณระเบิดตัดเหล็ก</button>
+    <button class="nav-btn" onclick="showTab('inspect')">📋 กิจที่ทำการตรวจสอบ</button>
+    <button class="nav-btn" onclick="showTab('evalform')">📝 แบบประเมินผล</button>
     <button class="nav-btn" onclick="showTab('calc')">🧮 คำนวณ</button>
   </div>
 </nav>
@@ -1942,20 +1944,20 @@
           </div>
         </div>
 
-        <div style="background:var(--surface2);border-radius:8px;padding:12px;border-left:4px solid #06b6d4;">
+        <div style="background:var(--surface2);border-radius:8px;padding:12px;border-left:4px solid #60a5fa;">
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
             <div style="font-size:13px;font-weight:700;color:#fff;">5️⃣ เหล็กรางรถไฟ</div>
-            <span style="background:rgba(6,182,212,0.2);color:#06b6d4;font-size:11px;font-weight:700;padding:2px 8px;border-radius:99px;">Rail Rule</span>
+            <span style="background:rgba(96,165,250,0.2);color:#60a5fa;font-size:11px;font-weight:700;padding:2px 8px;border-radius:99px;">Rail Rule</span>
           </div>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
             <div style="background:var(--bg);border-radius:6px;padding:10px;text-align:center;border:1px solid var(--border);">
               <div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:6px;">รางสูง ≥ 5 นิ้ว</div>
-              <div style="font-size:22px;font-weight:800;color:#06b6d4;font-family:'IBM Plex Mono',monospace;">1 ปอนด์</div>
+              <div style="font-size:22px;font-weight:800;color:#60a5fa;font-family:'IBM Plex Mono',monospace;">1 ปอนด์</div>
               <div style="font-size:13px;font-weight:700;color:#fff;margin-top:4px;">TNT</div>
             </div>
             <div style="background:var(--bg);border-radius:6px;padding:10px;text-align:center;border:1px solid var(--border);">
               <div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:6px;">รางสูง &lt; 5 นิ้ว</div>
-              <div style="font-size:22px;font-weight:800;color:#06b6d4;font-family:'IBM Plex Mono',monospace;">½ ปอนด์</div>
+              <div style="font-size:22px;font-weight:800;color:#60a5fa;font-family:'IBM Plex Mono',monospace;">½ ปอนด์</div>
               <div style="font-size:13px;font-weight:700;color:#fff;margin-top:4px;">TNT</div>
             </div>
           </div>
@@ -2074,6 +2076,516 @@
 
   </div>
 
+  <!-- ── INSPECTION TASKS ── -->
+  <div id="inspect" class="section">
+
+    <!-- Header -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(245,158,11,0.15);font-size:22px">📋</div>
+        <div>
+          <div class="card-title">กิจที่ทำการตรวจสอบ (ชป.รพศ.)</div>
+          <div class="card-sub"><span class="tag tag-orange">รายละเอียดการตรวจสอบ ชกท.นายสิบการช่าง/ทำลาย</span></div>
+        </div>
+      </div>
+      <div style="font-size:13px;color:var(--muted);line-height:1.8;">
+        <strong style="color:var(--text);">วัตถุประสงค์:</strong><br>
+        • เพื่อประเมินความรู้เป็นรายบุคคลตามตำแหน่งหน้าที่ ส.การช่างฯ<br>
+        • เพื่อตรวจสอบความเข้าใจตามกิจที่เข้ารับการทดสอบ
+      </div>
+    </div>
+
+    <!-- กิจทั้ง 7 -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(59,130,246,0.15);font-size:20px">📝</div>
+        <div>
+          <div class="card-title">กิจในการทดสอบ 7 กิจ</div>
+          <div class="card-sub"><span class="tag tag-blue">Test Tasks</span></div>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step orange"><span class="step-num">1</span><span class="step-text">การจุดระเบิดด้วย<strong>คู่ผสม (ชนวน/ไฟฟ้า)</strong></span></div>
+        <div class="step orange"><span class="step-num">2</span><span class="step-text">การวางดินระเบิด<strong>ตัดต้นไม้ (ภายนอก)</strong></span></div>
+        <div class="step orange"><span class="step-num">3</span><span class="step-text">การ<strong>ทำลายรางรถไฟ</strong></span></div>
+        <div class="step orange"><span class="step-num">4</span><span class="step-text">การติดตั้ง/รื้อถอน<strong>ทุ่นระเบิดสังหารบุคคล M 14</strong></span></div>
+        <div class="step orange"><span class="step-num">5</span><span class="step-text">การติดตั้ง/รื้อถอน<strong>ทุ่นระเบิดสังหารบุคคล M 18 A1</strong></span></div>
+        <div class="step orange"><span class="step-num">6</span><span class="step-text">การติดตั้ง/รื้อถอน<strong>ทุ่นระเบิดดักรถถัง M 6 A2</strong></span></div>
+        <div class="step orange"><span class="step-num">7</span><span class="step-text">การใช้<strong>เงื่อนเชือก</strong>กับดินระเบิด</span></div>
+      </div>
+    </div>
+
+    <!-- กิจบังคับ + จับฉลาก -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(239,68,68,0.15);font-size:20px">🎯</div>
+        <div>
+          <div class="card-title">ชป.รพศ. — กิจบังคับและจับฉลาก</div>
+          <div class="card-sub"><span class="tag tag-red">Required + Random Draw</span></div>
+        </div>
+      </div>
+
+      <div style="font-size:12px;font-weight:700;color:var(--accent2);letter-spacing:1px;margin-bottom:8px;">🔴 กิจบังคับ 3 กิจ (ทำทุกคน)</div>
+      <div class="steps" style="margin-bottom:14px;">
+        <div class="step red"><span class="step-num">1</span><span class="step-text">การจุดระเบิดด้วย<strong>คู่ผสม (ชนวน/ไฟฟ้า)</strong></span></div>
+        <div class="step red"><span class="step-num">2</span><span class="step-text">การติดตั้ง/รื้อถอน<strong>ทุ่นระเบิดสังหารบุคคล M 18 A1</strong></span></div>
+        <div class="step red"><span class="step-num">3</span><span class="step-text">การใช้<strong>เงื่อนเชือก</strong>กับดินระเบิด</span></div>
+      </div>
+
+      <div class="divider"></div>
+      <div style="font-size:12px;font-weight:700;color:var(--accent3);letter-spacing:1px;margin:10px 0 8px;">🎲 จับฉลาก 2 กิจ จาก 4 กิจที่เหลือ</div>
+      <div class="steps">
+        <div class="step blue"><span class="step-num">ก</span><span class="step-text">การวางดินระเบิดตัดต้นไม้ (ภายนอก)</span></div>
+        <div class="step blue"><span class="step-num">ข</span><span class="step-text">การทำลายรางรถไฟ</span></div>
+        <div class="step blue"><span class="step-num">ค</span><span class="step-text">การติดตั้ง/รื้อถอนทุ่นระเบิดสังหารบุคคล M 14</span></div>
+        <div class="step blue"><span class="step-num">ง</span><span class="step-text">การติดตั้ง/รื้อถอนทุ่นระเบิดดักรถถัง M 6 A2</span></div>
+      </div>
+      <div style="margin-top:10px;background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.3);border-radius:8px;padding:10px;font-size:13px;color:var(--text);">
+        🎯 รวมทดสอบทั้งสิ้น <strong style="color:var(--accent);font-size:16px;">5 กิจ</strong> ต่อคน (บังคับ 3 + จับฉลาก 2)
+      </div>
+    </div>
+
+    <!-- การจัดสถานี -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(34,197,94,0.15);font-size:20px">🏕️</div>
+        <div>
+          <div class="card-title">การจัดสถานี / เตรียมการ</div>
+          <div class="card-sub"><span class="tag tag-green">Preparation</span></div>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step green"><span class="step-num">1</span><span class="step-text">หน่วยเข้ารับการทดสอบ<strong>จัดเตรียมสถานที่</strong>ให้พร้อม</span></div>
+        <div class="step green"><span class="step-num">2</span><span class="step-text">จัดเตรียม<strong>อุปกรณ์สำหรับทดสอบ</strong>ตามรายการกิจที่ใช้ทดสอบให้ครบ</span></div>
+        <div class="step green"><span class="step-num">3</span><span class="step-text">จัด<strong>โต๊ะ เก้าอี้</strong>สำหรับวางอุปกรณ์ที่ใช้ทดสอบ</span></div>
+      </div>
+    </div>
+
+    <!-- ลำดับการปฏิบัติ -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(59,130,246,0.15);font-size:20px">📌</div>
+        <div>
+          <div class="card-title">ลำดับการปฏิบัติ (เงื่อนไข)</div>
+          <div class="card-sub"><span class="tag tag-blue">Sequence of Actions</span></div>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step blue"><span class="step-num">1</span><span class="step-text">ผู้เข้ารับการทดสอบ<strong>พร้อมรับฟังคำชี้แจง</strong>ก่อนเวลาที่จะทำการทดสอบ</span></div>
+        <div class="step blue"><span class="step-num">2</span><span class="step-text"><strong>หน.สถานีชี้แจง</strong>การปฏิบัติในการทดสอบ</span></div>
+        <div class="step blue"><span class="step-num">3</span><span class="step-text">ผู้เข้าการทดสอบ<strong>จับฉลากกิจ</strong>ที่ใช้ในการทดสอบ และรับใบประเมิน</span></div>
+        <div class="step blue"><span class="step-num">4</span><span class="step-text">ผู้เข้าการทดสอบ <strong>1 นาย</strong> ต่อกรรมการ <strong>1 ท่าน</strong></span></div>
+        <div class="step blue"><span class="step-num">5</span><span class="step-text">ผู้เข้ารับการทดสอบ<strong>ทดสอบตามเวลาที่กำหนด</strong></span></div>
+        <div class="step blue"><span class="step-num">6</span><span class="step-text"><strong>ส่งใบประเมิน</strong>ให้กับกรรมการ พร้อมทั้ง<strong>ลงชื่อรับทราบ</strong>ผลการทดสอบ</span></div>
+        <div class="step blue"><span class="step-num">7</span><span class="step-text"><strong>สรุปชี้แจงหลังการปฏิบัติ</strong>โดย หน.สถานี</span></div>
+      </div>
+    </div>
+
+    <!-- การปฏิบัติต่อไป -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(245,158,11,0.15);font-size:20px">➡️</div>
+        <div>
+          <div class="card-title">การปฏิบัติต่อไป</div>
+          <div class="card-sub"><span class="tag tag-orange">Next Actions</span></div>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step orange"><span class="step-num">1</span><span class="step-text">ชี้แจงการปฏิบัติ ลำดับขั้นตอนในการทดสอบ</span></div>
+        <div class="step orange"><span class="step-num">2</span><span class="step-text"><strong>จับฉลาก</strong>เลือกกิจทดสอบ</span></div>
+        <div class="step orange"><span class="step-num">3</span><span class="step-text">ผู้เข้ารับการทดสอบทำการทดสอบ<strong>เป็นรายบุคคล</strong>ตามกิจทดสอบที่ได้รับ</span></div>
+        <div class="step orange"><span class="step-num">4</span><span class="step-text"><strong>ทลป.</strong>หลังการปฏิบัติ</span></div>
+        <div class="step orange"><span class="step-num">5</span><span class="step-text">สรุปและ<strong>แบบประเมินผล</strong>เพื่อรวบรวมให้ กอ.ทดสอบ</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── EVALUATION FORMS ── -->
+  <div id="evalform" class="section">
+
+    <!-- Header -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(245,158,11,0.15);font-size:22px">📝</div>
+        <div>
+          <div class="card-title">แบบประเมินผล ชกท.นายสิบการช่างและทำลาย</div>
+          <div class="card-sub"><span class="tag tag-orange">แบบตรวจสอบและประเมินผล 9 กิจ</span></div>
+        </div>
+      </div>
+      <div style="font-size:13px;color:var(--muted);line-height:1.8;">
+        คะแนนเต็ม <strong style="color:var(--accent);">10 คะแนน</strong> ต่อกิจ — เตรียมอุปกรณ์ <strong>3 คะแนน</strong> (4 นาที) + ปฏิบัติ/ประกอบ <strong>7 คะแนน</strong> (10 นาที)
+      </div>
+    </div>
+
+    <!-- กิจที่ 1 -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(245,158,11,0.15);font-size:18px">1️⃣</div>
+        <div>
+          <div class="card-title">การจุดระเบิดด้วยเชื้อปะทุชนวน</div>
+          <div class="card-sub"><span class="tag tag-orange">มาตรฐาน: ภายใน 14 นาที · 10 คะแนน</span></div>
+        </div>
+      </div>
+      <div style="font-size:12px;color:var(--muted);margin-bottom:10px;"><strong>เงื่อนไข:</strong> ดินระเบิด TNT 1 แท่ง · เชื้อปะทุชนวน · เครื่องจุดชนิดต่างๆ | การแต่งกาย: ชุดฝึกพราง หมวกเคฟล่า เสื้อเกราะ · ชุดทำลายหมายเลข 5 · แว่นตา · เครื่องคิดเลข</div>
+
+      <div style="font-size:12px;font-weight:700;color:var(--accent);margin-bottom:6px;">ข้อ 1 — เตรียมอุปกรณ์ (4 นาที) = 3 คะแนน</div>
+      <div style="font-size:12px;color:var(--accent2);background:rgba(239,68,68,0.08);border-radius:6px;padding:8px;margin-bottom:8px;">⚠️ ขาดอย่างใดอย่างหนึ่งถือว่าตก</div>
+      <div style="font-size:12px;color:var(--text);line-height:2;background:var(--surface2);border-radius:8px;padding:10px;margin-bottom:14px;">
+        เครื่องจุดชนวนฝักแคเวลา · ชนวนฝักแคเวลา · เชื้อปะทุชนวน · จุกเกลียวมาตรฐาน · ดินระเบิด · คีมบีบเชื้อปะทุ ม.2 · เทปพันสายไฟ · สายวัด · เครื่องคิดเลข · สมุดพก · ปากกา
+      </div>
+
+      <div style="font-size:12px;font-weight:700;color:var(--accent);margin-bottom:6px;">ข้อ 2 — ปฏิบัติ/ประกอบ (10 นาที) = 7 คะแนน</div>
+      <div class="steps">
+        <div class="step orange"><span class="step-num">2.1</span><span class="step-text">ตรวจสอบเชื้อปะทุชนวนที่รับมา — มีการตรวจสอบหรือไม่ <span style="color:var(--accent)">(1)</span></span></div>
+        <div class="step orange"><span class="step-num">2.2</span><span class="step-text">ตัดชนวนฝักแคเวลาทิ้ง <strong>6 นิ้ว</strong> เพื่อป้องกันความชื้น <span style="color:var(--accent)">(0.5)</span></span></div>
+        <div class="step orange"><span class="step-num">2.3</span><span class="step-text">ตัดออก <strong>3 ฟุต</strong> เพื่อทดสอบอัตราการลุกไหม้ <span style="color:var(--accent)">(0.5)</span></span></div>
+        <div class="step orange"><span class="step-num">2.4</span><span class="step-text">คำนวณชนวนฝักแคเวลาถูกต้องหรือไม่ <span style="color:var(--accent)">(1)</span><br><span style="font-size:11px;color:var(--muted);">ความยาวชนวน (นิ้ว) = 12 × เวลาที่ต้องการ ÷ เวลาที่ทดสอบได้</span></span></div>
+        <div class="step orange"><span class="step-num">2.5</span><span class="step-text">ใส่เชื้อปะทุชนวนกับชนวนฝักแคเวลา ถูกต้องตามกฎความปลอดภัย <span style="color:var(--accent)">(0.5)</span></span></div>
+        <div class="step orange"><span class="step-num">2.6</span><span class="step-text">ใช้คีมบีบเชื้อปะทุ ม.2 ถูกต้อง — ระยะห่าง <strong>1/8 ถึง 1/4 นิ้ว</strong> <span style="color:var(--accent)">(0.5)</span></span></div>
+        <div class="step orange"><span class="step-num">2.7</span><span class="step-text">ประกอบเครื่องจุดชนวนฝักแคเวลาถูกต้อง <span style="color:var(--accent)">(1)</span></span></div>
+        <div class="step orange"><span class="step-num">2.8</span><span class="step-text">แจ้งเตือนเมื่อพร้อมจุดระเบิด ปฏิบัติถูกต้อง <span style="color:var(--accent)">(1)</span></span></div>
+      </div>
+      <div style="margin-top:10px;background:rgba(239,68,68,0.08);border-radius:6px;padding:8px;font-size:12px;color:var(--text);">
+        <strong>ข้อ 3</strong> — เมื่อระบบเชื้อปะทุชนวนด้าน ต้องรอ <strong>30 นาที</strong> หรือไม่ <span style="color:var(--accent)">(1)</span>
+      </div>
+    </div>
+
+    <!-- กิจที่ 2 -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(59,130,246,0.15);font-size:18px">2️⃣</div>
+        <div>
+          <div class="card-title">การจุดระเบิดด้วยเชื้อปะทุไฟฟ้า</div>
+          <div class="card-sub"><span class="tag tag-blue">มาตรฐาน: ภายใน 14 นาที · 10 คะแนน</span></div>
+        </div>
+      </div>
+      <div style="font-size:12px;color:var(--muted);margin-bottom:10px;"><strong>เงื่อนไข:</strong> ดินระเบิด TNT 1 แท่ง · เชื้อปะทุไฟฟ้า · สายไฟฟ้าคู่ · ตู้จุดระเบิด · เครื่องตรวจสอบวงจร | การแต่งกาย: ชุดฝึกพราง หมวกเคฟล่า เสื้อเกราะ · ชุดทำลายหมายเลข 5 · แว่นตา · เครื่องคิดเลข</div>
+
+      <div style="font-size:12px;font-weight:700;color:var(--accent3);margin-bottom:6px;">ข้อ 1 — เตรียมอุปกรณ์ (4 นาที) = 3 คะแนน</div>
+      <div style="font-size:12px;color:var(--accent2);background:rgba(239,68,68,0.08);border-radius:6px;padding:8px;margin-bottom:8px;">⚠️ ขาดอย่างใดอย่างหนึ่งถือว่าตก</div>
+      <div style="font-size:12px;color:var(--text);line-height:2;background:var(--surface2);border-radius:8px;padding:10px;margin-bottom:8px;">
+        ตู้จุดระเบิดหรือแบตเตอรี่ · สายไฟฟ้าคู่ · เชื้อปะทุไฟฟ้า · จุกเกลียวมาตรฐาน · ดินระเบิด · กัลวานอมิเตอร์ · เทปพันสายไฟ · มีดคัตเตอร์ · สมอบก · ค้อน
+      </div>
+      <div style="font-size:12px;color:var(--text);background:rgba(59,130,246,0.08);border-radius:6px;padding:8px;margin-bottom:14px;">
+        การเบิกรับเชื้อปะทุไฟฟ้า มี<strong>การลงกราวด์ป้องกันไฟฟ้าสถิต</strong>หรือไม่
+      </div>
+
+      <div style="font-size:12px;font-weight:700;color:var(--accent3);margin-bottom:6px;">ข้อ 2 — ปฏิบัติ/ประกอบ (10 นาที) = 7 คะแนน</div>
+      <div class="steps">
+        <div class="step blue"><span class="step-num">2.1</span><span class="step-text">ทดสอบสายไฟฟ้าคู่ด้วยกัลวานอมิเตอร์ <span style="color:var(--accent3)">(1)</span></span></div>
+        <div class="step blue"><span class="step-num">2.2</span><span class="step-text">ทดสอบเชื้อปะทุไฟฟ้าด้วยกัลวานอมิเตอร์ <span style="color:var(--accent3)">(1)</span></span></div>
+        <div class="step blue"><span class="step-num">2.3</span><span class="step-text">วางสายไฟฟ้าคู่จากตำบลวางดินระเบิดไปยังตำบลจุดระเบิด (ตอกสมอบก) <span style="color:var(--accent3)">(0.5)</span></span></div>
+        <div class="step blue"><span class="step-num">2.4</span><span class="step-text">สอดเชื้อปะทุไฟฟ้าเข้าจุกเกลียวมาตรฐาน แล้วประกอบกับดินระเบิด <span style="color:var(--accent3)">(0.5)</span></span></div>
+        <div class="step blue"><span class="step-num">2.5</span><span class="step-text">ต่อเชื้อปะทุไฟฟ้ากับสายไฟฟ้าคู่ด้วย<strong>เงื่อนหางหมู</strong> <span style="color:var(--accent3)">(1)</span></span></div>
+        <div class="step blue"><span class="step-num">2.6</span><span class="step-text">ทดสอบวงจรไฟฟ้ารวมทั้งระบบด้วยกัลวานอมิเตอร์ <span style="color:var(--accent3)">(0.5)</span></span></div>
+        <div class="step blue"><span class="step-num">2.7</span><span class="step-text">ต่อสายไฟฟ้าคู่กับเครื่องจุดระเบิด <span style="color:var(--accent3)">(0.5)</span></span></div>
+        <div class="step blue"><span class="step-num">2.8</span><span class="step-text">แจ้งเตือนเมื่อพร้อมจุดระเบิด ปฏิบัติถูกต้อง <span style="color:var(--accent3)">(0.5)</span></span></div>
+        <div class="step blue"><span class="step-num">2.9</span><span class="step-text">หลังการจุดระเบิดเสร็จสิ้น ทำการ<strong>ลัดวงจรสายไฟ</strong> <span style="color:var(--accent3)">(0.5)</span></span></div>
+      </div>
+      <div style="margin-top:10px;background:rgba(59,130,246,0.08);border-radius:6px;padding:8px;font-size:12px;color:var(--text);">
+        <strong>ข้อ 3</strong> — เมื่อระบบเชื้อปะทุไฟฟ้าด้าน ต้องรอเวลา <strong>(ไม่ต้องรอ)</strong> หรือไม่ <span style="color:var(--accent3)">(1)</span>
+      </div>
+    </div>
+
+    <!-- กิจที่ 3 -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(239,68,68,0.15);font-size:18px">3️⃣</div>
+        <div>
+          <div class="card-title">การจุดระเบิดด้วยชนวนฝักแคระเบิด</div>
+          <div class="card-sub"><span class="tag tag-red">มาตรฐาน: ภายใน 14 นาที · 10 คะแนน</span></div>
+        </div>
+      </div>
+      <div style="font-size:12px;color:var(--muted);margin-bottom:10px;"><strong>เงื่อนไข:</strong> ดินระเบิด TNT 1 แท่ง · ฝักแคระเบิด · เชื้อปะทุไฟฟ้า · สายไฟฟ้าคู่ · เครื่องจุดระเบิด</div>
+
+      <div style="font-size:12px;font-weight:700;color:var(--accent2);margin-bottom:6px;">ข้อ 1 — เตรียมอุปกรณ์ (4 นาที) = 3 คะแนน</div>
+      <div style="font-size:12px;color:var(--accent2);background:rgba(239,68,68,0.08);border-radius:6px;padding:8px;margin-bottom:8px;">⚠️ ขาดอย่างใดอย่างหนึ่งถือว่าตก</div>
+      <div style="font-size:12px;color:var(--text);line-height:2;background:var(--surface2);border-radius:8px;padding:10px;margin-bottom:14px;">
+        เครื่องจุดชนวนฝักแคเวลา · ชนวนฝักแคเวลา · เชื้อปะทุชนวน · ชนวนฝักแคระเบิด · ดินระเบิด · คีมบีบเชื้อปะทุ ม.2 · เทปพันสายไฟ · มีดคัตเตอร์ · เครื่องคิดเลข · สมุดพก · ปากกา
+      </div>
+
+      <div style="font-size:12px;font-weight:700;color:var(--accent2);margin-bottom:6px;">ข้อ 2 — ปฏิบัติ/ประกอบ (10 นาที) = 3.5 คะแนน</div>
+      <div class="steps">
+        <div class="step red"><span class="step-num">2.1</span><span class="step-text">ตรวจสอบเชื้อปะทุชนวนที่รับมา <span style="color:var(--accent2)">(0.5)</span></span></div>
+        <div class="step red"><span class="step-num">2.2</span><span class="step-text">ตัดชนวนฝักแคเวลาทิ้ง <strong>6 นิ้ว</strong> ป้องกันความชื้น <span style="color:var(--accent2)">(0.5)</span></span></div>
+        <div class="step red"><span class="step-num">2.3</span><span class="step-text">ตัดออก <strong>3 ฟุต</strong> ทดสอบอัตราการลุกไหม้ <span style="color:var(--accent2)">(0.5)</span></span></div>
+        <div class="step red"><span class="step-num">2.4</span><span class="step-text">คำนวณชนวน: <strong>12 × เวลาที่ต้องการ ÷ เวลาที่ทดสอบได้</strong> <span style="color:var(--accent2)">(1)</span></span></div>
+        <div class="step red"><span class="step-num">2.5</span><span class="step-text">ใส่เชื้อปะทุชนวนถูกต้องตามกฎความปลอดภัย <span style="color:var(--accent2)">(0.5)</span></span></div>
+        <div class="step red"><span class="step-num">2.6</span><span class="step-text">ใช้คีมบีบ ม.2 ระยะห่าง 1/8–1/4 นิ้ว <span style="color:var(--accent2)">(0.5)</span></span></div>
+        <div class="step red"><span class="step-num">2.7</span><span class="step-text">ประกอบเครื่องจุดชนวนฝักแคเวลา <span style="color:var(--accent2)">(0.5)</span></span></div>
+        <div class="step red"><span class="step-num">2.8</span><span class="step-text">แจ้งเตือนเมื่อพร้อมจุดระเบิด <span style="color:var(--accent2)">(0.5)</span></span></div>
+        <div class="step red"><span class="step-num">2.9</span><span class="step-text">เป้าหมายถูกทำลายถูกต้องสมบูรณ์ตามเวลา <span style="color:var(--accent2)">(0.5)</span></span></div>
+      </div>
+      <div style="margin-top:10px;font-size:12px;font-weight:700;color:var(--accent2);margin-bottom:6px;">ข้อ 3–4 รวม 3.5 คะแนน</div>
+      <div class="steps">
+        <div class="step red"><span class="step-num">3</span><span class="step-text">พันสายชนวนฝักแคระเบิดกับแท่งดินระเบิดด้วย<strong>เงื่อนฝักดาบ</strong> ถูกต้องหรือไม่ <span style="color:var(--accent2)">(1)</span></span></div>
+        <div class="step red"><span class="step-num">4</span><span class="step-text">ต่อสายชนวนฝักแคระเบิดกับดินระเบิดด้วยเงื่อนที่ถูกต้อง <span style="color:var(--accent2)">(1)</span></span></div>
+      </div>
+    </div>
+
+    <!-- กิจที่ 4 -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(34,197,94,0.15);font-size:18px">4️⃣</div>
+        <div>
+          <div class="card-title">การจุดระเบิดแบบระบบคู่ผสม (ชนวน + ไฟฟ้า)</div>
+          <div class="card-sub"><span class="tag tag-green">มาตรฐาน: ภายใน 24 นาที · 10 คะแนน</span></div>
+        </div>
+      </div>
+      <div style="font-size:12px;color:var(--muted);margin-bottom:10px;"><strong>เงื่อนไข:</strong> ดินระเบิด · เชื้อปะทุชนวน · เครื่องจุดชนวนฝักแคเวลา · เชื้อปะทุไฟฟ้า · สายไฟฟ้าคู่ · เครื่องจุดระเบิด · เครื่องตรวจสอบวงจร</div>
+
+      <div style="font-size:12px;font-weight:700;color:var(--green);margin-bottom:6px;">ข้อ 1 — เตรียมอุปกรณ์ (4 นาที) = 3 คะแนน ⚠️ขาดอย่างใดตก</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px;">
+        <div style="background:var(--surface2);border-radius:8px;padding:10px;border-top:2px solid var(--accent);">
+          <div style="font-size:12px;font-weight:700;color:var(--accent);margin-bottom:6px;">1.1 ระบบชนวน</div>
+          <div style="font-size:11px;color:var(--text);line-height:1.9;">เครื่องจุด (มาตรฐาน/ไม้ขีด) · ชนวนฝักแคเวลา · เชื้อปะทุชนวน · จุกเกลียวมาตรฐาน · ดินระเบิด · คีมบีบ ม.2 · เทปพันสายไฟ · เครื่องคิดเลข · สมุดพก · ปากกา</div>
+        </div>
+        <div style="background:var(--surface2);border-radius:8px;padding:10px;border-top:2px solid var(--accent3);">
+          <div style="font-size:12px;font-weight:700;color:var(--accent3);margin-bottom:6px;">1.2 ระบบไฟฟ้า</div>
+          <div style="font-size:11px;color:var(--text);line-height:1.9;">ตู้จุดระเบิด/แบตเตอรี่ · สายไฟฟ้าคู่ · เชื้อปะทุไฟฟ้า · จุกเกลียวมาตรฐาน · ดินระเบิด · กัลวานอมิเตอร์ · เทปพันสายไฟ · มีดคัตเตอร์ · สมอบก · ค้อน</div>
+        </div>
+      </div>
+
+      <div style="font-size:12px;font-weight:700;color:var(--accent3);margin-bottom:6px;">ข้อ 2 — ระบบไฟฟ้า (10 นาที) = 3.5 คะแนน (0.35 ต่อหัวข้อ)</div>
+      <div class="steps" style="margin-bottom:14px;">
+        <div class="step blue"><span class="step-num">2.1</span><span class="step-text">ทดสอบสายไฟฟ้าคู่ด้วยกัลวานอมิเตอร์ <span style="color:var(--accent3)">(0.35)</span></span></div>
+        <div class="step blue"><span class="step-num">2.2</span><span class="step-text">ทดสอบเชื้อปะทุไฟฟ้าด้วยกัลวานอมิเตอร์ <span style="color:var(--accent3)">(0.35)</span></span></div>
+        <div class="step blue"><span class="step-num">2.3</span><span class="step-text">วางสายไฟฟ้าคู่จากตำบลวางดินระเบิดไปยังตำบลจุดระเบิด (ตอกสมอบก) <span style="color:var(--accent3)">(0.35)</span></span></div>
+        <div class="step blue"><span class="step-num">2.4</span><span class="step-text">สอดเชื้อปะทุไฟฟ้าเข้าจุกเกลียวมาตรฐาน แล้วประกอบกับดินระเบิด <span style="color:var(--accent3)">(0.35)</span></span></div>
+        <div class="step blue"><span class="step-num">2.5</span><span class="step-text">ต่อเชื้อปะทุไฟฟ้ากับสายไฟฟ้าคู่ด้วย<strong>เงื่อนหางหมู</strong> <span style="color:var(--accent3)">(0.35)</span></span></div>
+        <div class="step blue"><span class="step-num">2.6</span><span class="step-text">ทดสอบวงจรไฟฟ้ารวมทั้งระบบ (กัลวานอมิเตอร์) <span style="color:var(--accent3)">(0.35)</span></span></div>
+        <div class="step blue"><span class="step-num">2.7</span><span class="step-text">ต่อสายไฟฟ้าคู่กับเครื่องจุดระเบิด <span style="color:var(--accent3)">(0.35)</span></span></div>
+        <div class="step blue"><span class="step-num">2.8</span><span class="step-text">แจ้งเตือนเมื่อพร้อมจุดระเบิด <span style="color:var(--accent3)">(0.35)</span></span></div>
+        <div class="step blue"><span class="step-num">2.9</span><span class="step-text">หลังจุดระเบิดเสร็จสิ้น ลัดวงจรสายไฟ <span style="color:var(--accent3)">(0.35)</span></span></div>
+        <div class="step blue"><span class="step-num">2.10</span><span class="step-text">ระบบด้าน ต้องรอ <strong>(ไม่ต้องรอ)</strong> หรือไม่ <span style="color:var(--accent3)">(0.35)</span></span></div>
+      </div>
+
+      <div style="font-size:12px;font-weight:700;color:var(--accent);margin-bottom:6px;">ข้อ 3 — ระบบชนวน (10 นาที) = 3.5 คะแนน (0.35 ต่อหัวข้อ)</div>
+      <div class="steps">
+        <div class="step orange"><span class="step-num">3.1</span><span class="step-text">ตรวจสอบเชื้อปะทุชนวนที่รับมา <span style="color:var(--accent)">(0.35)</span></span></div>
+        <div class="step orange"><span class="step-num">3.2</span><span class="step-text">ตัดชนวนทิ้ง <strong>6 นิ้ว</strong> ป้องกันความชื้น <span style="color:var(--accent)">(0.35)</span></span></div>
+        <div class="step orange"><span class="step-num">3.3</span><span class="step-text">ตัดออก <strong>3 ฟุต</strong> ทดสอบอัตราการลุกไหม้ <span style="color:var(--accent)">(0.35)</span></span></div>
+        <div class="step orange"><span class="step-num">3.4</span><span class="step-text">คำนวณชนวน: <strong>12 × เวลาที่ต้องการ ÷ เวลาที่ทดสอบได้</strong> <span style="color:var(--accent)">(0.35)</span></span></div>
+        <div class="step orange"><span class="step-num">3.5</span><span class="step-text">ใส่เชื้อปะทุชนวนถูกต้องตามกฎความปลอดภัย <span style="color:var(--accent)">(0.35)</span></span></div>
+        <div class="step orange"><span class="step-num">3.6</span><span class="step-text">ใช้คีมบีบ ม.2 ระยะห่าง 1/8–1/4 นิ้ว <span style="color:var(--accent)">(0.35)</span></span></div>
+        <div class="step orange"><span class="step-num">3.7</span><span class="step-text">ประกอบเครื่องจุดชนวนฝักแคเวลา <span style="color:var(--accent)">(0.35)</span></span></div>
+        <div class="step orange"><span class="step-num">3.8</span><span class="step-text">แจ้งเตือนเมื่อพร้อมจุดระเบิด <span style="color:var(--accent)">(0.35)</span></span></div>
+        <div class="step orange"><span class="step-num">3.9</span><span class="step-text">เป้าหมายถูกทำลายถูกต้องสมบูรณ์ตามเวลา <span style="color:var(--accent)">(0.35)</span></span></div>
+        <div class="step orange"><span class="step-num">3.10</span><span class="step-text">ระบบด้าน ต้องรอ <strong>30 นาที</strong> หรือไม่ <span style="color:var(--accent)">(0.35)</span></span></div>
+      </div>
+    </div>
+
+    <!-- กิจที่ 5 -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(34,197,94,0.15);font-size:18px">5️⃣</div>
+        <div>
+          <div class="card-title">การวางดินระเบิดเพื่อตัดต้นไม้ (ภายนอก ไม่อัดลม)</div>
+          <div class="card-sub"><span class="tag tag-green">มาตรฐาน: ภายใน 14 นาที · 10 คะแนน</span></div>
+        </div>
+      </div>
+      <div style="font-size:12px;color:var(--muted);margin-bottom:10px;"><strong>กำหนดเส้นผ่านศูนย์กลาง</strong> เช่น 30" หรือ 40" — ให้คำนวณหาจำนวนดินระเบิดและอุปกรณ์ที่ต้องใช้ ใช้ระบบชนวน</div>
+      <div style="background:var(--surface2);border-radius:8px;padding:10px;margin-bottom:14px;text-align:center;font-size:14px;font-family:'IBM Plex Mono',monospace;color:var(--green);font-weight:700;">
+        P = D² ÷ 40
+      </div>
+
+      <div style="font-size:12px;font-weight:700;color:var(--green);margin-bottom:6px;">ข้อ 1 — ตรวจสอบ (15 นาที รวม)</div>
+      <div style="font-size:12px;color:var(--text);background:var(--surface2);border-radius:6px;padding:8px;margin-bottom:14px;">
+        กำหนดขนาดเส้นผ่านศูนย์กลาง → ให้ผู้เข้าทดสอบคำนวณหาจำนวนดินระเบิดและอุปกรณ์
+      </div>
+
+      <div style="font-size:12px;font-weight:700;color:var(--green);margin-bottom:6px;">ข้อ 2 — เตรียมอุปกรณ์ (4 นาที) = 3 คะแนน ⚠️ขาดอย่างใดตก</div>
+      <div style="font-size:12px;color:var(--text);line-height:2;background:var(--surface2);border-radius:8px;padding:10px;margin-bottom:14px;">
+        เครื่องจุด (มาตรฐาน/ไม้ขีด) · ชนวนฝักแคเวลา · เชื้อปะทุชนวน · จุกเกลียวมาตรฐาน · ดินระเบิด · คีมบีบ ม.2 · ตลับเมตร (สายวัดระยะ) · มีด · เชือก · เทปพันสายไฟ · ยางในรถจักรยานยนต์ · ชุดทำลายหมายเลข 5 · เครื่องคิดเลข · สมุดพก · ปากกา
+      </div>
+
+      <div style="font-size:12px;font-weight:700;color:var(--green);margin-bottom:6px;">ข้อ 2 — ปฏิบัติ/ประกอบ (10 นาที) = 7 คะแนน</div>
+      <div class="steps">
+        <div class="step green"><span class="step-num">2.1</span><span class="step-text">ตรวจสอบเชื้อปะทุชนวนที่รับมา <span style="color:var(--green)">(0.5)</span></span></div>
+        <div class="step green"><span class="step-num">2.2</span><span class="step-text">ตัดชนวนทิ้ง 6 นิ้ว ป้องกันความชื้น <span style="color:var(--green)">(0.5)</span></span></div>
+        <div class="step green"><span class="step-num">2.3</span><span class="step-text">ตัดออก 3 ฟุต ทดสอบอัตราการลุกไหม้ <span style="color:var(--green)">(0.5)</span></span></div>
+        <div class="step green"><span class="step-num">2.4</span><span class="step-text">คำนวณชนวน: 12 × เวลาที่ต้องการ ÷ เวลาที่ทดสอบได้ <span style="color:var(--green)">(0.5)</span></span></div>
+        <div class="step green"><span class="step-num">2.5</span><span class="step-text">ใส่เชื้อปะทุถูกต้องตามกฎความปลอดภัย <span style="color:var(--green)">(0.5)</span></span></div>
+        <div class="step green"><span class="step-num">2.6</span><span class="step-text">ใช้คีมบีบ ม.2 ระยะห่าง 1/8–1/4 นิ้ว <span style="color:var(--green)">(0.5)</span></span></div>
+        <div class="step green"><span class="step-num">2.7</span><span class="step-text">ประกอบเครื่องจุดชนวน <span style="color:var(--green)">(0.5)</span></span></div>
+        <div class="step green"><span class="step-num">2.8</span><span class="step-text">แจ้งเตือนเมื่อพร้อมจุดระเบิด <span style="color:var(--green)">(0.5)</span></span></div>
+        <div class="step green"><span class="step-num">2.9</span><span class="step-text">เป้าหมายถูกทำลายถูกต้องสมบูรณ์ตามเวลา <span style="color:var(--green)">(0.5)</span></span></div>
+      </div>
+      <div style="margin-top:10px;" class="steps">
+        <div class="step green"><span class="step-num">3</span><span class="step-text">เลือกสูตร P = D²/40 และคำนวณถูกต้อง (5 นาที) · วัดเส้นรอบวงต้นไม้ถูกต้อง <span style="color:var(--green)">(1)</span></span></div>
+        <div class="step green"><span class="step-num">4</span><span class="step-text">ต้นไม้ล้มไปยังทิศทางที่ต้องการ <span style="color:var(--green)">(1)</span></span></div>
+        <div class="step green"><span class="step-num">5</span><span class="step-text">การหยิบถือคำนึงถึงกฎความปลอดภัย <span style="color:var(--green)">(0.5)</span></span></div>
+      </div>
+    </div>
+
+    <!-- กิจที่ 6 -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(96,165,250,0.15);font-size:18px">6️⃣</div>
+        <div>
+          <div class="card-title">การทำลายทางรถไฟ</div>
+          <div class="card-sub"><span class="tag tag-blue">มาตรฐาน: ภายใน 14 นาที · 10 คะแนน</span></div>
+        </div>
+      </div>
+      <div style="font-size:12px;color:var(--muted);margin-bottom:10px;"><strong>เงื่อนไข:</strong> เส้นทางรถไฟ · สะพานรถไฟ · อุโมงค์รถไฟ · ดินระเบิด TNT · ฝักแคระเบิด · เชื้อปะทุไฟฟ้า/ชนวน · เครื่องจุดระเบิด</div>
+
+      <div style="font-size:12px;font-weight:700;color:#60a5fa;margin-bottom:6px;">ข้อ 1 — วางแผนทำลาย (15 นาที รวม) ใช้ระบบชนวน · รางรถไฟสูง 5 นิ้ว</div>
+
+      <div style="font-size:12px;font-weight:700;color:#60a5fa;margin-bottom:6px;">ข้อ 2 — เตรียมอุปกรณ์ (4 นาที) = 3 คะแนน ⚠️ขาดอย่างใดตก</div>
+      <div style="font-size:12px;color:var(--text);line-height:2;background:var(--surface2);border-radius:8px;padding:10px;margin-bottom:14px;">
+        เครื่องจุด (มาตรฐาน/ไม้ขีด) · ชนวนฝักแคเวลา · เชื้อปะทุชนวน · จุกเกลียวมาตรฐาน · ดินระเบิด · คีมบีบ ม.2 · ตลับเมตร (สายวัดระยะ) · ยางในรถจักรยานยนต์ · ชุดทำลายหมายเลข 5 · เครื่องคิดเลข · สมุดพก · ปากกา
+      </div>
+
+      <div style="font-size:12px;font-weight:700;color:#60a5fa;margin-bottom:6px;">ข้อ 3 — ปฏิบัติ/ประกอบ (10 นาที) = 4.5 คะแนน (0.5 ต่อหัวข้อ)</div>
+      <div class="steps" style="margin-bottom:12px;">
+        <div class="step blue"><span class="step-num">3.1</span><span class="step-text">ตรวจสอบเชื้อปะทุชนวนที่รับมา <span style="color:#60a5fa">(0.5)</span></span></div>
+        <div class="step blue"><span class="step-num">3.2</span><span class="step-text">ตัดชนวนทิ้ง 6 นิ้ว ป้องกันความชื้น <span style="color:#60a5fa">(0.5)</span></span></div>
+        <div class="step blue"><span class="step-num">3.3</span><span class="step-text">ตัดออก 3 ฟุต ทดสอบอัตราการลุกไหม้ <span style="color:#60a5fa">(0.5)</span></span></div>
+        <div class="step blue"><span class="step-num">3.4</span><span class="step-text">คำนวณชนวน: 12 × เวลาที่ต้องการ ÷ เวลาที่ทดสอบได้ <span style="color:#60a5fa">(0.5)</span></span></div>
+        <div class="step blue"><span class="step-num">3.5</span><span class="step-text">ใส่เชื้อปะทุชนวนถูกต้องตามกฎความปลอดภัย <span style="color:#60a5fa">(0.5)</span></span></div>
+        <div class="step blue"><span class="step-num">3.6</span><span class="step-text">ใช้คีมบีบ ม.2 ระยะห่าง 1/8–1/4 นิ้ว <span style="color:#60a5fa">(0.5)</span></span></div>
+        <div class="step blue"><span class="step-num">3.7</span><span class="step-text">ประกอบเครื่องจุดชนวน <span style="color:#60a5fa">(0.5)</span></span></div>
+        <div class="step blue"><span class="step-num">3.8</span><span class="step-text">แจ้งเตือนเมื่อพร้อมจุดระเบิด <span style="color:#60a5fa">(0.5)</span></span></div>
+        <div class="step blue"><span class="step-num">3.9</span><span class="step-text">เป้าหมายถูกทำลายถูกต้องสมบูรณ์ตามเวลา <span style="color:#60a5fa">(0.5)</span></span></div>
+        <div class="step blue"><span class="step-num">3.10</span><span class="step-text">ระบบด้าน ต้องรอ <strong>30 นาที</strong> หรือไม่ <span style="color:#60a5fa">(0.5)</span></span></div>
+      </div>
+      <div style="font-size:12px;font-weight:700;color:#60a5fa;margin-bottom:6px;">ข้อ 4 — เลือกใช้หลักการคำนวณ (2 นาที) = 1 คะแนน</div>
+      <div class="steps" style="margin-bottom:12px;">
+        <div class="step blue"><span class="step-num">4.1</span><span class="step-text">ใช้ดิน <strong>1/2 ปอนด์</strong> สำหรับรางรถไฟสูงน้อยกว่า 5 นิ้ว <span style="color:#60a5fa">(0.5)</span></span></div>
+        <div class="step blue"><span class="step-num">4.2</span><span class="step-text">ใช้ดิน <strong>1 ปอนด์</strong> สำหรับรางรถไฟสูง 5 นิ้วหรือมากกว่า <span style="color:#60a5fa">(0.5)</span></span></div>
+      </div>
+      <div style="font-size:12px;font-weight:700;color:#60a5fa;margin-bottom:6px;">ข้อ 5 — ติดตั้งดินระเบิดกับเป้าหมาย (3 นาที) = 1 คะแนน</div>
+      <div class="steps">
+        <div class="step blue"><span class="step-num">5.1</span><span class="step-text">การวางดินระเบิดเข้ากับเป้าหมายถูกต้อง <span style="color:#60a5fa">(0.5)</span></span></div>
+        <div class="step blue"><span class="step-num">5.2</span><span class="step-text">การหยิบถือคำนึงถึงกฎความปลอดภัย <span style="color:#60a5fa">(0.5)</span></span></div>
+      </div>
+    </div>
+
+    <!-- กิจที่ 7 -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(239,68,68,0.15);font-size:18px">7️⃣</div>
+        <div>
+          <div class="card-title">ทุ่นระเบิดสังหารบุคคล M14</div>
+          <div class="card-sub"><span class="tag tag-red">มาตรฐาน: 8 นาที (เบิก 2+ติด 3+รื้อ 3) · 10 คะแนน</span></div>
+        </div>
+      </div>
+
+      <div style="font-size:12px;font-weight:700;color:var(--accent2);margin-bottom:6px;">ข้อ 1 — เบิก-รับเตรียมอุปกรณ์ (2 นาที) = 2 คะแนน</div>
+      <div class="steps" style="margin-bottom:14px;">
+        <div class="step red"><span class="step-num">1.1</span><span class="step-text">ตัวทุ่นระเบิดสังหารบุคคล แบบ ม.14 + ชนวน (ดินนำระเบิด ม.46) <span style="color:var(--accent2)">(1)</span></span></div>
+        <div class="step red"><span class="step-num">1.2</span><span class="step-text">ตรวจสอบการทำงาน และความสมบูรณ์ครบถ้วนของอุปกรณ์ควบ <span style="color:var(--accent2)">(0.5)</span></span></div>
+        <div class="step red"><span class="step-num">1.3</span><span class="step-text">พลั่ว + กระสอบทราย <span style="color:var(--accent2)">(0.5)</span></span></div>
+      </div>
+
+      <div style="font-size:12px;font-weight:700;color:var(--accent2);margin-bottom:6px;">ข้อ 2 — ติดตั้ง (3 นาที) = 4 คะแนน (0.4 ต่อหัวข้อ)</div>
+      <div class="steps" style="margin-bottom:14px;">
+        <div class="step red"><span class="step-num">2.1</span><span class="step-text">ตรวจสอบอุปกรณ์ส่วนควบ และตรวจสอบแผ่นรับแรงกด <span style="color:var(--accent2)">(0.4)</span></span></div>
+        <div class="step red"><span class="step-num">2.2</span><span class="step-text">ตรวจสอบตำแหน่ง <strong>S</strong> การทำงานระบบนิรภัย <span style="color:var(--accent2)">(0.4)</span></span></div>
+        <div class="step red"><span class="step-num">2.3</span><span class="step-text">ตรวจสอบตำแหน่ง <strong>A</strong> ระบบพร้อมการทำงาน <span style="color:var(--accent2)">(0.4)</span></span></div>
+        <div class="step red"><span class="step-num">2.4</span><span class="step-text">นำจุกกันฝุ่นออกก่อนการติดตั้งดินนำระเบิด <span style="color:var(--accent2)">(0.4)</span></span></div>
+        <div class="step red"><span class="step-num">2.5</span><span class="step-text">ถอดคลิ้ปนิรภัยออก ตรวจความเรียบร้อยของเข็มแทงชนวน แล้วใส่คลิ้ปนิรภัยเข้าที่เดิม <span style="color:var(--accent2)">(0.4)</span></span></div>
+        <div class="step red"><span class="step-num">2.6</span><span class="step-text">นำชนวน (ดินนำระเบิด) ใส่ภายในช่องชนวนถูกต้อง <span style="color:var(--accent2)">(0.4)</span></span></div>
+        <div class="step red"><span class="step-num">2.7</span><span class="step-text">ทำให้พร้อมระเบิด — ปรับไปยังตำแหน่ง <strong>A</strong> ระบบพร้อมการทำงาน <span style="color:var(--accent2)">(0.4)</span></span></div>
+        <div class="step red"><span class="step-num">2.8</span><span class="step-text">การขุดหลุมฝังและการพราง ถูกต้อง <span style="color:var(--accent2)">(0.4)</span></span></div>
+        <div class="step red"><span class="step-num">2.9</span><span class="step-text">พิจารณาพื้นที่การวางทุ่นฯ เหมาะสมในการสังหาร/ทำลาย <span style="color:var(--accent2)">(0.4)</span></span></div>
+        <div class="step red"><span class="step-num">2.10</span><span class="step-text">การหยิบถือคำนึงถึงกฎความปลอดภัย <span style="color:var(--accent2)">(0.4)</span></span></div>
+      </div>
+
+      <div style="font-size:12px;font-weight:700;color:var(--accent2);margin-bottom:6px;">ข้อ 3 — รื้อถอน (3 นาที) = 4 คะแนน</div>
+      <div class="steps">
+        <div class="step red"><span class="step-num">3.1</span><span class="step-text"><strong>ใส่คลิ้ปนิรภัยก่อน</strong>หรือไม่ <span style="color:var(--accent2)">(1)</span></span></div>
+        <div class="step red"><span class="step-num">3.2</span><span class="step-text">ถอดชนวน (ดินนำระเบิด) ออก <span style="color:var(--accent2)">(1)</span></span></div>
+        <div class="step red"><span class="step-num">3.3</span><span class="step-text">หมุนปรับไปยังตำแหน่ง <strong>S</strong> ระบบนิรภัย <span style="color:var(--accent2)">(0.5)</span></span></div>
+        <div class="step red"><span class="step-num">!</span><span class="step-text">ข้อระมัดระวัง: อย่าถอดชนวนออก หรือหมุนแป้นรับน้ำหนักกดไปยังตำแหน่ง S เมื่อพบว่าทุ่นระเบิดอยู่ในสภาพชำรุด <span style="color:var(--accent2)">(0.5)</span></span></div>
+        <div class="step red"><span class="step-num">3.4</span><span class="step-text">การหยิบถือคำนึงถึงกฎความปลอดภัย <span style="color:var(--accent2)">(0.5)</span></span></div>
+        <div class="step red"><span class="step-num">3.5</span><span class="step-text">ในระหว่างการติดตั้งและรื้อถอน ละเมิดกฎความปลอดภัยหรือไม่ <span style="color:var(--accent2)">(0.5)</span></span></div>
+      </div>
+    </div>
+
+    <!-- กิจที่ 8 -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(245,158,11,0.15);font-size:18px">8️⃣</div>
+        <div>
+          <div class="card-title">ทุ่นระเบิดดักรถถังขนาดกลาง M6 A2</div>
+          <div class="card-sub"><span class="tag tag-orange">มาตรฐาน: เบิก 2+ติด 3+รื้อ 3 นาที · 10 คะแนน</span></div>
+        </div>
+      </div>
+
+      <div style="font-size:12px;font-weight:700;color:var(--accent);margin-bottom:6px;">ข้อ 1 — เบิก-รับเตรียมอุปกรณ์ (2 นาที) = 2 คะแนน</div>
+      <div class="steps" style="margin-bottom:14px;">
+        <div class="step orange"><span class="step-num">1.1</span><span class="step-text">ตัวทุ่นระเบิดดักรถถัง แบบ ม.6 อ.2 + ชนวน แบบ ม.603 <span style="color:var(--accent)">(0.5)</span></span></div>
+        <div class="step orange"><span class="step-num">1.2</span><span class="step-text">พลั่ว + กระสอบทราย + ตรวจสอบสิ่งอุปกรณ์และส่วนควบ <span style="color:var(--accent)">(0.5)</span></span></div>
+        <div class="step orange"><span class="step-num">1.3</span><span class="step-text">ตรวจสอบการทำงาน และความสมบูรณ์ครบถ้วนของอุปกรณ์ควบ <span style="color:var(--accent)">(1)</span></span></div>
+      </div>
+
+      <div style="font-size:12px;font-weight:700;color:var(--accent);margin-bottom:6px;">ข้อ 2 — ติดตั้ง (3 นาที) = 4 คะแนน (0.5 ต่อหัวข้อ)</div>
+      <div class="steps" style="margin-bottom:14px;">
+        <div class="step orange"><span class="step-num">2.1</span><span class="step-text">ถอดแป้นตั้งชนวนออก และตรวจสอบความเรียบร้อยของตัวทุ่นฯ <span style="color:var(--accent)">(0.5)</span></span></div>
+        <div class="step orange"><span class="step-num">2.2</span><span class="step-text">ตรวจตัวชนวน ม.603 และถอดคลิ้ปนิรภัยออกจากชนวน <span style="color:var(--accent)">(0.5)</span></span></div>
+        <div class="step orange"><span class="step-num">2.3</span><span class="step-text">ใส่ชนวน ม.603 ลงในช่องใส่ถูกต้อง <span style="color:var(--accent)">(0.5)</span></span></div>
+        <div class="step orange"><span class="step-num">2.4</span><span class="step-text">หมุนแป้นตั้งชนวนให้อยู่ในตำแหน่ง <strong>ปลอดภัย</strong> ก่อนนำแป้นตั้งชนวนเข้าที่เดิม <span style="color:var(--accent)">(0.5)</span></span></div>
+        <div class="step orange"><span class="step-num">2.5</span><span class="step-text">ทำให้พร้อมระเบิด — หมุนแป้นตั้งชนวนไปยังตำแหน่ง <strong>ARMED</strong> <span style="color:var(--accent)">(0.5)</span></span></div>
+        <div class="step orange"><span class="step-num">2.6</span><span class="step-text">พิจารณาพื้นที่การวางทุ่นฯ เหมาะสมในการสังหาร/ทำลาย <span style="color:var(--accent)">(0.5)</span></span></div>
+        <div class="step orange"><span class="step-num">2.7</span><span class="step-text">การพรางและการซ่อนพราง เหมาะสม <span style="color:var(--accent)">(0.5)</span></span></div>
+        <div class="step orange"><span class="step-num">2.8</span><span class="step-text">การหยิบถือคำนึงถึงกฎความปลอดภัย <span style="color:var(--accent)">(0.5)</span></span></div>
+      </div>
+
+      <div style="font-size:12px;font-weight:700;color:var(--accent);margin-bottom:6px;">ข้อ 3 — รื้อถอน (3 นาที) = 4 คะแนน</div>
+      <div class="steps">
+        <div class="step orange"><span class="step-num">3.1</span><span class="step-text">ทำให้ไม่พร้อมระเบิด — หมุนแป้นตั้งชนวนให้อยู่ในตำแหน่ง <strong>ปลอดภัย</strong> ก่อนการรื้อถอนทุ่นฯ <span style="color:var(--accent)">(1)</span></span></div>
+        <div class="step orange"><span class="step-num">3.2</span><span class="step-text">ถอดตัวชนวน ม.603 จากภายในช่องใส่ถูกต้อง <span style="color:var(--accent)">(0.5)</span></span></div>
+        <div class="step orange"><span class="step-num">3.3</span><span class="step-text">ตรวจตัวชนวน ม.603 และใส่คลิ้ปนิรภัยเข้ากับตัวชนวน <span style="color:var(--accent)">(1)</span></span></div>
+        <div class="step orange"><span class="step-num">3.4</span><span class="step-text">ก่อนยกตัวทุ่นฯ ได้ตรวจสอบพื้นที่โดยรอบของตัวทุ่นฯ หรือไม่ <span style="color:var(--accent)">(0.5)</span></span></div>
+        <div class="step orange"><span class="step-num">3.5</span><span class="step-text">การหยิบถือคำนึงถึงกฎความปลอดภัย <span style="color:var(--accent)">(0.5)</span></span></div>
+        <div class="step orange"><span class="step-num">3.6</span><span class="step-text">ในระหว่างการติดตั้งและรื้อถอน ละเมิดกฎความปลอดภัยหรือไม่ <span style="color:var(--accent)">(0.5)</span></span></div>
+      </div>
+    </div>
+
+    <!-- กิจที่ 9 -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(34,197,94,0.15);font-size:18px">9️⃣</div>
+        <div>
+          <div class="card-title">ทุ่นระเบิดสังหารบุคคล M18 A1 (Claymore)</div>
+          <div class="card-sub"><span class="tag tag-green">มาตรฐาน: 8 นาที (เบิก 2+ติด 3+รื้อ 3) · 10 คะแนน</span></div>
+        </div>
+      </div>
+
+      <div style="font-size:12px;font-weight:700;color:var(--green);margin-bottom:6px;">ข้อ 1 — เบิก-รับเตรียมอุปกรณ์ (2 นาที) = 2 คะแนน</div>
+      <div class="steps" style="margin-bottom:14px;">
+        <div class="step green"><span class="step-num">1.1</span><span class="step-text">ทุ่นระเบิดสังหารบุคคล แบบ ม.18 อ.1 + เชื้อปะทุชนวน ม.4 + เครื่องตรวจสอบวงจรไฟฟ้า ม.40 + เครื่องจุดระเบิด ม.57 + ค้อน + สมอบก + ย่ามสะพายหรือเป้สำหรับใส่สิ่งอุปกรณ์ <span style="color:var(--green)">(2)</span></span></div>
+        <div class="step green"><span class="step-num">1.2</span><span class="step-text">ตรวจสอบการทำงาน และความสมบูรณ์ของอุปกรณ์ส่วนควบ <span style="color:var(--green)">(รวมอยู่ในข้อ 1.1)</span></span></div>
+      </div>
+
+      <div style="font-size:12px;font-weight:700;color:var(--green);margin-bottom:6px;">ข้อ 2 — ติดตั้ง (3 นาที) = 4 คะแนน (0.5 ต่อหัวข้อ)</div>
+      <div class="steps" style="margin-bottom:14px;">
+        <div class="step green"><span class="step-num">2.1</span><span class="step-text">ใช้เครื่องตรวจสอบวงจร ม.40 ตรวจสายไฟฟ้าและเชื้อปะทุไฟฟ้า — กดคันบังคับ ปรากฏแสงไฟสว่างที่ช่องกระจก แสดงว่าวงจรสมบูรณ์ <span style="color:var(--green)">(0.5)</span></span></div>
+        <div class="step green"><span class="step-num">2.2</span><span class="step-text">การเล็ง — เล็งต่อเป้าหมายในทางลึกระยะตรง <strong>50 เมตร</strong> จากทุ่นระเบิด ใช้ระยะสูงระดับ<strong>ข้อเท้าถึงหัวเข่า</strong> <span style="color:var(--green)">(0.5)</span></span></div>
+        <div class="step green"><span class="step-num">2.3</span><span class="step-text">ถอดจุกกันฝุ่นออก → สอดเชื้อปะทุไฟฟ้าเข้ารูเสียบ → ใช้จุกเกลียวยึดให้แน่น (ใช้รูเสียบข้างใดข้างหนึ่ง) → ประกอบเข้ากับเครื่องจุด <span style="color:var(--green)">(0.5)</span></span></div>
+        <div class="step green"><span class="step-num">2.4</span><span class="step-text">ตำบลจุดระเบิดต้องอยู่ในที่กำบังห่างจากตัวทุ่นไปข้างหลัง <strong>16 เมตร</strong> · ทหารฝ่ายเดียวกันต้องอยู่ในที่กำบังทางด้านข้างและด้านหลัง <strong>100 เมตร</strong> <span style="color:var(--green)">(0.5)</span></span></div>
+        <div class="step green"><span class="step-num">2.5</span><span class="step-text">ตรวจสอบวงจรรวมก่อนการจุดระเบิด <span style="color:var(--green)">(0.5)</span></span></div>
+        <div class="step green"><span class="step-num">2.6</span><span class="step-text">การจุดระเบิด — ปลดห่วงนิรภัยกับคันบังคับออกจากตำแหน่งปลอดภัย แล้วใช้มือกดคันบังคับอย่างแรง <span style="color:var(--green)">(0.5)</span></span></div>
+        <div class="step green"><span class="step-num">2.7</span><span class="step-text">ตอกสมอบกและตัวทุ่นฯ เพื่อการยึดตรึง <span style="color:var(--green)">(0.5)</span></span></div>
+        <div class="step green"><span class="step-num">2.8</span><span class="step-text">พิจารณาพื้นที่การวางทุ่นฯ เหมาะสมในการสังหาร/ทำลาย <span style="color:var(--green)">(0.5)</span></span></div>
+        <div class="step green"><span class="step-num">2.9</span><span class="step-text">การพรางและการซ่อนพราง เหมาะสม <span style="color:var(--green)">(0.5)</span></span></div>
+        <div class="step green"><span class="step-num">2.10</span><span class="step-text">การหยิบถือคำนึงถึงกฎความปลอดภัย <span style="color:var(--green)">(0.5)</span></span></div>
+      </div>
+
+      <div style="font-size:12px;font-weight:700;color:var(--green);margin-bottom:6px;">ข้อ 3–5 — รื้อถอน (3 นาที) = 4 คะแนน</div>
+      <div class="steps">
+        <div class="step green"><span class="step-num">3</span><span class="step-text">ทำให้ไม่พร้อมจุดระเบิด — ปลดห่วงนิรภัยกับคันบังคับออกจากตำแหน่ง<strong>ห้ามไก (ห้ามกด)</strong> <span style="color:var(--green)">(1)</span></span></div>
+        <div class="step green"><span class="step-num">4</span><span class="step-text">ทำการ<strong>ลัดวงจรเชื้อปะทุไฟฟ้า</strong> <span style="color:var(--green)">(1)</span></span></div>
+        <div class="step green"><span class="step-num">5</span><span class="step-text">นำเชื้อปะทุไฟฟ้าออกจากช่องใส่เชื้อปะทุ และเก็บสายไฟเชื้อปะทุถูกต้องตามขั้นตอน <span style="color:var(--green)">(1)</span></span></div>
+        <div class="step green"><span class="step-num">!</span><span class="step-text">การหยิบถือคำนึงถึงกฎความปลอดภัย <span style="color:var(--green)">(0.5)</span></span></div>
+        <div class="step green"><span class="step-num">!</span><span class="step-text">ในระหว่างการติดตั้งและรื้อถอน ละเมิดกฎความปลอดภัยหรือไม่ <span style="color:var(--green)">(0.5)</span></span></div>
+      </div>
+    </div>
+
+  </div>
+
   <!-- ── CALCULATOR ── -->
   <div id="calc" class="section">
 
@@ -2174,7 +2686,7 @@ function showTab(id) {
   document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   const btns = document.querySelectorAll('.nav-btn');
-  const map = {overview:0, explosive:1, demblock:2, initdev:3, fuse:4, electric:5, detonating:6, dual:7, safety:8, treecut:9, steelcut:10, calc:11};
+  const map = {overview:0, explosive:1, demblock:2, initdev:3, fuse:4, electric:5, detonating:6, dual:7, safety:8, treecut:9, steelcut:10, inspect:11, evalform:12, calc:13};
   btns[map[id]].classList.add('active');
 }
 
