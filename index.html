@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>3-174 | Dashboard</title>
+<title>Demoman</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
 <style>
@@ -218,27 +218,28 @@
 <div class="header">
   <div class="header-inner">
     <div class="header-badge">💥 คู่มือเทคนิค</div>
-    <h1>3-174</h1>
-    <p>Explosive Ignition Systems — ภาพรวม · ขั้นตอน · เครื่องคำนวณ</p>
+    <h1>Demoman</h1>
+    <p>ระเบิดทำลาย (3-174)</p>
   </div>
 </div>
 
 <nav class="nav">
   <div class="nav-inner">
-    <button class="nav-btn active" onclick="showTab('overview')">🏠 ภาพรวม</button>
+    <button class="nav-btn active" onclick="showTab('overview')">🏠 หน้าหลัก</button>
+    <button class="nav-btn" onclick="showTab('duty')">💣 ส.การช่างและทำลาย</button>
     <button class="nav-btn" onclick="showTab('explosive')">💥 วัตถุระเบิด</button>
     <button class="nav-btn" onclick="showTab('demblock')">🧱 ดินระเบิดแท่ง</button>
     <button class="nav-btn" onclick="showTab('initdev')">🔩 อุปกรณ์จุดระเบิด</button>
     <button class="nav-btn" onclick="showTab('fuse')">🔥 ชนวน</button>
     <button class="nav-btn" onclick="showTab('electric')">⚡ ไฟฟ้า</button>
-    <button class="nav-btn" onclick="showTab('detonating')">💣 ฝักแค</button>
+    <button class="nav-btn" onclick="showTab('detonating')">🧨 ฝักแค</button>
     <button class="nav-btn" onclick="showTab('dual')">🔁 ระเบิดคู่</button>
     <button class="nav-btn" onclick="showTab('safety')">🛡️ กฏความปลอดภัย</button>
     <button class="nav-btn" onclick="showTab('treecut')">🌳 คำนวณระเบิดตัดต้นไม้</button>
-    <button class="nav-btn" onclick="showTab('steelcut')">⚙️ คำนวณระเบิดตัดเหล็ก</button>
+    <button class="nav-btn" onclick="showTab('steelcut')">🔧 คำนวณระเบิดตัดเหล็ก</button>
+    <button class="nav-btn" onclick="showTab('breakblast')">🪓 คำนวณระเบิดแตกหัก</button>
     <button class="nav-btn" onclick="showTab('inspect')">📋 กิจที่ทำการตรวจสอบ</button>
     <button class="nav-btn" onclick="showTab('evalform')">📝 แบบประเมินผล</button>
-    <button class="nav-btn" onclick="showTab('calc')">🧮 คำนวณ</button>
   </div>
 </nav>
 
@@ -358,6 +359,10 @@
   <div class="card">
     <div class="calc-section">
       <div class="calc-title">🔥 คำนวณความยาวชนวนฝักแคเวลา</div>
+      <div style="background:var(--surface2);border-radius:8px;padding:10px;margin-bottom:12px;border:1px solid var(--border);text-align:center;">
+        <div style="font-size:11px;font-weight:700;color:var(--muted);letter-spacing:1px;margin-bottom:6px;">📐 สูตร</div>
+        <div style="font-size:13px;font-weight:700;color:var(--accent);line-height:1.8;">ความยาวชนวน (นิ้ว) = 12 × เวลาที่ต้องการ ÷ เวลาที่ทดสอบได้</div>
+      </div>
       <div class="calc-row">
         <span class="calc-label">ระยะเวลาที่ต้องการ</span>
         <input class="calc-input" id="fuse-time" type="number" placeholder="90" min="1">
@@ -440,6 +445,88 @@
       <div class="calc-result" id="safe-result"></div>
     </div>
   </div>
+
+  </div>
+
+  <!-- ── DUTY ── -->
+  <div id="duty" class="section">
+
+    <!-- Header -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(245,158,11,0.15);font-size:22px">🪖</div>
+        <div>
+          <div class="card-title">หน้าที่ ส.การช่างและทำลาย</div>
+          <div class="card-sub"><span class="tag tag-orange">ส.การช่างและทำลาย — 18C</span></div>
+        </div>
+      </div>
+      <div style="font-size:13px;color:var(--muted);line-height:1.8;">
+        หน้าที่หลักของนายสิบการช่างและทำลายในชุดปฏิบัติการรบพิเศษ
+      </div>
+    </div>
+
+    <!-- ภาพรวมหน้าที่ -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(59,130,246,0.15);font-size:20px">📋</div>
+        <div>
+          <div class="card-title">หน้าที่ทั่วไป</div>
+          <div class="card-sub"><span class="tag tag-blue">General Duties — 18C</span></div>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step orange"><span class="step-num">•</span><span class="step-text">วางแผน กำกับดูแล <strong>การช่างทำลาย</strong>และการก่อสร้าง</span></div>
+        <div class="step orange"><span class="step-num">•</span><span class="step-text">รับผิดชอบ<strong>วัตถุระเบิด กระสุน</strong></span></div>
+        <div class="step orange"><span class="step-num">•</span><span class="step-text">วางแผนและดำเนินการ<strong>ก่อวินาศกรรม</strong></span></div>
+        <div class="step orange"><span class="step-num">•</span><span class="step-text">วิเคราะห์และเตรียมข้อมูลพื้นที่<strong>ด้านการช่าง</strong></span></div>
+        <div class="step orange"><span class="step-num">•</span><span class="step-text">บรรยายสรุปกลับแผนและคำสั่ง</span></div>
+      </div>
+    </div>
+
+    <!-- นายสิบการช่างและทำลาย 1 -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(239,68,68,0.15);font-size:20px">1️⃣</div>
+        <div>
+          <div class="card-title">นายสิบการช่างและทำลาย (1)</div>
+          <div class="card-sub"><span class="tag tag-red">Demo Sergeant #1 — หัวหน้า</span></div>
+        </div>
+      </div>
+      <div style="font-size:13px;color:var(--text);line-height:2;padding:12px;background:var(--surface2);border-radius:8px;">
+        ในการใช้<strong>วัตถุระเบิดปฏิบัติการต่อเป้าหมาย</strong> และการใช้เทคนิคการช่างสนาม
+        ดัดแปลงที่ตั้งฐานปฏิบัติการรบพิเศษให้มี<strong>ความปลอดภัยต่อการโจมตีของข้าศึก</strong>
+        และเป็น<strong>ที่ปรึกษาของผู้บังคับชุดปฏิบัติการรบพิเศษ</strong>ในเรื่องการช่างสนาม
+        และการระเบิดทำลายต่อเป้าหมายในภารกิจต่างๆ
+        ตลอดจนสามารถ<strong>ฝึกสอนผู้อื่น</strong>ให้ทราบถึงเทคนิคการช่างสนามและการระเบิดทำลาย
+      </div>
+      <div style="margin-top:10px;" class="steps">
+        <div class="step red"><span class="step-num">✓</span><span class="step-text">ใช้วัตถุระเบิดปฏิบัติการต่อเป้าหมาย</span></div>
+        <div class="step red"><span class="step-num">✓</span><span class="step-text">ใช้เทคนิคการช่างสนาม — ดัดแปลงที่ตั้งฐานปฏิบัติการรบพิเศษ</span></div>
+        <div class="step red"><span class="step-num">✓</span><span class="step-text">ที่ปรึกษาผู้บังคับชุดด้านการช่างสนามและการระเบิดทำลาย</span></div>
+        <div class="step red"><span class="step-num">✓</span><span class="step-text">ฝึกสอนผู้อื่นด้านเทคนิคการช่างสนามและการระเบิดทำลาย</span></div>
+      </div>
+    </div>
+
+    <!-- นายสิบการช่างและทำลาย 2 -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(59,130,246,0.15);font-size:20px">2️⃣</div>
+        <div>
+          <div class="card-title">นายสิบการช่างและทำลาย (2)</div>
+          <div class="card-sub"><span class="tag tag-blue">Demo Sergeant #2 — ผู้ช่วย</span></div>
+        </div>
+      </div>
+      <div style="font-size:13px;color:var(--text);line-height:2;padding:12px;background:var(--surface2);border-radius:8px;">
+        เป็น<strong>ผู้ช่วยหลัก</strong>ของนายสิบการช่างและทำลายหมายเลข 1
+        และสามารถ<strong>ปฏิบัติหน้าที่เป็นนายสิบการช่างและทำลายได้โดยลำพัง</strong>
+        เมื่อนายสิบการช่างและทำลายหมายเลข 1 ไม่อยู่ หรือมีการแยกชุดปฏิบัติการ
+      </div>
+      <div style="margin-top:10px;" class="steps">
+        <div class="step blue"><span class="step-num">✓</span><span class="step-text">ผู้ช่วยหลักของนายสิบการช่างและทำลาย (1)</span></div>
+        <div class="step blue"><span class="step-num">✓</span><span class="step-text">ปฏิบัติหน้าที่<strong>แทน (1) ได้โดยลำพัง</strong>เมื่อ (1) ไม่อยู่</span></div>
+        <div class="step blue"><span class="step-num">✓</span><span class="step-text">รองรับการ<strong>แยกชุดปฏิบัติการ</strong></span></div>
+      </div>
+    </div>
 
   </div>
 
@@ -1439,6 +1526,100 @@
         </div>
       </div>
     </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(59,130,246,0.15);font-size:20px">🪢</div>
+        <div>
+          <div class="card-title">การต่อสายไฟฟ้าสำหรับจุดระเบิด</div>
+          <div class="card-sub"><span class="tag tag-blue">Wire Connection Knots</span></div>
+        </div>
+      </div>
+
+      <!-- เงื่อนพิรอด -->
+      <div style="border:1px solid var(--border);border-radius:8px;margin-bottom:10px;overflow:hidden;">
+        <div style="background:var(--surface2);padding:10px 12px;display:flex;justify-content:space-between;align-items:center;">
+          <div style="font-size:14px;font-weight:700;color:#fff;">เงื่อนพิรอด</div>
+          <span style="background:rgba(59,130,246,0.2);color:var(--accent3);font-size:11px;font-weight:700;padding:2px 10px;border-radius:99px;">Pirat Knot</span>
+        </div>
+        <div style="padding:12px;">
+          <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:10px;">
+            <!-- SVG diagram -->
+            <svg viewBox="0 0 160 90" width="160" height="90" style="flex-shrink:0;background:var(--surface2);border-radius:8px;" xmlns="http://www.w3.org/2000/svg">
+              <!-- Wire A -->
+              <line x1="10" y1="35" x2="75" y2="35" stroke="#3b82f6" stroke-width="3" stroke-linecap="round"/>
+              <!-- Wire B -->
+              <line x1="10" y1="55" x2="75" y2="55" stroke="#f59e0b" stroke-width="3" stroke-linecap="round"/>
+              <!-- Twist wraps -->
+              <path d="M75,35 C85,35 85,45 75,45 C85,45 85,55 75,55" stroke="#3b82f6" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+              <path d="M85,55 C95,55 95,45 85,45 C95,45 95,35 85,35" stroke="#f59e0b" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+              <path d="M95,35 C105,35 105,45 95,45 C105,45 105,55 95,55" stroke="#3b82f6" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+              <!-- Tails out -->
+              <line x1="105" y1="35" x2="150" y2="35" stroke="#3b82f6" stroke-width="3" stroke-linecap="round"/>
+              <line x1="105" y1="55" x2="150" y2="55" stroke="#f59e0b" stroke-width="3" stroke-linecap="round"/>
+              <!-- Labels -->
+              <text x="8" y="28" font-size="9" fill="#94a3b8" font-family="Sarabun,sans-serif">A</text>
+              <text x="8" y="70" font-size="9" fill="#94a3b8" font-family="Sarabun,sans-serif">B</text>
+              <text x="118" y="28" font-size="9" fill="#94a3b8" font-family="Sarabun,sans-serif">A</text>
+              <text x="118" y="70" font-size="9" fill="#94a3b8" font-family="Sarabun,sans-serif">B</text>
+              <text x="55" y="82" font-size="8" fill="#60a5fa" font-family="Sarabun,sans-serif" text-anchor="middle">พันสลับกัน</text>
+            </svg>
+            <div style="font-size:12px;color:var(--text);line-height:1.9;">
+              ใช้ต่อสายไฟฟ้าสองเส้นให้<strong>พันกันแน่น</strong> โดยพันสลับทิศทางกันให้ได้อย่างน้อย <strong>3–4 รอบ</strong>
+              เป็นเงื่อนที่แข็งแรงและ<strong>นำไฟฟ้าได้ดี</strong> เหมาะสำหรับต่อสายจุดระเบิดในแนวยาว
+            </div>
+          </div>
+          <div class="steps">
+            <div class="step blue"><span class="step-num">1</span><span class="step-text">ปอกฉนวนสายทั้งสองเส้นให้ยาวประมาณ <strong>4–5 ซม.</strong></span></div>
+            <div class="step blue"><span class="step-num">2</span><span class="step-text">วางสายคู่ขนานกัน ปลายชี้คนละทิศ</span></div>
+            <div class="step blue"><span class="step-num">3</span><span class="step-text">พันสายเส้นแรกรอบสายเส้นที่สอง <strong>3–4 รอบ</strong> จากนั้นพันสายเส้นที่สองรอบสายเส้นแรกในทิศตรงข้าม <strong>3–4 รอบ</strong></span></div>
+            <div class="step blue"><span class="step-num">4</span><span class="step-text">ดึงให้แน่น พันเทปพันสายไฟหุ้มทับบริเวณจุดต่อ</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- เงื่อนหางหมู -->
+      <div style="border:1px solid var(--border);border-radius:8px;overflow:hidden;">
+        <div style="background:var(--surface2);padding:10px 12px;display:flex;justify-content:space-between;align-items:center;">
+          <div style="font-size:14px;font-weight:700;color:#fff;">เงื่อนหางหมู</div>
+          <span style="background:rgba(245,158,11,0.2);color:var(--accent);font-size:11px;font-weight:700;padding:2px 10px;border-radius:99px;">Pigtail Knot</span>
+        </div>
+        <div style="padding:12px;">
+          <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:10px;">
+            <!-- SVG diagram -->
+            <svg viewBox="0 0 160 90" width="160" height="90" style="flex-shrink:0;background:var(--surface2);border-radius:8px;" xmlns="http://www.w3.org/2000/svg">
+              <!-- Wire A -->
+              <line x1="10" y1="45" x2="55" y2="45" stroke="#3b82f6" stroke-width="3" stroke-linecap="round"/>
+              <!-- Wire B -->
+              <line x1="10" y1="58" x2="55" y2="58" stroke="#f59e0b" stroke-width="3" stroke-linecap="round"/>
+              <!-- Twist together -->
+              <path d="M55,45 Q62,38 70,51 Q78,64 86,51 Q94,38 102,51" stroke="#3b82f6" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+              <path d="M55,58 Q62,65 70,51 Q78,38 86,51 Q94,65 102,58" stroke="#f59e0b" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+              <!-- Tails -->
+              <line x1="102" y1="45" x2="150" y2="45" stroke="#3b82f6" stroke-width="3" stroke-linecap="round"/>
+              <line x1="102" y1="58" x2="150" y2="58" stroke="#f59e0b" stroke-width="3" stroke-linecap="round"/>
+              <!-- Labels -->
+              <text x="8" y="40" font-size="9" fill="#94a3b8" font-family="Sarabun,sans-serif">A</text>
+              <text x="8" y="73" font-size="9" fill="#94a3b8" font-family="Sarabun,sans-serif">B</text>
+              <text x="55" y="82" font-size="8" fill="#f59e0b" font-family="Sarabun,sans-serif" text-anchor="middle">พันเกลียวร่วม</text>
+            </svg>
+            <div style="font-size:12px;color:var(--text);line-height:1.9;">
+              ใช้ต่อ<strong>เชื้อปะทุไฟฟ้ากับสายไฟฟ้าคู่</strong> โดยบิดสายทั้งสองเส้น<strong>พันเป็นเกลียวร่วมกัน</strong>
+              เป็นวิธีมาตรฐานที่ใช้ในระบบจุดระเบิดด้วยเชื้อปะทุไฟฟ้า ให้การสัมผัสไฟฟ้าที่ดี
+            </div>
+          </div>
+          <div class="steps">
+            <div class="step orange"><span class="step-num">1</span><span class="step-text">ปอกฉนวนสายเชื้อปะทุและสายไฟฟ้าคู่ให้ยาวประมาณ <strong>3–4 ซม.</strong></span></div>
+            <div class="step orange"><span class="step-num">2</span><span class="step-text">วางสายขนาน <strong>ปลายชี้ทิศเดียวกัน</strong></span></div>
+            <div class="step orange"><span class="step-num">3</span><span class="step-text">บิดสายทั้งสองเส้น<strong>พันเกลียวร่วมกัน</strong>ไปในทิศทางเดียว อย่างน้อย <strong>3–4 รอบ</strong></span></div>
+            <div class="step orange"><span class="step-num">4</span><span class="step-text">ดึงให้แน่น หุ้มด้วยเทปพันสายไฟ</span></div>
+          </div>
+          <div style="margin-top:8px;background:rgba(59,130,246,0.08);border-radius:6px;padding:8px;font-size:12px;color:var(--text);">
+            📌 ใช้เงื่อนหางหมูสำหรับ<strong>ต่อเชื้อปะทุไฟฟ้ากับสายไฟ</strong> ใช้เงื่อนพิรอดสำหรับ<strong>ต่อสายไฟระหว่างกัน</strong>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- ── DETONATING CORD ── -->
@@ -2076,6 +2257,196 @@
 
   </div>
 
+  <!-- ── BREACHING BLAST ── -->
+  <div id="breakblast" class="section">
+
+    <!-- Header -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(239,68,68,0.15);font-size:22px">🪨</div>
+        <div>
+          <div class="card-title">การคำนวณระเบิดแตกหัก</div>
+          <div class="card-sub"><span class="tag tag-red">Breaching Charge — P = R³KC</span></div>
+        </div>
+      </div>
+      <div style="font-size:13px;color:var(--muted);line-height:1.8;">
+        ใช้ทำลาย<strong>สะพานพื้นคอนกรีตแผ่น สะพานมีตง ตอม่อตลิ่ง ตอม่อกลางน้ำ ป้อมสนามชนิดถาวร</strong>
+        การทำลายจะทำลายเฉพาะคอนกรีต — <strong>เหล็กเส้นที่เป็นโครงสร้างจะไม่ถูกทำลาย</strong> หรือตัดขาด
+      </div>
+    </div>
+
+    <!-- สูตรและตัวแปร -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(245,158,11,0.15);font-size:20px">📐</div>
+        <div>
+          <div class="card-title">สูตรในการคำนวณหาดินระเบิด</div>
+          <div class="card-sub"><span class="tag tag-orange">Breaching Formula</span></div>
+        </div>
+      </div>
+      <div style="text-align:center;font-size:22px;font-weight:800;color:var(--accent2);font-family:'IBM Plex Mono',monospace;padding:16px;background:var(--surface2);border-radius:10px;margin-bottom:14px;letter-spacing:2px;">
+        P = R³ × K × C
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <div style="background:var(--surface2);border-radius:8px;padding:12px;border-left:4px solid var(--accent2);">
+          <div style="display:flex;align-items:baseline;gap:10px;">
+            <span style="font-size:18px;font-weight:800;color:var(--accent2);font-family:'IBM Plex Mono',monospace;min-width:24px;">P</span>
+            <span style="font-size:13px;color:var(--text);">= ดินระเบิด <strong>TNT</strong> ที่ต้องการ <span style="color:var(--muted);">(ปอนด์)</span></span>
+          </div>
+        </div>
+        <div style="background:var(--surface2);border-radius:8px;padding:12px;border-left:4px solid var(--accent3);">
+          <div style="display:flex;align-items:baseline;gap:10px;">
+            <span style="font-size:18px;font-weight:800;color:var(--accent3);font-family:'IBM Plex Mono',monospace;min-width:24px;">R</span>
+            <span style="font-size:13px;color:var(--text);">= รัศมีแตกหัก = <strong>ความหนาของเป้าหมาย</strong> <span style="color:var(--muted);">(ฟุต)</span></span>
+          </div>
+        </div>
+        <div style="background:var(--surface2);border-radius:8px;padding:12px;border-left:4px solid var(--green);">
+          <div style="display:flex;align-items:baseline;gap:10px;">
+            <span style="font-size:18px;font-weight:800;color:var(--green);font-family:'IBM Plex Mono',monospace;min-width:24px;">K</span>
+            <span style="font-size:13px;color:var(--text);">= ความแข็งแรงของวัสดุ <span style="color:var(--muted);">(ตารางที่ 3-2)</span></span>
+          </div>
+        </div>
+        <div style="background:var(--surface2);border-radius:8px;padding:12px;border-left:4px solid var(--accent);">
+          <div style="display:flex;align-items:baseline;gap:10px;">
+            <span style="font-size:18px;font-weight:800;color:var(--accent);font-family:'IBM Plex Mono',monospace;min-width:24px;">C</span>
+            <span style="font-size:13px;color:var(--text);">= ปัจจัยการอัดลม <span style="color:var(--muted);">(ภาพที่ 3-13)</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ค่า K -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(34,197,94,0.15);font-size:20px">📊</div>
+        <div>
+          <div class="card-title">ค่า K — ความแข็งแรงของวัสดุ</div>
+          <div class="card-sub"><span class="tag tag-green">ตารางที่ 3-2</span></div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+        <div style="background:var(--surface2);border-radius:8px;padding:10px;text-align:center;border:1px solid var(--border);">
+          <div style="font-size:11px;color:var(--muted);margin-bottom:4px;">คอนกรีตไม่เสริมเหล็ก</div>
+          <div style="font-size:20px;font-weight:800;color:var(--green);font-family:'IBM Plex Mono',monospace;">25</div>
+        </div>
+        <div style="background:var(--surface2);border-radius:8px;padding:10px;text-align:center;border:1px solid var(--border);">
+          <div style="font-size:11px;color:var(--muted);margin-bottom:4px;">คอนกรีตเสริมเหล็กธรรมดา</div>
+          <div style="font-size:20px;font-weight:800;color:var(--accent3);font-family:'IBM Plex Mono',monospace;">40</div>
+        </div>
+        <div style="background:var(--surface2);border-radius:8px;padding:10px;text-align:center;border:1px solid var(--border);">
+          <div style="font-size:11px;color:var(--muted);margin-bottom:4px;">คอนกรีตเสริมเหล็กหนา</div>
+          <div style="font-size:20px;font-weight:800;color:var(--accent);font-family:'IBM Plex Mono',monospace;">50</div>
+        </div>
+        <div style="background:var(--surface2);border-radius:8px;padding:10px;text-align:center;border:1px solid var(--border);">
+          <div style="font-size:11px;color:var(--muted);margin-bottom:4px;">คอนกรีตอัดแรง</div>
+          <div style="font-size:20px;font-weight:800;color:var(--accent2);font-family:'IBM Plex Mono',monospace;">80</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ค่า C -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(245,158,11,0.15);font-size:20px">📊</div>
+        <div>
+          <div class="card-title">ค่า C — ปัจจัยการอัดลม</div>
+          <div class="card-sub"><span class="tag tag-orange">ภาพที่ 3-13</span></div>
+        </div>
+      </div>
+      <div style="overflow-x:auto;">
+        <table style="width:100%;border-collapse:collapse;font-size:12px;font-family:'IBM Plex Mono',monospace;">
+          <thead>
+            <tr style="background:var(--surface2);">
+              <th style="padding:8px;text-align:left;color:var(--muted);border:1px solid var(--border);font-family:'Sarabun',sans-serif;">วิธีการวาง</th>
+              <th style="padding:8px;text-align:center;color:var(--accent);border:1px solid var(--border);">C</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td style="padding:8px;border:1px solid var(--border);color:var(--text);font-family:'Sarabun',sans-serif;">วางถึงกลางวัตถุ / ทำการอุดหรืออัดลมในช่องใส่ดินระเบิด</td><td style="padding:8px;text-align:center;font-weight:700;color:var(--accent3);border:1px solid var(--border);">1.0</td></tr>
+            <tr style="background:rgba(255,255,255,0.02);"><td style="padding:8px;border:1px solid var(--border);color:var(--text);font-family:'Sarabun',sans-serif;">อัดลมด้วยน้ำสูงกว่ารัศมีแตกหัก</td><td style="padding:8px;text-align:center;font-weight:700;color:var(--accent3);border:1px solid var(--border);">1.0</td></tr>
+            <tr><td style="padding:8px;border:1px solid var(--border);color:var(--text);font-family:'Sarabun',sans-serif;">ตั้งทิ้งไม่อัดลม</td><td style="padding:8px;text-align:center;font-weight:700;color:var(--accent);border:1px solid var(--border);">1.8</td></tr>
+            <tr style="background:rgba(255,255,255,0.02);"><td style="padding:8px;border:1px solid var(--border);color:var(--text);font-family:'Sarabun',sans-serif;">อัดลมด้วยน้ำต่ำกว่ารัศมีแตกหัก</td><td style="padding:8px;text-align:center;font-weight:700;color:var(--accent);border:1px solid var(--border);">2.0</td></tr>
+            <tr><td style="padding:8px;border:1px solid var(--border);color:var(--text);font-family:'Sarabun',sans-serif;">วางที่พื้นแล้วอัดลม</td><td style="padding:8px;text-align:center;font-weight:700;color:var(--accent);border:1px solid var(--border);">2.0</td></tr>
+            <tr style="background:rgba(255,255,255,0.02);"><td style="padding:8px;border:1px solid var(--border);color:var(--text);font-family:'Sarabun',sans-serif;">วางที่พื้นไม่อัดลม</td><td style="padding:8px;text-align:center;font-weight:700;color:var(--accent2);border:1px solid var(--border);">3.6</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- กฎการปัดเศษค่า R -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(59,130,246,0.15);font-size:20px">📏</div>
+        <div>
+          <div class="card-title">กฎการปัดเศษค่า R</div>
+          <div class="card-sub"><span class="tag tag-blue">Rounding Rule for R</span></div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+        <div style="background:var(--surface2);border-radius:8px;padding:12px;border-top:2px solid var(--accent3);">
+          <div style="font-size:13px;font-weight:700;color:var(--accent3);margin-bottom:6px;">วางภายนอก</div>
+          <div style="font-size:13px;color:var(--text);">ปัดเศษค่า R ครั้งละ <strong style="color:var(--accent3);">0.5</strong></div>
+        </div>
+        <div style="background:var(--surface2);border-radius:8px;padding:12px;border-top:2px solid var(--green);">
+          <div style="font-size:13px;font-weight:700;color:var(--green);margin-bottom:6px;">วางภายใน</div>
+          <div style="font-size:13px;color:var(--text);">ปัดเศษค่า R ครั้งละ <strong style="color:var(--green);">0.25</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- เครื่องคำนวณ -->
+    <div class="card">
+      <div class="calc-section">
+        <div class="calc-title">🪨 เครื่องคำนวณระเบิดแตกหัก (P = R³KC)</div>
+
+        <div class="calc-row">
+          <span class="calc-label">ความหนาเป้าหมาย (R)</span>
+          <input class="calc-input" id="bb-r" type="number" placeholder="2.0" min="0.1" step="0.25">
+          <span class="calc-unit">ฟุต</span>
+        </div>
+
+        <!-- ค่า K selector -->
+        <div style="margin:10px 0 6px;font-size:12px;font-weight:700;color:var(--muted);">ค่า K — ความแข็งแรงของวัสดุ</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:14px;">
+          <button class="tree-formula-btn active" id="bk-25" onclick="selectBK(25)">คอนกรีตธรรมดา (K=25)</button>
+          <button class="tree-formula-btn" id="bk-40" onclick="selectBK(40)">คอนกรีตเสริมเหล็ก (K=40)</button>
+          <button class="tree-formula-btn" id="bk-50" onclick="selectBK(50)">คอนกรีตเสริมหนา (K=50)</button>
+          <button class="tree-formula-btn" id="bk-80" onclick="selectBK(80)">คอนกรีตอัดแรง (K=80)</button>
+        </div>
+
+        <!-- ค่า C selector -->
+        <div style="margin:0 0 6px;font-size:12px;font-weight:700;color:var(--muted);">ค่า C — ปัจจัยการอัดลม</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:14px;">
+          <button class="tree-formula-btn active" id="bc-10" onclick="selectBC(1.0,'bc-10')">วางกลาง/อัดลม (C=1.0)</button>
+          <button class="tree-formula-btn" id="bc-18" onclick="selectBC(1.8,'bc-18')">ตั้งทิ้ง ไม่อัดลม (C=1.8)</button>
+          <button class="tree-formula-btn" id="bc-20a" onclick="selectBC(2.0,'bc-20a')">น้ำต่ำกว่า R (C=2.0)</button>
+          <button class="tree-formula-btn" id="bc-20b" onclick="selectBC(2.0,'bc-20b')">วางพื้น+อัดลม (C=2.0)</button>
+          <button class="tree-formula-btn" id="bc-36" onclick="selectBC(3.6,'bc-36')" style="grid-column:span 2;">วางพื้น ไม่อัดลม (C=3.6)</button>
+        </div>
+
+        <div class="calc-row">
+          <span class="calc-label">RE Factor ดินแทน</span>
+          <input class="calc-input" id="bb-re" type="number" placeholder="1.00" min="0.1" step="0.01">
+          <span class="calc-unit">RE</span>
+        </div>
+        <div class="calc-row">
+          <span class="calc-label">น้ำหนักต่อแท่ง</span>
+          <input class="calc-input" id="bb-unit" type="number" placeholder="1.00" min="0.01" step="0.01">
+          <span class="calc-unit">ปอนด์</span>
+        </div>
+        <div class="calc-row">
+          <span class="calc-label">จำนวนแห่งที่วาง</span>
+          <input class="calc-input" id="bb-n" type="number" placeholder="1" min="1" step="1">
+          <span class="calc-unit">แห่ง</span>
+        </div>
+
+        <button class="calc-btn" onclick="calcBreachBlast()">คำนวณระเบิดแตกหัก</button>
+        <div class="calc-result" id="bb-result"></div>
+      </div>
+    </div>
+
+  </div>
+
   <!-- ── INSPECTION TASKS ── -->
   <div id="inspect" class="section">
 
@@ -2586,107 +2957,13 @@
 
   </div>
 
-  <!-- ── CALCULATOR ── -->
-  <div id="calc" class="section">
-
-    <!-- ── Explosive Conversion Calculator ── -->
-    
-    <!-- Safety Distance calc -->
-    
-    <!-- Fuse length calc -->
-    
-    <!-- Series circuit calc -->
-    <div class="card">
-      <div class="calc-section">
-        <div class="calc-title">⚡ คำนวณวงจรอนุกรม</div>
-        <div class="calc-row">
-          <span class="calc-label">จำนวนเชื้อปะทุ</span>
-          <input class="calc-input" id="det-count" type="number" placeholder="5" min="1">
-          <span class="calc-unit">ดอก</span>
-        </div>
-        <div class="calc-row">
-          <span class="calc-label">ความต้านทาน/ดอก</span>
-          <input class="calc-input" id="det-r" type="number" placeholder="1.5" step="0.1">
-          <span class="calc-unit">Ω</span>
-        </div>
-        <div class="calc-row">
-          <span class="calc-label">ความต้านทานสาย</span>
-          <input class="calc-input" id="wire-r" type="number" placeholder="2.0" step="0.1">
-          <span class="calc-unit">Ω</span>
-        </div>
-        <div class="calc-row">
-          <span class="calc-label">แรงดันแหล่งจ่าย</span>
-          <input class="calc-input" id="volt" type="number" placeholder="12" min="1">
-          <span class="calc-unit">V</span>
-        </div>
-        <button class="calc-btn" onclick="calcCircuit()">คำนวณวงจร</button>
-        <div class="calc-result" id="circuit-result">
-          <div class="result-row">
-            <span class="result-key">ความต้านทานรวม</span>
-            <span class="result-val" id="r-total">—</span>
-          </div>
-          <div class="result-row">
-            <span class="result-key">กระแสในวงจร</span>
-            <span class="result-val" id="i-total">—</span>
-          </div>
-          <div class="result-row">
-            <span class="result-key">กระแสต่อเชื้อปะทุ</span>
-            <span class="result-val" id="i-per-det">—</span>
-          </div>
-          <div class="result-row">
-            <span class="result-key">สถานะ</span>
-            <span class="result-val" id="status-ok">—</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Blast timing calc -->
-    <div class="card">
-      <div class="calc-section">
-        <div class="calc-title">⏱️ คำนวณเวลาระเบิด (หลายจุด)</div>
-        <div class="calc-row">
-          <span class="calc-label">จำนวนจุดระเบิด</span>
-          <input class="calc-input" id="blast-n" type="number" placeholder="3" min="1" max="20">
-          <span class="calc-unit">จุด</span>
-        </div>
-        <div class="calc-row">
-          <span class="calc-label">ความยาวชนวน/จุด</span>
-          <input class="calc-input" id="blast-len" type="number" placeholder="2.5" step="0.1">
-          <span class="calc-unit">ฟุต</span>
-        </div>
-        <div class="calc-row">
-          <span class="calc-label">อัตราลุกไหม้</span>
-          <input class="calc-input" id="blast-rate" type="number" placeholder="40">
-          <span class="calc-unit">วิ/ฟุต</span>
-        </div>
-        <button class="calc-btn" onclick="calcBlast()">คำนวณเวลาทั้งหมด</button>
-        <div class="calc-result" id="blast-result">
-          <div class="result-row">
-            <span class="result-key">เวลาระเบิดต่อจุด</span>
-            <span class="result-val" id="blast-single">—</span>
-          </div>
-          <div class="result-row">
-            <span class="result-key">เวลาระเบิดรวม (นาที)</span>
-            <span class="result-val" id="blast-total-min">—</span>
-          </div>
-          <div class="result-row">
-            <span class="result-key">ระยะปลอดภัยขั้นต่ำ</span>
-            <span class="result-val" id="blast-safe">—</span>
-          </div>
-        </div>
-      </div>
-
-  </div>
-</div>
-
 <script>
 function showTab(id) {
   document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
   document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   const btns = document.querySelectorAll('.nav-btn');
-  const map = {overview:0, explosive:1, demblock:2, initdev:3, fuse:4, electric:5, detonating:6, dual:7, safety:8, treecut:9, steelcut:10, inspect:11, evalform:12, calc:13};
+  const map = {overview:0, duty:1, explosive:2, demblock:3, initdev:4, fuse:5, electric:6, detonating:7, dual:8, safety:9, treecut:10, steelcut:11, breakblast:12, inspect:13, evalform:14};
   btns[map[id]].classList.add('active');
 }
 
@@ -2789,6 +3066,79 @@ function calcSteel() {
 }
 
 document.addEventListener('DOMContentLoaded', buildSteelTable);
+
+// ── Breaching Blast ───────────────────────────────
+let selectedBK = 25;
+let selectedBC = 1.0;
+
+function selectBK(k) {
+  selectedBK = k;
+  [25,40,50,80].forEach(v => {
+    const el = document.getElementById('bk-'+v);
+    if (el) el.classList.toggle('active', v === k);
+  });
+}
+
+function selectBC(c, id) {
+  selectedBC = c;
+  ['bc-10','bc-18','bc-20a','bc-20b','bc-36'].forEach(bid => {
+    const el = document.getElementById(bid);
+    if (el) el.classList.toggle('active', bid === id);
+  });
+}
+
+function calcBreachBlast() {
+  const R    = parseFloat(document.getElementById('bb-r').value);
+  const re   = parseFloat(document.getElementById('bb-re').value)   || 1.0;
+  const unit = parseFloat(document.getElementById('bb-unit').value) || 0;
+  const n    = parseInt(document.getElementById('bb-n').value)      || 1;
+
+  if (!R || R <= 0) { showError('bb-result', 'กรุณากรอกความหนาของเป้าหมาย (R)'); return; }
+  resetBorder('bb-result');
+
+  const K = selectedBK;
+  const C = selectedBC;
+  const tntRaw     = Math.pow(R, 3) * K * C;
+  const tntRounded = Math.ceil(tntRaw * 100) / 100;
+  const altWeight  = tntRounded / re;
+  const altRounded = Math.ceil(altWeight * 100) / 100;
+  const unitsPerPlace = unit > 0 ? Math.ceil(altWeight / unit) : null;
+  const totalTnt   = Math.ceil(tntRounded * n * 100) / 100;
+  const totalUnits = unitsPerPlace !== null ? unitsPerPlace * n : null;
+
+  document.getElementById('bb-result').innerHTML = `
+    <div class="result-row">
+      <span class="result-key">สูตร</span>
+      <span class="result-val" style="font-size:12px;color:var(--accent2);">P = ${R}³ × ${K} × ${C} = ${tntRaw.toFixed(3)}</span>
+    </div>
+    <div class="result-row">
+      <span class="result-key">R = ${R} ฟุต · K = ${K} · C = ${C}</span>
+      <span class="result-val"></span>
+    </div>
+    <div class="result-row">
+      <span class="result-key">TNT ที่ต้องการ (1 แห่ง)</span>
+      <span class="result-val" style="color:var(--accent2);font-size:16px;">${tntRounded.toFixed(2)} ปอนด์</span>
+    </div>
+    ${re !== 1.0 ? `<div class="result-row">
+      <span class="result-key">ดินแทน RE=${re} (1 แห่ง)</span>
+      <span class="result-val" style="color:var(--accent3);">${altRounded.toFixed(2)} ปอนด์</span>
+    </div>` : ''}
+    ${unit > 0 ? `<div class="result-row">
+      <span class="result-key">จำนวนแท่ง (1 แห่ง)</span>
+      <span class="result-val" style="color:var(--accent3);">${unitsPerPlace} แท่ง</span>
+    </div>` : ''}
+    ${n > 1 ? `
+    <div class="result-row" style="border-top:1px solid var(--border);padding-top:8px;margin-top:4px;">
+      <span class="result-key">TNT รวม (${n} แห่ง)</span>
+      <span class="result-val">${totalTnt.toFixed(2)} ปอนด์</span>
+    </div>
+    ${unit > 0 ? `<div class="result-row">
+      <span class="result-key" style="font-weight:700;">จำนวนแท่งรวม</span>
+      <span class="result-val" style="color:var(--green);font-size:18px;font-weight:800;">${totalUnits} แท่ง</span>
+    </div>` : ''}` : ''}
+  `;
+  document.getElementById('bb-result').classList.add('show');
+}
 
 // ── Tree Cutting ──────────────────────────────────
 let selectedFormula = 1;
